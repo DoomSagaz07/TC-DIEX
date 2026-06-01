@@ -6,7 +6,7 @@
     <meta name="robots" content="index, follow">
     <meta name="description" content="НВП «ТЦ DIEX» — сертифікація аерозольної продукції в Україні. Професійний супровід ТР 154, оцінка відповідності, експертиза та документи для промислової безпеки.">
     <link rel="icon" href="logo TC DIEX.jpg" type="image/jpeg">
-    <meta name="keywords" content="сертификация, сертификация аэрозолей, аэрозольная продукция, ТР 154, техрегламент, НВП ТЦ DIEX, оценка соответствия, промышленная безопасность, сертификация оборудования, сертификация продукции Украины, дымовые системы, переносные баллоны, безопасность производства, технический регламент, испытания, документация, аккредитация, подтверждение соответствия">
+    <meta name="keywords" content="сертифікація, сертифікація аерозолів, сертифікація газових картриджів, сертифікація обладнання, оцінка відповідності, промислова безпека, експертиза продукції, документи для сертифікації, акредитація органів, схвалення методів випробувань, ТР 154 Україна, технічний регламент, технічний центр діагностики, експертиза, сертифікація продукції, відповідність вимогам, безпека виробництва, дозвільні документи, сертифікація систем менеджменту, сертифікація в Україні, сертификация, сертификация аэрозолей, сертификация газовых картриджей, сертификация оборудования, оценка соответствия, промышленная безопасность, экспертиза продукции, документы для сертификации, аккредитация органов, утверждение методов испытаний, ТР 154 Украина, технический регламент, технический центр диагностики, экспертиза, сертификация продукции, соответствие требованиям, безопасность производства, разрешительные документы, сертификация систем менеджмента, сертификация в Украине">
     <title>НВП «ТЦ DIEX»</title>
     <!-- Подключаем Tailwind CSS для красивых стилей -->
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -23,16 +23,6 @@
                 max-height: 1400px;
                 opacity: 1;
                 transform: translateY(0);
-            }
-            .partner-btn {
-                transition: all 300ms ease;
-                background-size: cover !important;
-                background-position: center !important;
-            }
-            .partner-btn:hover {
-                color: transparent;
-                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23f5f5f5;stop-opacity:1"/><stop offset="100%" style="stop-color:%23e0e0e0;stop-opacity:1"/></linearGradient></defs><rect fill="url(%23grad)" width="400" height="300"/><circle cx="100" cy="150" r="50" fill="%234f46e5" opacity="0.1"/><circle cx="300" cy="150" r="50" fill="%234f46e5" opacity="0.1"/><circle cx="200" cy="80" r="40" fill="%234f46e5" opacity="0.15"/><circle cx="200" cy="220" r="40" fill="%234f46e5" opacity="0.15"/></svg>') !important;
-                background-color: #f5f5f5 !important;
             }
             .hero-section {
                 position: relative;
@@ -194,7 +184,7 @@
                 <a href="https://diex.org.ua" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-indigo-700 transition">
                     Основний сайт
                 </a>
-                <a href="http://www.tuev-dieks.com/services/ruhome-obladnannya/" target="_blank" rel="noopener noreferrer" class="partner-btn w-full sm:w-auto bg-gray-100 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-sm hover:bg-gray-200 transition border border-gray-200">
+                <a href="http://www.tuev-dieks.com/services/ruhome-obladnannya/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-gray-100 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-sm border border-gray-200">
                     Сайт партнер сертифікація газових картриджів
                 </a>
             </div>
@@ -273,21 +263,6 @@
                 qualityToggle.addEventListener('click', () => {
                     const isOpen = qualityPanel.classList.toggle('show');
                     qualityToggle.setAttribute('aria-expanded', String(isOpen));
-                });
-            }
-
-            const partnerBtn = document.querySelector('.partner-btn');
-            if (partnerBtn) {
-                partnerBtn.addEventListener('mouseenter', () => {
-                    partnerBtn.style.backgroundImage = "url('For-gaz.png')";
-                    partnerBtn.style.backgroundSize = 'cover';
-                    partnerBtn.style.backgroundPosition = 'center';
-                    partnerBtn.style.backgroundRepeat = 'no-repeat';
-                    partnerBtn.style.color = 'transparent';
-                });
-                partnerBtn.addEventListener('mouseleave', () => {
-                    partnerBtn.style.backgroundImage = 'none';
-                    partnerBtn.style.color = '';
                 });
             }
 
