@@ -8,6 +8,18 @@
     <link rel="icon" href="logo TC DIEX.jpg" type="image/jpeg">
     <meta name="keywords" content="сертифікація, сертифікація аерозолів, сертифікація газових картриджів, сертифікація обладнання, оцінка відповідності, промислова безпека, експертиза продукції, документи для сертифікації, акредитація органів, схвалення методів випробувань, ТР 154 Україна, технічний регламент, технічний центр діагностики, експертиза, сертифікація продукції, відповідність вимогам, безпека виробництва, дозвільні документи, сертифікація систем менеджменту, сертифікація в Україні, сертификация, сертификация аэрозолей, сертификация газовых картриджей, сертификация оборудования, оценка соответствия, промышленная безопасность, экспертиза продукции, документы для сертификации, аккредитация органов, утверждение методов испытаний, ТР 154 Украина, технический регламент, технический центр диагностики, экспертиза, сертификация продукции, соответствие требованиям, безопасность производства, разрешительные документы, сертификация систем менеджмента, сертификация в Украине">
     <title>НВП «ТЦ DIEX»</title>
+    <!-- Open Graph мета теги для красивого превью в мессенджерах и соцсетях -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tc-diex.vercel.app/">
+    <meta property="og:title" content="НВП «ТЦ DIEX» — Сертифікація аерозольної продукції">
+    <meta property="og:description" content="Професійний супровід сертифікації ТР 154. Оцінка відповідності, експертиза та документи для промислової безпеки.">
+    <meta property="og:image" content="https://tc-diex.vercel.app/logo%20TC%20DIEX.jpg">
+    <!-- Twitter Card теги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tc-diex.vercel.app/">
+    <meta name="twitter:title" content="НВП «ТЦ DIEX» — Сертифікація аерозольної продукції">
+    <meta name="twitter:description" content="Професійний супровід сертифікації ТР 154. Оцінка відповідності, експертиза та документи для промислової безпеки.">
+    <meta name="twitter:image" content="https://tc-diex.vercel.app/logo%20TC%20DIEX.jpg">
     <!-- Подключаем Tailwind CSS для красивых стилей -->
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <style>
@@ -44,6 +56,24 @@
                 height: 100%;
                 z-index: 0;
                 pointer-events: none;
+            }
+            /* Анимированный фон с растущим графиком для секции процесса */
+            .process-section {
+                position: relative;
+                overflow: hidden;
+            }
+            #processChart {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+                pointer-events: none;
+                opacity: 0.15;
+            }
+            .process-content {
+                position: relative;
+                z-index: 10;
             }
         </style>
     <!-- Google tag (gtag.js) -->
@@ -125,8 +155,9 @@
         </section>
 
         <!-- Этапы сертификации -->
-        <section id="process" class="bg-slate-50 py-16">
-            <div class="max-w-6xl mx-auto px-4">
+        <section id="process" class="bg-slate-50 py-16 process-section">
+            <canvas id="processChart"></canvas>
+            <div class="max-w-6xl mx-auto px-4 process-content">
                 <h2 class="text-3xl font-bold text-center text-gray-900 mb-10">Як проходить сертифікація?</h2>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                     <div class="p-6 bg-white rounded-3xl border border-gray-100 shadow-sm text-center">
@@ -151,6 +182,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </section>
 
         <!-- Про нас -->
@@ -161,7 +193,7 @@
                     <p><strong>ОССМ  НВП «ТЦ Діекс»  Акредитований Національним агентством з акредитації України на сертифікацію систем менеджменту відповідно до ДСТУ EN ISO/IEC 17021, атестат про акредитацію № 8О167, чинний до 03.10.2029 р.</strong></p>
                     <p><strong>Ідентифікаційний номер призначеного органу: UA.TR.146</strong></p>
                     <p><strong>Свідоцтвом Мінекономіки про призначення № 3431-07/8 від 28.01.2025 р.  Орган сертифікації систем менеджменту Українсько-німецьке науково-виробниче підприємство «Технічний центр діагностики та експертизи» призначено органом з оцінки відповідності для виконання як третьою стороною певних завдань з оцінки відповідності, визначених у Технічному регламенті аерозольних розпилювачів, затвердженому постановою Кабінету Міністрів України від 21 лютого 2023 р. № 154 як орган з оцінки відповідності для виконання третьою стороною певних завдань з оцінки відповідності постановою КМУ № 154 від 21 лютого 2023 р. (Ідентифікаційний номер: UA.TR.146)</strong></p>
-                    <p><strong>ОССМ  НВП «ТЦ Діекс»  здійснює схвалення методів випробування аерозольних розпилювачів згідно з підпунктами 2 та 3 пункту 6.1.4.1 додатка 1 до Технічного регламенту 154, пункт 6.1.4.3 додатку 1 до Технічного регламенту 154 та пункт 6.2.6.3 додатка А до Європейської угоди про міжнародне дорожнє перевезення небезпечних вантажів від 30 вересня 1957 (ДОПНВ).</strong></p>
+                    <p><strong>ОССМ  НВП «ТЦ Діекс»  здійснює схвалення методів випробування аерозольних розпилювачів згідно з підпунктами 2 та 3 пункту 6.1.4.1 додатка 1 до Технічного регламенту 154, пункт 6.1.4.3 додатку 1 до Технічного регламенту 154 та пункт 6.2.6.3 додатка А до Європейської угоди про міжнародне дорожнє перевезення небезпечних вантажів від 30 вересня 1957 (ДОПНВ).</strong></p>
                 </div>
                 <div class="mt-3 bg-indigo-50 rounded-2xl p-4 shadow-sm border border-indigo-100 max-w-4xl mx-auto text-center">
                     <button id="aboutToggle" class="inline-flex items-center justify-center gap-2 bg-indigo-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition text-sm whitespace-normal text-center">
@@ -265,6 +297,9 @@
                     Номер телефону
                 </a>
             </div>
+            <p class="text-indigo-50 text-lg font-semibold pt-3">
+                <strong>+38 067 009 0020</strong>
+            </p>
         </div>
     </section>
 
@@ -378,6 +413,80 @@
                 resize();
                 initParticles();
                 animate();
+            }
+
+            // Инициализация растущего графика в секции процесса
+            const processChart = document.getElementById('processChart');
+            if (processChart) {
+                const chartCtx = processChart.getContext('2d');
+                let animationProgress = 0;
+                const chartData = [20, 45, 70, 95]; // Значения для 4 этапов
+
+                const resizeChart = () => {
+                    processChart.width = processChart.clientWidth * window.devicePixelRatio;
+                    processChart.height = processChart.clientHeight * window.devicePixelRatio;
+                    chartCtx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+                };
+
+                const drawChart = () => {
+                    chartCtx.clearRect(0, 0, processChart.clientWidth, processChart.clientHeight);
+                    
+                    const barWidth = processChart.clientWidth / 5;
+                    const maxHeight = processChart.clientHeight - 40;
+                    const baselineY = processChart.clientHeight - 20;
+                    
+                    // Рисуем линию оси
+                    chartCtx.strokeStyle = 'rgba(99,102,241,0.3)';
+                    chartCtx.lineWidth = 2;
+                    chartCtx.beginPath();
+                    chartCtx.moveTo(20, baselineY);
+                    chartCtx.lineTo(processChart.clientWidth - 20, baselineY);
+                    chartCtx.stroke();
+                    
+                    // Рисуем растущие столбцы
+                    for (let i = 0; i < chartData.length; i++) {
+                        const currentHeight = (chartData[i] / 100) * maxHeight * animationProgress;
+                        const x = barWidth * (i + 1);
+                        
+                        // Градиент столбца
+                        const gradient = chartCtx.createLinearGradient(x, baselineY - currentHeight, x, baselineY);
+                        gradient.addColorStop(0, 'rgba(99,102,241,0.8)');
+                        gradient.addColorStop(1, 'rgba(129,140,248,0.4)');
+                        
+                        chartCtx.fillStyle = gradient;
+                        chartCtx.fillRect(x - barWidth * 0.35, baselineY - currentHeight, barWidth * 0.7, currentHeight);
+                        
+                        // Точки на вершинах столбцов
+                        chartCtx.fillStyle = 'rgba(99,102,241,0.9)';
+                        chartCtx.beginPath();
+                        chartCtx.arc(x, baselineY - currentHeight, 4, 0, Math.PI * 2);
+                        chartCtx.fill();
+                    }
+                    
+                    // Увеличиваем прогресс анимации
+                    if (animationProgress < 1) {
+                        animationProgress += 0.01;
+                        requestAnimationFrame(drawChart);
+                    }
+                };
+
+                // Запускаем анимацию при прокрутке в поле зрения
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && animationProgress === 0) {
+                            resizeChart();
+                            drawChart();
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                observer.observe(processChart);
+
+                window.addEventListener('resize', () => {
+                    if (processChart.offsetParent !== null) {
+                        resizeChart();
+                    }
+                });
             }
         });
     </script>
