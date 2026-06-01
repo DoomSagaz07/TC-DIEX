@@ -11,7 +11,8 @@
     <!-- Подключаем Tailwind CSS для красивых стилей -->
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <style>
-            /* Анимация для панели документов */
+            /* Стили панелей с выпадающим содержимым */
+            /* Контролирует открытие/закрытие скрытых блоков документов и информации */
             .dropdownPanel {
                 max-height: 0;
                 opacity: 0;
@@ -28,6 +29,7 @@
                 position: relative;
                 overflow: hidden;
             }
+            /* Фоновый декоративный градиент для главного баннера */
             .hero-section::before {
                 content: '';
                 position: absolute;
@@ -44,6 +46,15 @@
                 pointer-events: none;
             }
         </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18202402233"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18202402233');
+    </script>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
@@ -62,6 +73,7 @@
     </header>
 
     <!-- Главный блок (Hero Section) -->
+    <!-- Здесь располагается основное приветственное сообщение, кнопка заявки и иллюстрация -->
     <section class="hero-section relative max-w-6xl mx-auto px-4 py-20 text-center sm:text-left sm:flex sm:items-center sm:justify-between gap-8">
         <canvas id="particleCanvas"></canvas>
         <div class="relative z-10 sm:w-1/2 space-y-6">
@@ -110,6 +122,35 @@
                 </div>
             </div>
         </div>
+        </section>
+
+        <!-- Этапы сертификации -->
+        <section id="process" class="bg-slate-50 py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-10">Як проходить сертифікація?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="p-6 bg-white rounded-3xl border border-gray-100 shadow-sm text-center">
+                        <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-600 text-white text-2xl">📄</div>
+                        <h3 class="text-xl font-semibold mb-2">Надсилаєте документи</h3>
+                        <p class="text-gray-600">Надішліть пакет документів для попередньої перевірки.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-3xl border border-gray-100 shadow-sm text-center">
+                        <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-600 text-white text-2xl">🔍</div>
+                        <h3 class="text-xl font-semibold mb-2">Проводимо аналіз</h3>
+                        <p class="text-gray-600">Аналізуємо документи та готуємо план сертифікації.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-3xl border border-gray-100 shadow-sm text-center">
+                        <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-600 text-white text-2xl">⚙️</div>
+                        <h3 class="text-xl font-semibold mb-2">Узгоджуємо випробування</h3>
+                        <p class="text-gray-600">Домовляємось про терміни та методи випробувань.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-3xl border border-gray-100 shadow-sm text-center">
+                        <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-600 text-white text-2xl">📜</div>
+                        <h3 class="text-xl font-semibold mb-2">Видаємо документи</h3>
+                        <p class="text-gray-600">Після успішної перевірки ви отримуєте офіційні документи.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Про нас -->
@@ -241,6 +282,7 @@
             const qualityToggle = document.getElementById('qualityToggle');
             const qualityPanel = document.getElementById('qualityPanel');
 
+            // Обработка кнопки показа/скрытия блока "Дозвільні документи"
             if (toggleButton && panel) {
                 toggleButton.setAttribute('aria-expanded', 'false');
                 toggleButton.addEventListener('click', () => {
@@ -250,6 +292,7 @@
                 });
             }
 
+            // Обработка кнопки "Докладніше про методи випробувань"
             if (aboutToggle && aboutPanel) {
                 aboutToggle.setAttribute('aria-expanded', 'false');
                 aboutToggle.addEventListener('click', () => {
@@ -258,6 +301,7 @@
                 });
             }
 
+            // Обработка кнопки "Вимоги до Системи якості виробників які потребують схвалення"
             if (qualityToggle && qualityPanel) {
                 qualityToggle.setAttribute('aria-expanded', 'false');
                 qualityToggle.addEventListener('click', () => {
@@ -266,6 +310,7 @@
                 });
             }
 
+            // Инициализация визуального эффекта частиц в hero-блоке
             const canvas = document.getElementById('particleCanvas');
             if (canvas) {
                 const ctx = canvas.getContext('2d');
