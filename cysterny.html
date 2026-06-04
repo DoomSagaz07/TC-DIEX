@@ -18,14 +18,6 @@
             background: radial-gradient(circle at top left, rgba(99,102,241,0.18), transparent 32%), radial-gradient(circle at bottom right, rgba(129,140,248,0.16), transparent 28%);
             pointer-events: none;
         }
-        #particleCanvas {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
         .modal {
             display: none;
             position: fixed;
@@ -80,11 +72,10 @@
     </header>
 
     <section class="hero-section relative max-w-6xl mx-auto px-4 py-20 text-center sm:text-left sm:flex sm:items-center sm:justify-between gap-8">
-        <canvas id="particleCanvas"></canvas>
         <div class="relative z-10 sm:w-1/2 space-y-6">
             <span class="inline-flex items-center justify-center rounded-full px-4 py-1 text-sm font-semibold tracking-[0.24em] uppercase text-white" style="background-image: url('gold.jpg'); background-size: cover; background-position: center;">Професійна сертифікація</span>
             <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
-                Сертифікація <span class="text-indigo-600">цистерн</span>
+                Сертифікація <span id="changingWord" class="text-indigo-600">цистерн</span>
             </h1>
             <p class="text-lg text-gray-600">
                 Повний супровід процедури сертифікації цистерн відповідно до вимог українського та європейського законодавства.
@@ -113,35 +104,33 @@
                  <div class="rounded-3xl bg-indigo-50 p-8 border border-indigo-100">
                     <h3 class="text-2xl font-semibold text-gray-900 mb-4">Послуги ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС»</h3>
                     <p class="leading-8 mb-4">
-                        Ми надаємо повний комплекс професійних послуг з оцінки та переоцінки відповідності, періодичного інспектування, для наступного обладнання:
+                        Ми надаємо повний комплекс професійних послуг з оцінки та переоцінки відповідності, періодичного й проміжного інспектування, а також виняткових перевірок для:
                     </p>
                     <ul class="list-disc pl-6 space-y-3 text-gray-600">
-                        <li>клапанів та інше обладнання у разі необхідності;</li>
-                        <li>балони (Технічний огляд балонів), кріоциліндри;</li>
-                        <li>ємності малі, що містять газ; газові балончики UN 2037</li>
+                        <li>цистерн під тиск та цистерн під налив</li>
+                        <li>цистерн, транспортних засобів-батарей та вагонів-батарей, багатоелементних газових контейнерів, їх клапани та інше обладнання у разі необхідності, як визначено у главі 6.8 додатка до <a href="https://zakon.rada.gov.ua/laws/show/994_217" class="text-indigo-600 hover:underline">Угоди про дорожнє перевезення вантажів</a>, главі 6.1 додатка до <a href="https://zakon.rada.gov.ua/laws/show/994_169" class="text-indigo-600 hover:underline">Угоди про перевезення вантажів водними шляхами</a> та главі 6.8 <a href="https://zakon.rada.gov.ua/laws/show/994_291" class="text-indigo-600 hover:underline">додатка С</a> до Конвенції;</li>
                     </ul>
-                    <p class="mt-6 leading-8 text-gray-600">
-                        Перевірка здійснюється відповідно до:
-                    </p>
-                    <div class="space-y-2 text-gray-600">
-                        <p>• глава 6.2 додатка до <a href="https://zakon.rada.gov.ua/laws/show/994_217" class="text-indigo-600 hover:underline">Угоди про дорожнє перевезення вантажів</a>;</p>
-                        <p>• глава 6.1 додатка до <a href="https://zakon.rada.gov.ua/laws/show/994_169" class="text-indigo-600 hover:underline">Угоди про перевезення вантажів водними шляхами</a>;</p>
-                        <p>• глава 6.2 <a href="https://zakon.rada.gov.ua/laws/show/994_291" class="text-indigo-600 hover:underline">додатка С</a> до Конвенції.</p>
-                    </div>
                 </div>
-                <div class="rounded-3xl bg-white p-8 border border-gray-100 shadow-sm">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Що ви отримуєте</h3>
-                    <p class="leading-8 mb-4">
+                <div class="rounded-ы3xl bg-white p-8 border border-gray-100 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">⚠️ Важлива інформація для перевізників!</h3>
+                    <p class="leading-8 mb-4 font-semibold text-gray-900">
+                        Відповідно до Наказу МВС України від 26.09.2022 № 609, отримання та продовження <strong>Дозволу на перевезення небезпечних вантажів</strong> можливе лише за наявності:
+                    </p>
+                    <ol class="list-decimal pl-6 space-y-3 text-gray-600">
+                        <li>Дійсного сертифіката про відповідність або сертифіката про переоцінку відповідності.</li>
+                        <li>Копії дійсного документа, що підтверджує проведення періодичного (проміжного) інспектування або виняткової перевірки.</li>
+                    </ol>
+                    <p class="mt-6 leading-8 text-gray-600">
                         За результатами успішного проведення робіт <strong>ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС»</strong> видає заявнику:
                     </p>
                     <ul class="list-disc pl-6 space-y-3 text-gray-600">
                         <li><strong>Сертифікат відповідності</strong></li>
                         <li><strong>Свідоцтво про перевірку</strong></li>
-                        <li><strong>Маркування балончиків</strong></li>
-                        <li><strong>Запис в паспорт обладнання</strong> на відповідність вимогам НПАОП 0.00-1.81-18.</li>
+                        <li><strong>Маркування цистерн (обладнання)</strong></li>
+                        <li><strong>Запис в паспорт обладнання на відповідність вимогам НПАОП 0.00-1.81-18</strong></li>
                     </ul>
                     <p class="mt-6 leading-8 text-gray-600">
-                        Після завершення технічного огляду фахівець робить запис у паспорті (або іншому експлуатаційному документі) устаткування про результати огляду, дозволені параметри експлуатації, строк наступного технічного огляду, свої прізвище, ім’я та по батькові, номер та строк дії посвідчення експерта, підтверджуючи запис підписом.
+                        Після закінчення технічного огляду фахівець, який його провів, робить відповідний запис у паспорті (іншому експлуатаційному документі) устатковання про результати технічного огляду, дозволені параметри експлуатації і строк наступного технічного огляду, зазначає своє прізвище, ім’я та по батькові, номер та строк дії посвідчення експерта, засвідчуючи запис підписом.
                     </p>
                 </div>
                 <div class="rounded-3xl bg-yellow-50 p-6 border border-yellow-100">
@@ -156,7 +145,7 @@
                 <strong></strong>
                 <div class="rounded-3xl bg-indigo-50 p-8 border border-indigo-100">
                     <p class="text-base leading-8">
-                        <strong>ОРГАН З ІНСПЕКТУВАННЯ ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС»</strong> акредитований Національним агентством з акредитації України на інспектування відповідно до <strong>ДСТУ EN ISO/IEC 17020</strong>, атестат про акредитацію № 70001, чинний до 06.11.2028 р. Ідентифікаційний номер призначеного органу: <strong>UA.TR.077</strong>.
+                        <strong>Орган сертифікації систем менеджменту Українсько-німецького науково-виробничого підприємства «Технічний центр діагностики та експертизи» товариство з обмеженою відповідальністю (скорочено - ОССМ  НВП «ТЦ Діекс»)</strong> акредитований Національним агентством з акредитації України на інспектування відповідно до <strong>ДСТУ EN ISO/IEC 17020</strong>, атестат про акредитацію № 70001, чинний до 06.11.2028 р. Ідентифікаційний номер призначеного органу: <strong>UA.TR.077</strong>.
                         <a href="Atestat gaz balun.jpg" target="_blank" class="inline-block ml-3 mt-2 bg-yellow-500 text-white font-semibold px-3 py-1 rounded-lg shadow-sm hover:bg-yellow-600 transition">Переглянути атестат</a>
                     </p>
                 </div>
@@ -322,79 +311,15 @@
                 }
             });
 
-            const canvas = document.getElementById('particleCanvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            const particles = [];
-            const particleCount = 30;
-            const random = (min, max) => Math.random() * (max - min) + min;
-
-            const resizeCanvas = () => {
-                const ratio = window.devicePixelRatio || 1;
-                canvas.width = canvas.clientWidth * ratio;
-                canvas.height = canvas.clientHeight * ratio;
-                ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-            };
-
-            class Particle {
-                constructor() {
-                    this.reset();
-                }
-                reset() {
-                    this.x = random(0, canvas.clientWidth);
-                    this.y = random(0, canvas.clientHeight);
-                    this.radius = random(1.5, 4.5);
-                    this.speed = random(0.15, 0.45);
-                    this.angle = random(0, Math.PI * 2);
-                    this.alpha = random(0.15, 0.5);
-                    this.color = `rgba(99,102,241,${this.alpha})`;
-                }
-                update() {
-                    this.x += Math.cos(this.angle) * this.speed;
-                    this.y += Math.sin(this.angle) * this.speed;
-                    if (this.x < -20 || this.x > canvas.clientWidth + 20 || this.y < -20 || this.y > canvas.clientHeight + 20) {
-                        this.reset();
-                        if (Math.random() > 0.5) {
-                            this.x = random(0, canvas.clientWidth);
-                            this.y = -10;
-                        } else {
-                            this.x = -10;
-                            this.y = random(0, canvas.clientHeight);
-                        }
-                    }
-                }
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = this.color;
-                    ctx.fill();
-                }
+            const changingWord = document.getElementById('changingWord');
+            const wordList = ['С###', '#y##', '##к#', '###а'];
+            let currentWordIndex = 0;
+            if (changingWord) {
+                setInterval(() => {
+                    currentWordIndex = (currentWordIndex + 1) % wordList.length;
+                    changingWord.textContent = wordList[currentWordIndex];
+                }, 200);
             }
-
-            const initParticles = () => {
-                particles.length = 0;
-                for (let i = 0; i < particleCount; i += 1) {
-                    particles.push(new Particle());
-                }
-            };
-
-            const animate = () => {
-                ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-                particles.forEach((particle) => {
-                    particle.update();
-                    particle.draw();
-                });
-                requestAnimationFrame(animate);
-            };
-
-            window.addEventListener('resize', () => {
-                resizeCanvas();
-                initParticles();
-            });
-
-            resizeCanvas();
-            initParticles();
-            animate();
         });
     </script>
 </body>
