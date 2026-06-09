@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3977105266362580"
+     crossorigin="anonymous">
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестова Сторінка</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .test-section { margin: 20px 0; padding: 20px; border: 2px solid #ddd; border-radius: 8px; }
+        .test-pass { background-color: #d4edda; border-color: #28a745; }
+        .test-fail { background-color: #f8d7da; border-color: #dc3545; }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold text-blue-600 mb-8">🧪 Тестова Сторінка</h1>
+
+        <!-- Рекламний блок -->
+        <div class="test-section border border-gray-300 bg-white shadow-sm">
+            <div class="flex items-start justify-between gap-4 mb-4">
+                <div>
+                    <span class="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 uppercase tracking-wide">
+                        <span class="inline-block w-2 h-2 rounded-full bg-green-500"></span> Офіційна реклама
+                    </span>
+                    <h2 class="text-3xl font-bold mt-2">Google AdSense</h2>
+                </div>
+                <span class="text-sm text-gray-500">Місце для реальної реклами</span>
+            </div>
+            <div class="p-6 border border-gray-200 rounded-lg bg-gray-50 text-center">
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                    data-ad-slot="1234567890"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+
+        <!-- HTML тест -->
+        <div class="test-section test-pass">
+            <h2 class="text-2xl font-bold mb-2">✅ HTML Тест</h2>
+            <p>Це тестова HTML сторінка для перевірки роботи.</p>
+            <ul class="list-disc ml-5 mt-2">
+                <li>Заголовки працюють</li>
+                <li>Текст видно</li>
+                <li>Списки форматуються</li>
+            </ul>
+        </div>
+
+        <!-- CSS тест -->
+        <div class="test-section test-pass">
+            <h2 class="text-2xl font-bold mb-2">✅ CSS Тест (Tailwind)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-blue-500 text-white p-4 rounded-lg text-center">Синій</div>
+                <div class="bg-green-500 text-white p-4 rounded-lg text-center">Зелений</div>
+                <div class="bg-red-500 text-white p-4 rounded-lg text-center">Червоний</div>
+            </div>
+        </div>
+
+        <!-- JavaScript тест -->
+        <div class="test-section">
+            <h2 class="text-2xl font-bold mb-2">🔧 JavaScript Тест</h2>
+            <button id="testBtn" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
+                Натисни мене
+            </button>
+            <p id="testOutput" class="mt-4 text-lg font-semibold text-gray-600"></p>
+        </div>
+
+        <!-- Форма тест -->
+        <div class="test-section">
+            <h2 class="text-2xl font-bold mb-4">📝 Форма Тест</h2>
+            <form id="testForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Ім'я:</label>
+                    <input type="text" id="nameInput" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Ваше ім'я">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Email:</label>
+                    <input type="email" id="emailInput" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="your@email.com">
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-semibold">
+                    Надіслати
+                </button>
+            </form>
+            <div id="formOutput" class="mt-4"></div>
+        </div>
+
+        <!-- Canvas тест -->
+        <div class="test-section">
+            <h2 class="text-2xl font-bold mb-4">🎨 Canvas Тест</h2>
+            <canvas id="testCanvas" width="300" height="150" class="border-2 border-gray-400 rounded-lg"></canvas>
+        </div>
+
+        <!-- Таблиця тест -->
+        <div class="test-section">
+            <h2 class="text-2xl font-bold mb-4">📊 Таблиця Тест</h2>
+            <table class="w-full border-collapse border border-gray-300">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="border border-gray-300 p-2">№</th>
+                        <th class="border border-gray-300 p-2">Назва</th>
+                        <th class="border border-gray-300 p-2">Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-300 p-2">1</td>
+                        <td class="border border-gray-300 p-2">HTML</td>
+                        <td class="border border-gray-300 p-2 text-green-600 font-bold">✅ OK</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-2">2</td>
+                        <td class="border border-gray-300 p-2">CSS</td>
+                        <td class="border border-gray-300 p-2 text-green-600 font-bold">✅ OK</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-2">3</td>
+                        <td class="border border-gray-300 p-2">JavaScript</td>
+                        <td class="border border-gray-300 p-2 text-green-600 font-bold">✅ OK</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Модальне вікно тест -->
+        <div class="test-section">
+            <h2 class="text-2xl font-bold mb-4">🪟 Модальне вікно Тест</h2>
+            <button id="modalBtn" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition">
+                Відкрити модаль
+            </button>
+        </div>
+
+        <div id="testModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white rounded-lg p-6 max-w-sm w-90%">
+                <h3 class="text-2xl font-bold mb-4">Це модальне вікно</h3>
+                <p class="mb-4">Модальне вікно працює правильно!</p>
+                <button id="closeModalBtn" class="w-full bg-gray-600 text-white py-2 rounded-lg hover:bg-gray-700 transition">
+                    Закрити
+                </button>
+            </div>
+        </div>
+
+        <footer class="mt-12 text-center text-gray-600 border-t pt-4">
+            <p>&copy; 2026 Тестова Сторінка. Всі функції працюють! ✨</p>
+        </footer>
+    </div>
+
+    <script>
+        // Button тест
+        document.getElementById('testBtn').addEventListener('click', function() {
+            document.getElementById('testOutput').textContent = '✅ JavaScript працює! Час: ' + new Date().toLocaleTimeString('uk-UA');
+            document.getElementById('testOutput').className = 'mt-4 text-lg font-semibold text-green-600';
+        });
+
+        // Форма тест
+        document.getElementById('testForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('nameInput').value;
+            const email = document.getElementById('emailInput').value;
+            const output = document.getElementById('formOutput');
+            
+            if (name && email) {
+                output.innerHTML = `<div class="bg-green-100 border border-green-400 text-green-700 p-4 rounded">✅ Форма отримана!<br>Ім'я: ${name}<br>Email: ${email}</div>`;
+            } else {
+                output.innerHTML = `<div class="bg-red-100 border border-red-400 text-red-700 p-4 rounded">❌ Заповніть усі поля!</div>`;
+            }
+        });
+
+        // Canvas тест
+        const canvas = document.getElementById('testCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        ctx.fillStyle = '#3b82f6';
+        ctx.fillRect(20, 20, 100, 100);
+        
+        ctx.fillStyle = '#ef4444';
+        ctx.beginPath();
+        ctx.arc(200, 75, 40, 0, Math.PI * 2);
+        ctx.fill();
+        
+        ctx.fillStyle = '#000';
+        ctx.font = '16px Arial';
+        ctx.fillText('Canvas OK!', 150, 140);
+
+        // Модаль тест
+        const modal = document.getElementById('testModal');
+        document.getElementById('modalBtn').addEventListener('click', function() {
+            modal.classList.remove('hidden');
+        });
+
+        document.getElementById('closeModalBtn').addEventListener('click', function() {
+            modal.classList.add('hidden');
+        });
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+
+        // Консоль вихід
+        console.log('✅ Тестова сторінка завантажена успішно!');
+        console.log('📊 Всі компоненти працюють.');
+    </script>
+</body>
+</html>
