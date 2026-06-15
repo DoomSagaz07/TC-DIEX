@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="uk" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ТЦ DIEX — Технічний нагляд та сертифікація</title>
-<meta name="description" content="НВП «ТЦ DIEX» — орган технічного нагляду. Сертифікація, технічне діагностування та неруйнівний контроль промислового обладнання за ДСТУ та ADR.">
+<meta name="description" content="ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС» — орган технічного нагляду. Сертифікація, технічне діагностування та неруйнівний контроль промислового обладнання за ДСТУ та ADR.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -366,10 +366,16 @@ body{
 .ruler-ticks,.ruler-major{animation:rulerIn .9s cubic-bezier(.22,.61,.36,1) .25s both}
 
 :focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:2px}
+
+/* ─── Scroll reveal ─── */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s cubic-bezier(.22,.61,.36,1) var(--rev-d,0ms),transform .65s cubic-bezier(.22,.61,.36,1) var(--rev-d,0ms)}
+.reveal.visible{opacity:1;transform:none}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .anim{opacity:1;transform:none}
   .ruler-ticks,.ruler-major{transform:none}
+  .reveal,.reveal.visible{opacity:1;transform:none;transition:none}
 }
 
 /* ═══════════════ RESPONSIVE ═══════════════ */
@@ -406,11 +412,7 @@ body{
 <header class="hdr" id="hdr">
   <div class="hdr-in">
     <a class="brand" href="#">
-      <span class="brand-mark"><span>TC</span></span>
-      <span>
-        <span class="brand-name">DIEX</span>
-        <span class="brand-sub">Технічний нагляд</span>
-      </span>
+      <img src="логотип отн.png" alt="TC DIEX логотип" style="height:44px;border-radius:var(--r);background:#fff;padding:4px;display:block">
     </a>
     <nav class="nav">
       <a href="#services">Послуги</a>
@@ -453,13 +455,13 @@ body{
       <!-- instrument readout -->
       <div class="gauge anim d4">
         <div class="gauge-head">
-          <span class="tag">Орган · DIEX-01</span>
+          <span class="tag">Орган · DIEX-UA</span>
           <span class="gauge-status"><i></i>АКРЕДИТОВАНО</span>
         </div>
         <div class="gauge-rows">
-          <div class="gauge-cell"><div class="gauge-n">1000<span style="color:var(--blue-br)">+</span></div><div class="gauge-l">ОБ'ЄКТІВ</div></div>
+          <div class="gauge-cell"><div class="gauge-n">10000<span style="color:var(--blue-br)">+</span></div><div class="gauge-l">ОБ'ЄКТІВ</div></div>
           <div class="gauge-cell"><div class="gauge-n">14<span style="color:var(--blue-br)">+</span></div><div class="gauge-l">МЕТОДІВ НК</div></div>
-          <div class="gauge-cell"><div class="gauge-n">10<span style="color:var(--blue-br)">+</span></div><div class="gauge-l">РОКІВ</div></div>
+          <div class="gauge-cell"><div class="gauge-n">20<span style="color:var(--blue-br)">+</span></div><div class="gauge-l">РОКІВ</div></div>
         </div>
         <div class="gauge-std">
           <span class="chip">ДСТУ</span>
@@ -481,7 +483,7 @@ body{
   <div class="strip-in">
     <span class="strip-lbl">Напрямки контролю</span>
     <div class="strip-items mono">
-      <span>УЗД</span><span>Магнітний</span><span>Радіографічний</span><span>Вихрострумовий</span><span>Капілярний</span><span>Візуальний</span><span>Тех. діагностування</span>
+      <span>УЗД</span><span>Магнітний</span><span>Радіографічний</span><span>Вихрострумовий</span><span>Капілярний</span><span>Візуальний</span><span>Спектральний аналіз</span>
     </div>
   </div>
 </div>
@@ -718,7 +720,7 @@ body{
         <text x="24" y="32" fill="#9aa6bb" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="2">ОБ'ЄКТ · РЕЗЕРВУАР</text>
         <text x="24" y="48" fill="#5d6c84" font-family="'IBM Plex Mono',monospace" font-size="9.5" letter-spacing="1">НК · УЗД · КОНТРОЛЬ ШВІВ</text>
         <circle cx="28" cy="268" r="3" fill="#36c98e"/>
-        <text x="38" y="272" fill="#36c98e" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="1">БЕЗ ДЕФЕКТІВ</text>
+        <text x="38" y="272" fill="#36c98e" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="1">ДОПУСТИМИЙ ДЕФЕКТ</text>
 
         <!-- foundation + saddles -->
         <line x1="60" y1="211" x2="566" y2="211" stroke="#cdd8ec" stroke-opacity=".22" stroke-width="1" stroke-dasharray="3 6"/>
@@ -792,7 +794,7 @@ body{
     <div class="about-l">
       <span class="tag">Про компанію</span>
       <h2>Надійний партнер у промисловій безпеці</h2>
-      <p>НВП «ТЦ DIEX» — акредитований орган технічного нагляду зі спеціалізацією на сертифікації, інспекції та діагностиці промислового обладнання.</p>
+      <p>ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС» — акредитований орган технічного нагляду зі спеціалізацією на сертифікації, інспекції та діагностиці промислового обладнання.</p>
       <p>Працюємо з підприємствами хімічної, нафтогазової, транспортної та машинобудівної галузей, забезпечуючи відповідність обладнання чинним стандартам безпеки.</p>
       <ul class="checks">
         <li><span class="x"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>Офіційний дозвіл на проведення технічного нагляду</li>
@@ -808,8 +810,8 @@ body{
         <span class="dot"></span>
       </div>
       <div class="sheet-rows">
-        <div class="sheet-cell"><div class="sheet-n">10+</div><div class="sheet-l">РОКІВ НА РИНКУ</div></div>
-        <div class="sheet-cell"><div class="sheet-n">05</div><div class="sheet-l">НАПРЯМКІВ</div></div>
+        <div class="sheet-cell"><div class="sheet-n">20+</div><div class="sheet-l">РОКІВ НА РИНКУ</div></div>
+        <div class="sheet-cell"><div class="sheet-n">5+</div><div class="sheet-l">НАПРЯМКІВ</div></div>
         <div class="sheet-cell"><div class="sheet-n">ADR</div><div class="sheet-l">ПОВНА ВІДПОВІДНІСТЬ</div></div>
         <div class="sheet-cell"><div class="sheet-n">ДСТУ</div><div class="sheet-l">ВСІ СТАНДАРТИ</div></div>
       </div>
@@ -829,11 +831,11 @@ body{
       <p>Спеціаліст розгляне вашу задачу та надасть відповідь у стислі терміни. Виїзд по всій Україні.</p>
     </div>
     <div class="cta-act">
-      <a href="tel:+380000000000" class="btn-white">
+      <a href="tel:+38 067-561-76-79" class="btn-white">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
         Замовити дзвінок
       </a>
-      <a href="mailto:info@diex.ua" class="btn-ghost">Написати на пошту</a>
+      <a href="mailto:gas@tuev-diex.com" class="btn-ghost">Написати на пошту</a>
     </div>
   </div>
 </section>
@@ -843,13 +845,9 @@ body{
   <div class="ftr-in">
     <div class="ftr-brand">
       <a class="brand" href="#">
-        <span class="brand-mark"><span>TC</span></span>
-        <span>
-          <span class="brand-name">DIEX</span>
-          <span class="brand-sub">Технічний нагляд</span>
-        </span>
+        <img src="логотип отн.png" alt="TC DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
       </a>
-      <p>Акредитований орган технічного нагляду та сертифікації промислового обладнання. Відповідність ДСТУ та ADR.</p>
+      <p>Акредитований орган технічного нагляду та сертифікації промислового обладнання.</p>
     </div>
     <div>
       <h4>Послуги</h4>
@@ -863,19 +861,19 @@ body{
     <div>
       <h4>Контакти</h4>
       <ul>
-        <li>+38 (000) 000-00-00</li>
-        <li>info@diex.ua</li>
-        <li>Україна</li>
+        <li>+38 067-561-76-79</li>
+        <li>gas@tuev-diex.com</li>
+        <li>Україна, м.Дніпро</li>
       </ul>
     </div>
   </div>
   <div class="ftr-bot">
-    <span class="ftr-copy">© 2026 НВП «ТЦ DIEX» · Усі права захищені</span>
+    <span class="ftr-copy">© 2026 DIEX · Усі права захищені</span>
     <div class="ftr-std"><span>ДСТУ</span><span>ADR</span><span>ТР 154</span></div>
   </div>
 </footer>
 
-<a href="tel:+380000000000" class="mcall">Замовити дзвінок</a>
+<a href="tel:+38 067-561-76-79" class="mcall">Замовити дзвінок</a>
 
 <script>
   const root=document.documentElement,
@@ -894,6 +892,32 @@ body{
   addEventListener('scroll',()=>{
     document.getElementById('hdr').style.boxShadow=scrollY>8?'0 2px 20px rgba(0,0,0,.10)':'none';
   });
+
+  // ─── Scroll reveal ───
+  (function(){
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+    },{threshold:.08,rootMargin:'0px 0px -50px 0px'});
+
+    function rev(sel){
+      document.querySelectorAll(sel).forEach(el=>{el.classList.add('reveal');io.observe(el);});
+    }
+    function revGrid(sel,cols){
+      document.querySelectorAll(sel).forEach((el,i)=>{
+        el.classList.add('reveal');
+        el.style.setProperty('--rev-d',(i%cols*70)+'ms');
+        io.observe(el);
+      });
+    }
+
+    rev('.strip');
+    rev('.svc-head');
+    rev('.about-l');
+    rev('.sheet');
+    rev('.cta-box');
+    revGrid('.svc-grid > *', 3);
+    revGrid('.ftr-in > *', 3);
+  })();
 </script>
 </body>
 </html>
