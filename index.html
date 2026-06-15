@@ -1,110 +1,899 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>НВП «ТЦ DIEX» — Головна</title>
-    <style>
-        body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #f5f5f5; color: #111827; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: #1a237e; }
-        .nav { display: flex; gap: 2rem; }
-        .nav a { text-decoration: none; color: #111827; font-weight: 500; }
-        .hero { text-align: center; padding: 4rem 0; }
-        .hero h1 { font-size: 2.5rem; color: #1a237e; }
-        .hero p { font-size: 1.2rem; color: #666; margin: 1rem 0; }
-        .button { display: inline-block; padding: 1rem 2rem; background: #ff6f00; color: white; text-decoration: none; border-radius: 999px; font-weight: 700; transition: background .2s ease; }
-        .button:hover { background: #e65100; }
-        .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; padding: 2rem 0; }
-        .service-card { background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .service-card h3 { color: #1a237e; margin-bottom: 1rem; }
-        .about { background: white; padding: 3rem; border-radius: 1rem; margin: 2rem 0; }
-        .about h2 { color: #1a237e; text-align: center; margin-bottom: 2rem; }
-        .advantages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 2rem 0; }
-        .advantage { text-align: center; }
-        .advantage h3 { color: #1a237e; }
-        .footer { background: #1a237e; color: white; padding: 2rem; text-align: center; }
-        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
-        @media (max-width: 640px) {
-            .services { grid-template-columns: 1fr; }
-            .advantages { grid-template-columns: 1fr; }
-            .nav { flex-direction: column; gap: 1rem; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ТЦ DIEX — Технічний нагляд та сертифікація</title>
+<meta name="description" content="НВП «ТЦ DIEX» — орган технічного нагляду. Сертифікація, технічне діагностування та неруйнівний контроль промислового обладнання за ДСТУ та ADR.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ═══════════════ TOKENS ═══════════════ */
+:root{
+  /* instrument surfaces — constant across themes */
+  --ink:#0b1320;
+  --ink-2:#121d31;
+  --ink-3:#1b2942;
+  --on-ink:#eef2f8;
+  --on-ink-mut:#9aa6bb;
+  --on-ink-faint:#5d6c84;
+  --line-ink:rgba(255,255,255,.10);
+  --line-ink-2:rgba(255,255,255,.06);
+
+  /* accents */
+  --blue:#1e57e3;
+  --blue-br:#5b8bff;
+  --orange:#f15a22;
+  --orange-soft:#ff7a4d;
+  --ok:#36c98e;
+
+  /* body — light theme */
+  --paper:#eceff4;
+  --card:#ffffff;
+  --card-2:#f6f8fb;
+  --ink-text:#0b1320;
+  --mut:#5a6679;
+  --faint:#8b95a6;
+  --line:#d7dde6;
+  --line-2:#e6eaf0;
+
+  --r:4px;            /* tight, technical radius */
+  --r-lg:8px;
+  --hh:66px;          /* header height */
+  --max:1180px;
+}
+[data-theme="dark"]{
+  --paper:#0a111e;
+  --card:#101a2c;
+  --card-2:#0d1626;
+  --ink-text:#eef2f8;
+  --mut:#9aa6bb;
+  --faint:#5d6c84;
+  --line:#1e2c46;
+  --line-2:#17233a;
+}
+
+/* ═══════════════ BASE ═══════════════ */
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink-text);
+  font-family:'IBM Plex Sans',-apple-system,sans-serif;
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  transition:background .35s,color .35s;
+}
+.mono{font-family:'IBM Plex Mono',monospace}
+.disp{font-family:'Space Grotesk',sans-serif}
+
+/* reusable mono eyebrow */
+.tag{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;
+}
+
+/* registration corner-tick set (drafting marks) */
+.regmark{position:absolute;width:13px;height:13px;pointer-events:none;opacity:.9}
+.regmark.tl{top:0;left:0;border-top:1.5px solid var(--orange);border-left:1.5px solid var(--orange)}
+.regmark.tr{top:0;right:0;border-top:1.5px solid var(--orange);border-right:1.5px solid var(--orange)}
+.regmark.bl{bottom:0;left:0;border-bottom:1.5px solid var(--orange);border-left:1.5px solid var(--orange)}
+.regmark.br{bottom:0;right:0;border-bottom:1.5px solid var(--orange);border-right:1.5px solid var(--orange)}
+
+/* ═══════════════ HEADER ═══════════════ */
+.hdr{
+  position:fixed;top:0;left:0;right:0;z-index:100;height:var(--hh);
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  transition:background .35s,border-color .35s;
+}
+.hdr-in{height:100%;max-width:var(--max);margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.brand-mark{
+  width:36px;height:36px;border-radius:var(--r);background:var(--ink);
+  display:grid;place-items:center;position:relative;overflow:hidden;flex-shrink:0;
+  border:1px solid var(--ink-3);
+}
+.brand-mark span{font-family:'Space Grotesk';font-size:13px;font-weight:700;color:#fff;letter-spacing:.5px;z-index:1}
+.brand-mark::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--orange)}
+.brand-name{font-family:'Space Grotesk';font-size:17px;font-weight:700;color:var(--ink-text);line-height:1.1;letter-spacing:.3px;transition:color .35s}
+.brand-sub{font-family:'IBM Plex Mono';font-size:9.5px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);transition:color .35s}
+
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{
+  position:relative;text-decoration:none;color:var(--mut);font-size:14px;font-weight:500;
+  padding:8px 14px;border-radius:var(--r);transition:color .2s,background .2s;
+}
+.nav a:hover{color:var(--ink-text);background:var(--card-2)}
+
+.hdr-r{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.theme-btn{
+  display:flex;align-items:center;gap:8px;padding:7px 11px;border-radius:var(--r);
+  border:1px solid var(--line);background:none;cursor:pointer;color:var(--mut);
+  font-family:'IBM Plex Mono';font-size:11px;font-weight:500;letter-spacing:.5px;
+  transition:border-color .2s,color .2s;
+}
+.theme-btn:hover{border-color:var(--faint);color:var(--ink-text)}
+.ttrack{width:28px;height:15px;border-radius:999px;background:var(--line);position:relative;flex-shrink:0;transition:background .35s}
+[data-theme="dark"] .ttrack{background:var(--blue)}
+.tknob{position:absolute;top:2px;left:2px;width:9px;height:9px;border-radius:50%;background:var(--faint);transition:transform .35s,background .35s}
+[data-theme="dark"] .tknob{background:#fff;transform:translateX(13px)}
+.btn-warn{
+  padding:9px 18px;border-radius:var(--r);background:var(--orange);color:#fff;
+  font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;
+  transition:background .2s,transform .15s;
+}
+.btn-warn:hover{background:#d8481a;transform:translateY(-1px)}
+
+/* ═══════════════ HERO (always dark instrument) ═══════════════ */
+.hero{
+  position:relative;background:var(--ink);color:var(--on-ink);
+  padding:calc(var(--hh) + 70px) 28px 0;overflow:hidden;
+}
+/* faint blueprint grid + glow */
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(var(--line-ink-2) 1px,transparent 1px) 0 0/100% 56px,
+    linear-gradient(90deg,var(--line-ink-2) 1px,transparent 1px) 0 0/56px 100%;
+  mask-image:radial-gradient(120% 90% at 50% 0%,#000 40%,transparent 100%);
+  opacity:.7;
+}
+.hero::after{
+  content:"";position:absolute;top:-30%;right:-10%;width:780px;height:780px;pointer-events:none;
+  background:radial-gradient(circle,rgba(30,87,227,.28),transparent 62%);filter:blur(10px);
+}
+.hero-in{position:relative;max-width:var(--max);margin:0 auto;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1fr 372px;gap:56px;align-items:center;padding-bottom:64px}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--blue-br);margin-bottom:26px}
+.hero-eyebrow b{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(54,201,142,.18)}
+.hero h1{
+  font-family:'Space Grotesk';font-weight:700;
+  font-size:clamp(40px,5.4vw,68px);line-height:1.02;letter-spacing:-2px;
+  color:var(--on-ink);margin-bottom:24px;
+}
+.hero h1 em{font-style:normal;color:var(--orange-soft)}
+.hero-desc{font-size:16px;line-height:1.8;color:var(--on-ink-mut);max-width:440px;margin-bottom:34px}
+.hero-act{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:40px}
+.btn-blue{
+  padding:13px 24px;border-radius:var(--r);background:var(--blue);color:#fff;
+  font-size:14px;font-weight:600;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .15s;
+}
+.btn-blue:hover{background:#1a4cc7;transform:translateY(-1px)}
+.btn-line{
+  padding:12px 22px;border-radius:var(--r);border:1px solid var(--line-ink);
+  color:var(--on-ink);font-size:14px;font-weight:500;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;transition:border-color .2s,background .2s;
+}
+.btn-line:hover{border-color:var(--on-ink-mut);background:rgba(255,255,255,.04)}
+
+/* signature: measurement ruler */
+.ruler{position:relative;height:34px;max-width:440px;margin-bottom:2px}
+.ruler-line{position:absolute;left:0;right:0;top:0;height:1px;background:var(--line-ink)}
+.ruler-ticks{
+  position:absolute;left:0;top:0;height:11px;width:100%;
+  background:repeating-linear-gradient(90deg,var(--on-ink-faint) 0 1px,transparent 1px 14.6px);
+  transform-origin:left;
+}
+.ruler-major{
+  position:absolute;left:0;top:0;height:18px;width:100%;
+  background:repeating-linear-gradient(90deg,var(--blue-br) 0 1px,transparent 1px 73px);
+}
+.ruler-cap{position:absolute;top:21px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1px;color:var(--on-ink-faint)}
+.ruler-cap.s{left:0}
+.ruler-cap.e{right:0}
+
+/* instrument readout panel */
+.gauge{
+  position:relative;background:var(--ink-2);border:1px solid var(--line-ink);
+  border-radius:var(--r-lg);padding:24px;
+}
+.gauge::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue);border-radius:var(--r-lg) 0 0 var(--r-lg)}
+.gauge-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid var(--line-ink)}
+.gauge-head .tag{color:var(--on-ink-faint)}
+.gauge-status{display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono';font-size:11px;font-weight:600;letter-spacing:1px;color:var(--ok)}
+.gauge-status i{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(54,201,142,.16)}
+.gauge-rows{display:grid;grid-template-columns:repeat(3,1fr);margin:18px 0}
+.gauge-cell{text-align:left;padding:2px 0}
+.gauge-cell + .gauge-cell{padding-left:14px;border-left:1px solid var(--line-ink)}
+.gauge-n{font-family:'Space Grotesk';font-size:27px;font-weight:600;color:var(--on-ink);line-height:1}
+.gauge-l{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.5px;color:var(--on-ink-faint);margin-top:5px}
+.gauge-std{display:flex;gap:6px;flex-wrap:wrap;padding-top:16px;border-top:1px solid var(--line-ink)}
+.chip{
+  font-family:'IBM Plex Mono';font-size:11px;font-weight:500;letter-spacing:.5px;
+  padding:4px 9px;border-radius:var(--r);background:rgba(91,139,255,.12);
+  border:1px solid rgba(91,139,255,.22);color:var(--blue-br);
+}
+.gauge-foot{display:flex;align-items:center;gap:8px;margin-top:16px;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:var(--on-ink-mut)}
+
+/* ═══════════════ CAPABILITY STRIP ═══════════════ */
+.strip{
+  background:var(--card);border-bottom:1px solid var(--line);
+  transition:background .35s,border-color .35s;
+}
+.strip-in{
+  max-width:var(--max);margin:0 auto;padding:0 28px;height:54px;
+  display:flex;align-items:center;gap:0;overflow:hidden;
+}
+.strip-lbl{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--faint);white-space:nowrap;padding-right:22px;border-right:1px solid var(--line);transition:color .35s,border-color .35s}
+.strip-items{display:flex;align-items:center;gap:0;flex-wrap:wrap;padding-left:22px}
+.strip-items span{font-family:'IBM Plex Mono';font-size:12px;font-weight:500;color:var(--mut);padding:0 16px;position:relative;transition:color .35s}
+.strip-items span+span::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:3px;border-radius:50%;background:var(--orange)}
+
+/* ═══════════════ SERVICES ═══════════════ */
+.svc{padding:84px 28px}
+.svc-head{
+  max-width:var(--max);margin:0 auto 40px;display:flex;align-items:flex-end;
+  justify-content:space-between;gap:24px;
+  padding-bottom:20px;border-bottom:1px solid var(--line);transition:border-color .35s;
+}
+.svc-head .tag{color:var(--orange);display:block;margin-bottom:10px}
+.svc-head h2{font-family:'Space Grotesk';font-size:clamp(26px,3vw,40px);font-weight:700;letter-spacing:-1px;line-height:1.05;color:var(--ink-text);transition:color .35s}
+.svc-head-note{font-family:'IBM Plex Mono';font-size:11px;line-height:1.7;color:var(--faint);text-align:right;white-space:nowrap;transition:color .35s}
+
+.svc-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto auto;gap:13px}
+.p-r1c1{grid-column:1;grid-row:1}.p-r1c2{grid-column:2;grid-row:1}.p-r1c3{grid-column:3;grid-row:1}
+.p-r2c1{grid-column:1;grid-row:2}.p-r2c2{grid-column:2;grid-row:2}.p-r2c3{grid-column:3;grid-row:2}
+.p-r3c1{grid-column:1;grid-row:3}.p-r4{grid-column:2 / -1;grid-row:3}
+
+/* card */
+.card{
+  position:relative;display:flex;flex-direction:column;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:24px 22px;text-decoration:none;color:inherit;overflow:hidden;
+  transition:border-color .2s,box-shadow .2s,transform .2s,background .35s;
+}
+.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.card-code{font-family:'IBM Plex Mono';font-size:11px;font-weight:500;letter-spacing:.5px;color:var(--blue);padding:3px 8px;border:1px solid var(--line);border-radius:var(--r);transition:border-color .2s,color .35s}
+.card-ico{color:var(--mut);transition:color .2s}
+.card h3{font-family:'Space Grotesk';font-size:17px;font-weight:600;line-height:1.28;color:var(--ink-text);margin-bottom:9px;letter-spacing:-.3px;transition:color .35s}
+.card p{font-size:13px;line-height:1.7;color:var(--mut);flex:1;transition:color .35s}
+.card-link{display:inline-flex;align-items:center;gap:5px;margin-top:18px;font-family:'IBM Plex Mono';font-size:12px;font-weight:500;letter-spacing:.5px;color:var(--blue);transition:gap .2s}
+.card-link svg{transition:transform .2s}
+.card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 8px 30px rgba(30,87,227,.10)}
+.card:hover .card-ico{color:var(--blue)}
+.card:hover .card-link{gap:9px}
+/* orange progress tick on hover */
+.card::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--orange);transition:width .3s ease}
+.card:hover::after{width:100%}
+
+/* featured = dark instrument card */
+.card.feat{background:var(--ink);border-color:var(--ink-3);color:var(--on-ink)}
+.card.feat::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(420px 200px at 80% 0%,rgba(30,87,227,.22),transparent 70%)}
+.card.feat .card-code{color:var(--blue-br);border-color:var(--line-ink)}
+.card.feat h3{color:var(--on-ink)}
+.card.feat p{color:var(--on-ink-mut)}
+.card.feat .card-ico{color:var(--on-ink-mut)}
+.card.feat .card-link{color:var(--blue-br)}
+.card.feat:hover{border-color:var(--blue);box-shadow:0 10px 40px rgba(30,87,227,.28)}
+.feat-flag{font-family:'IBM Plex Mono';font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange-soft);display:inline-flex;align-items:center;gap:6px}
+.feat-flag::before{content:"";width:14px;height:1.5px;background:var(--orange)}
+
+/* soon */
+.card.soon{opacity:.5;pointer-events:none}
+.card.soon .card-code{color:var(--orange);border-color:rgba(241,90,34,.3)}
+.card.soon .card-link{color:var(--faint)}
+
+/* image placeholder block */
+.imgb{
+  position:relative;border:1px dashed var(--line);border-radius:var(--r-lg);
+  background:var(--card-2);display:grid;place-items:center;overflow:hidden;cursor:pointer;
+  transition:border-color .2s,background .35s;
+}
+.imgb:hover{border-color:var(--blue);border-style:solid;background:var(--card)}
+.imgb.sq{aspect-ratio:1/1}
+.imgb.rect{min-height:188px}
+.imgb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.imgb img ~ .imgb-ph{display:none}
+.imgb-ph{display:flex;flex-direction:column;align-items:center;gap:11px;padding:20px;text-align:center;pointer-events:none}
+.imgb-ph .frame{width:40px;height:40px;border:1px dashed var(--faint);border-radius:var(--r);display:grid;place-items:center;color:var(--faint);transition:color .2s,border-color .2s}
+.imgb:hover .frame{color:var(--blue);border-color:var(--blue)}
+.imgb-ph .cap{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);transition:color .2s}
+.imgb:hover .cap{color:var(--blue)}
+.imgb .regmark{opacity:.45}
+.imgb.rect .imgb-ph{flex-direction:row;gap:14px}
+.imgb.rect .cap{text-align:left}
+/* filled with generated blueprint */
+.imgb.filled{border-style:solid;border-color:var(--line);background:var(--ink)}
+.imgb.filled:hover{border-color:var(--blue);background:var(--ink)}
+.imgb.filled .regmark{opacity:.85}
+.imgb.rect.filled{min-height:200px}
+.blueprint{display:block;width:100%;height:100%}
+
+/* ═══════════════ ABOUT ═══════════════ */
+.about{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:84px 28px;transition:background .35s,border-color .35s}
+.about-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 392px;gap:64px;align-items:start}
+.about-l .tag{color:var(--orange);display:block;margin-bottom:14px}
+.about-l h2{font-family:'Space Grotesk';font-size:clamp(26px,2.9vw,38px);font-weight:700;letter-spacing:-1px;line-height:1.1;color:var(--ink-text);margin-bottom:18px;transition:color .35s}
+.about-l p{color:var(--mut);font-size:15px;line-height:1.8;margin-bottom:14px;max-width:540px;transition:color .35s}
+.checks{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:11px}
+.checks li{display:flex;align-items:flex-start;gap:11px;font-size:14px;font-weight:500;color:var(--ink-text);transition:color .35s}
+.checks .x{width:19px;height:19px;border-radius:var(--r);flex-shrink:0;margin-top:2px;background:var(--blue);display:grid;place-items:center;color:#fff}
+
+/* datasheet panel */
+.sheet{background:var(--ink);border-radius:var(--r-lg);overflow:hidden;color:var(--on-ink);position:relative}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line-ink)}
+.sheet-head .tag{color:var(--on-ink-faint)}
+.sheet-head .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.sheet-rows{display:grid;grid-template-columns:1fr 1fr}
+.sheet-cell{padding:20px;border-bottom:1px solid var(--line-ink)}
+.sheet-cell:nth-child(odd){border-right:1px solid var(--line-ink)}
+.sheet-cell:nth-last-child(-n+2){border-bottom:none}
+.sheet-n{font-family:'Space Grotesk';font-size:28px;font-weight:600;color:var(--on-ink);line-height:1}
+.sheet-l{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.5px;color:var(--on-ink-faint);margin-top:6px}
+.sheet-foot{display:flex;gap:6px;padding:16px 20px;border-top:1px solid var(--line-ink)}
+
+/* ═══════════════ CTA ═══════════════ */
+.cta{padding:84px 28px}
+.cta-box{position:relative;max-width:var(--max);margin:0 auto;background:var(--ink);border-radius:var(--r-lg);padding:56px 60px;overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.cta-box::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px 300px at 85% 50%,rgba(30,87,227,.22),transparent 70%)}
+.cta-box::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange)}
+.cta-l{position:relative;z-index:1}
+.cta-l .tag{color:var(--blue-br);display:block;margin-bottom:12px}
+.cta-l h2{font-family:'Space Grotesk';font-size:clamp(26px,2.9vw,38px);font-weight:700;color:var(--on-ink);letter-spacing:-1px;line-height:1.12;margin-bottom:12px}
+.cta-l p{color:var(--on-ink-mut);font-size:15px;line-height:1.75;max-width:440px}
+.cta-act{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px}
+.btn-white{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:var(--r);background:#fff;color:var(--ink);font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;transition:transform .15s,background .2s}
+.btn-white:hover{background:#e9eefb;transform:translateY(-1px)}
+.btn-ghost{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:var(--r);border:1px solid var(--line-ink);color:var(--on-ink);font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap;transition:border-color .2s,background .2s}
+.btn-ghost:hover{border-color:var(--on-ink-mut);background:rgba(255,255,255,.05)}
+
+/* ═══════════════ FOOTER ═══════════════ */
+.ftr{background:var(--paper);border-top:1px solid var(--line);padding:48px 28px 26px;transition:background .35s,border-color .35s}
+.ftr-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:36px}
+.ftr-brand p{color:var(--faint);font-size:13px;line-height:1.75;margin-top:12px;max-width:270px;transition:color .35s}
+.ftr h4{font-family:'IBM Plex Mono';font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-text);margin-bottom:14px;transition:color .35s}
+.ftr ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ftr a{text-decoration:none;color:var(--mut);font-size:13.5px;font-weight:500;transition:color .2s}
+.ftr a:hover{color:var(--blue)}
+.ftr li:not(:has(a)){color:var(--faint);font-size:13.5px;font-family:'IBM Plex Mono';transition:color .35s}
+.ftr-bot{max-width:var(--max);margin:0 auto;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:border-color .35s}
+.ftr-copy{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:var(--faint);transition:color .35s}
+.ftr-std{display:flex;gap:6px}
+.ftr-std span{font-family:'IBM Plex Mono';font-size:10px;font-weight:500;color:var(--faint);padding:3px 8px;border:1px solid var(--line);border-radius:var(--r);transition:border-color .35s,color .35s}
+
+.mcall{display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:99;background:var(--orange);color:#fff;font-weight:600;font-size:15px;padding:15px;border-radius:var(--r-lg);text-align:center;text-decoration:none}
+
+/* ═══════════════ MOTION ═══════════════ */
+@keyframes rulerIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.anim{opacity:0;animation:rise .7s cubic-bezier(.22,.61,.36,1) forwards}
+.anim.d1{animation-delay:.05s}.anim.d2{animation-delay:.13s}.anim.d3{animation-delay:.21s}.anim.d4{animation-delay:.30s}.anim.d5{animation-delay:.40s}
+.ruler-ticks,.ruler-major{animation:rulerIn .9s cubic-bezier(.22,.61,.36,1) .25s both}
+
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .anim{opacity:1;transform:none}
+  .ruler-ticks,.ruler-major{transform:none}
+}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media (max-width:1024px){
+  .nav{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .gauge{max-width:440px}
+  .about-in{grid-template-columns:1fr;gap:40px}
+  .sheet{max-width:440px}
+  .cta-box{grid-template-columns:1fr;padding:44px;gap:30px}
+  .cta-act{flex-direction:row}
+  .ftr-in{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .svc-grid{grid-template-columns:1fr}
+  .p-r1c1,.p-r1c2,.p-r1c3,.p-r2c1,.p-r2c2,.p-r2c3,.p-r3c1,.p-r4{grid-column:auto;grid-row:auto}
+  .svc-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .svc-head-note{text-align:left;white-space:normal}
+  .strip-in{height:auto;flex-direction:column;align-items:flex-start;gap:10px;padding:14px 28px}
+  .strip-lbl{border-right:none;padding-right:0}
+  .strip-items{padding-left:0}
+  .cta-box{padding:34px 26px}
+  .cta-act{flex-direction:column}
+  .ftr-in{grid-template-columns:1fr}
+  .ftr-bot{flex-direction:column;align-items:flex-start}
+  .mcall{display:block}
+  .hero h1{letter-spacing:-1px}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- Хедер -->
-        <header class="header">
-            <div class="logo">НВП «ТЦ DIEX»</div>
-            <nav class="nav">
-                <a href="#home">Головна</a>
-                <a href="#services">Послуги</a>
-                <a href="#about">Про компанію</a>
-                <a href="#contacts">Контакти</a>
-            </nav>
-        </header>
-        <!-- Герой-секція -->
-        <section class="hero" id="home">
-            <h1>Технічний центр діагностики та експертизи</h1>
-            <p>Українсько-німецьке підприємство з сертифікації систем менеджменту</p>
-            <a href="#services" class="button">Замовити послугу</a>
-        </section>
 
-        <!-- Послуги -->
-        <section class="services" id="services">
-            <div class="service-card">
-                <h3>Сертифікація систем менеджменту</h3>
-                <p>Сертифікація відповідно до стандартів ДСТУ ISO 9001:2015 та ДСТУ EN ISO/IEC 17021-1:2017.</p>
-            </div>
-            <div class="service-card">
-                <h3>Діагностика та експертиза</h3>
-                <p>Проведення діагностики та експертизи об'єктів та систем.</p>
-            </div>
-            <div class="service-card">
-                <h3>Консалтинг</h3>
-                <p>Консультаційні послуги з впровадження систем менеджменту.</p>
-            </div>
-            <div class="service-card">
-                <h3>Навчання</h3>
-                <p>Навчальні програми з сертифікації та менеджменту.</p>
-            </div>
-        </section>
-
-        <!-- Про компанію -->
-        <section class="about" id="about">
-            <h2>Про компанію</h2>
-            <p>Технічний центр діагностики та експертизи (ТЦ «Діекс») — українсько-німецьке підприємство, яке надає послуги з сертифікації систем менеджменту відповідно до стандартів ДСТУ ISO 9001:2015 та ДСТУ EN ISO/IEC 17021-1:2017.</p>
-            <p>Наша місія — забезпечити якість та ефективність систем менеджменту через професійну сертифікацію та консалтинг.</p>
-            <p><strong>Важливо:</strong> ТЦ «Діекс» не спеціалізується на сертифікації аерозольних продуктів. Для сертифікації аерозолів рекомендується звертатися до акредитованих органів, які мають досвід у сфері хімічних та косметичних виробів.</p>
-        </section>
-
-        <!-- Переваги -->
-        <section class="advantages">
-            <div class="advantage">
-                <h3>Професіоналізм</h3>
-                <p>Досвідчені фахівці з багаторічним досвідом.</p>
-            </div>
-            <div class="advantage">
-                <h3>Надійність</h3>
-                <p>Гарантуємо якість та відповідність стандартам.</p>
-            </div>
-            <div class="advantage">
-                <h3>Міжнародний досвід</h3>
-                <p>Українсько-німецьке партнерство.</p>
-            </div>
-        </section>
-
-        <!-- Футер -->
-        <footer class="footer" </p>
-            <p>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
-            </p>
-            <p>&copy; 2026 ТЦ «Діекс». Всі права захищені.</p>
-        </footer>
+<!-- ═══ HEADER ═══ -->
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="#">
+      <span class="brand-mark"><span>TC</span></span>
+      <span>
+        <span class="brand-name">DIEX</span>
+        <span class="brand-sub">Технічний нагляд</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#services">Послуги</a>
+      <a href="#about">Про компанію</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <div class="hdr-r">
+      <button class="theme-btn" id="themeBtn" aria-label="Перемкнути тему">
+        <span class="ttrack"><span class="tknob"></span></span>
+        <span id="themeLbl">DARK</span>
+      </button>
+      <a href="#contacts" class="btn-warn">Запит на оцінку</a>
     </div>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-in">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow tag anim d1"><b></b>Орган технічного нагляду · UA</div>
+        <h1 class="anim d2">Технічна перевірка<br><em>без похибок</em></h1>
+        <p class="hero-desc anim d3">Сертифікація, технічне діагностування та неруйнівний контроль промислового обладнання — у точній відповідності до ДСТУ та угоди ADR. Виїзд по всій Україні.</p>
+        <div class="hero-act anim d4">
+          <a href="#services" class="btn-blue">Обрати послугу
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contacts" class="btn-line">Зв'язатися</a>
+        </div>
+        <div class="ruler anim d5">
+          <div class="ruler-line"></div>
+          <div class="ruler-ticks"></div>
+          <div class="ruler-major"></div>
+          <span class="ruler-cap s mono">0</span>
+          <span class="ruler-cap e mono">ДОПУСК · 100%</span>
+        </div>
+      </div>
+
+      <!-- instrument readout -->
+      <div class="gauge anim d4">
+        <div class="gauge-head">
+          <span class="tag">Орган · DIEX-01</span>
+          <span class="gauge-status"><i></i>АКРЕДИТОВАНО</span>
+        </div>
+        <div class="gauge-rows">
+          <div class="gauge-cell"><div class="gauge-n">1000<span style="color:var(--blue-br)">+</span></div><div class="gauge-l">ОБ'ЄКТІВ</div></div>
+          <div class="gauge-cell"><div class="gauge-n">14<span style="color:var(--blue-br)">+</span></div><div class="gauge-l">МЕТОДІВ НК</div></div>
+          <div class="gauge-cell"><div class="gauge-n">10<span style="color:var(--blue-br)">+</span></div><div class="gauge-l">РОКІВ</div></div>
+        </div>
+        <div class="gauge-std">
+          <span class="chip">ДСТУ</span>
+          <span class="chip">ADR</span>
+          <span class="chip">ТР 154</span>
+          <span class="chip">ISO</span>
+        </div>
+        <div class="gauge-foot">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          Виїзд по всій Україні
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAPABILITY STRIP ═══ -->
+<div class="strip">
+  <div class="strip-in">
+    <span class="strip-lbl">Напрямки контролю</span>
+    <div class="strip-items mono">
+      <span>УЗД</span><span>Магнітний</span><span>Радіографічний</span><span>Вихрострумовий</span><span>Капілярний</span><span>Візуальний</span><span>Тех. діагностування</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="svc" id="services">
+  <div class="svc-head">
+    <div>
+      <span class="tag">Реєстр послуг</span>
+      <h2>Напрямки діяльності</h2>
+    </div>
+    <div class="svc-head-note">Код біля кожної позиції —<br>стандарт, за яким ведеться робота</div>
+  </div>
+
+  <div class="svc-grid">
+
+    <!-- R1C1 -->
+    <a class="card p-r1c1" href="tc.html">
+      <div class="card-top">
+        <span class="card-code">ТР 154</span>
+        <span class="card-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="9" height="13" rx="2"/><path d="M11 8V6h3v2"/><path d="M17 6h3v2"/><path d="M20 4.5v.5m0 3v.5m-2-2h.5"/></svg>
+        </span>
+      </div>
+      <h3>Сертифікація аерозольної продукції</h3>
+      <p>Оцінка відповідності вимогам ТР 154, супровід сертифікації та технічна документація для виходу на ринок України.</p>
+      <span class="card-link">Детальніше <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- R1C2 -->
+    <a class="card p-r1c2" href="balony.html">
+      <div class="card-top">
+        <span class="card-code">ДСТУ EN 1968</span>
+        <span class="card-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><ellipse cx="12" cy="6" rx="4" ry="1.8"/><path d="M8 6v12M16 6v12"/><ellipse cx="12" cy="18" rx="4" ry="1.8"/><path d="M12 1.5v2.7"/></svg>
+        </span>
+      </div>
+      <h3>Сертифікація балонів та балончиків</h3>
+      <p>Сертифікація і повторна перевірка балонів зі стисненим та скрапленим газом — від побутових до промислових типів.</p>
+      <span class="card-link">Детальніше <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- R1C3 square img -->
+    <div class="imgb sq filled p-r1c3">
+      <span class="regmark tl"></span><span class="regmark tr"></span><span class="regmark bl"></span><span class="regmark br"></span>
+      <svg class="blueprint" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Технічна схема газового балона з розмірами та робочим тиском">
+        <defs>
+          <linearGradient id="bp-bg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#13203a"/><stop offset="1" stop-color="#0b1320"/>
+          </linearGradient>
+          <radialGradient id="bp-glow" cx="50%" cy="2%" r="78%">
+            <stop offset="0" stop-color="#1e57e3" stop-opacity=".22"/>
+            <stop offset="60%" stop-color="#1e57e3" stop-opacity="0"/>
+          </radialGradient>
+          <pattern id="bp-grid" width="25" height="25" patternUnits="userSpaceOnUse">
+            <path d="M25 0H0V25" fill="none" stroke="#ffffff" stroke-opacity=".05" stroke-width="1"/>
+          </pattern>
+        </defs>
+
+        <rect width="400" height="400" fill="url(#bp-bg)"/>
+        <rect width="400" height="400" fill="url(#bp-grid)"/>
+        <rect width="400" height="400" fill="url(#bp-glow)"/>
+
+        <!-- spec header -->
+        <text x="28" y="36" fill="#9aa6bb" font-family="'IBM Plex Mono',monospace" font-size="11" letter-spacing="2">ОБ'ЄКТ · БАЛОН</text>
+        <text x="28" y="52" fill="#5d6c84" font-family="'IBM Plex Mono',monospace" font-size="9.5" letter-spacing="1">ТИП · 40 Л · СТАЛЬ</text>
+
+        <!-- cylinder body -->
+        <g stroke="#cdd8ec" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M152 152 Q152 110 176 98 L176 92 H224 V98 Q248 110 248 152 V300 Q248 318 230 320 H170 Q152 318 152 300 Z" fill="#5b8bff" fill-opacity=".06"/>
+          <rect x="184" y="74" width="32" height="22" rx="3"/>
+          <circle cx="200" cy="64" r="13"/>
+          <line x1="200" y1="51" x2="200" y2="74"/>
+          <path d="M216 70 H231 V80"/>
+          <path d="M152 152 Q200 140 248 152"/>
+          <path d="M168 320 V331 H232 V320"/>
+        </g>
+
+        <!-- inspection label band -->
+        <g stroke="#5b8bff" stroke-width="1.2"><line x1="152" y1="214" x2="248" y2="214"/><line x1="152" y1="250" x2="248" y2="250"/></g>
+        <text x="200" y="237" fill="#5b8bff" font-family="'IBM Plex Mono',monospace" font-size="13" letter-spacing="4" text-anchor="middle">DIEX</text>
+
+        <!-- vertical dimension H -->
+        <g stroke="#5b8bff" stroke-width="1" fill="none">
+          <line x1="118" y1="64" x2="118" y2="331"/>
+          <path d="M114 70 L118 64 L122 70"/><path d="M114 325 L118 331 L122 325"/>
+          <line x1="114" y1="64" x2="184" y2="64" stroke-dasharray="2 4" stroke-opacity=".35"/>
+          <line x1="114" y1="331" x2="168" y2="331" stroke-dasharray="2 4" stroke-opacity=".35"/>
+        </g>
+        <text x="110" y="198" fill="#cdd8ec" font-family="'IBM Plex Mono',monospace" font-size="11" letter-spacing="1" text-anchor="middle" transform="rotate(-90 110 198)">H · 1370</text>
+
+        <!-- horizontal dimension Ø -->
+        <g stroke="#5b8bff" stroke-width="1" fill="none">
+          <line x1="152" y1="358" x2="248" y2="358"/>
+          <path d="M158 354 L152 358 L158 362"/><path d="M242 354 L248 358 L242 362"/>
+          <line x1="152" y1="322" x2="152" y2="362" stroke-dasharray="2 4" stroke-opacity=".35"/>
+          <line x1="248" y1="322" x2="248" y2="362" stroke-dasharray="2 4" stroke-opacity=".35"/>
+        </g>
+        <text x="200" y="378" fill="#cdd8ec" font-family="'IBM Plex Mono',monospace" font-size="11" letter-spacing="1" text-anchor="middle">Ø 229</text>
+
+        <!-- pressure callout -->
+        <g stroke="#f15a22" stroke-width="1"><line x1="248" y1="178" x2="298" y2="166"/></g>
+        <circle cx="248" cy="178" r="2.6" fill="#f15a22"/>
+        <text x="304" y="163" fill="#f15a22" font-family="'IBM Plex Mono',monospace" font-size="11" letter-spacing="1">P · 150 bar</text>
+        <text x="304" y="178" fill="#5d6c84" font-family="'IBM Plex Mono',monospace" font-size="8.5" letter-spacing="1">робочий тиск</text>
+
+        <!-- verdict -->
+        <circle cx="296" cy="372" r="3" fill="#36c98e"/>
+        <text x="305" y="376" fill="#36c98e" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="1">ПРИДАТНИЙ</text>
+      </svg>
+    </div>
+
+    <!-- R2C1 square img -->
+    <div class="imgb sq filled p-r2c1">
+      <span class="regmark tl"></span><span class="regmark tr"></span><span class="regmark bl"></span><span class="regmark br"></span>
+      <svg class="blueprint" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Технічна схема автоцистерни ADR з небезпечним вантажем">
+        <defs>
+          <linearGradient id="bp2-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#13203a"/><stop offset="1" stop-color="#0b1320"/></linearGradient>
+          <radialGradient id="bp2-glow" cx="50%" cy="2%" r="78%"><stop offset="0" stop-color="#1e57e3" stop-opacity=".22"/><stop offset="60%" stop-color="#1e57e3" stop-opacity="0"/></radialGradient>
+          <pattern id="bp2-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#ffffff" stroke-opacity=".05" stroke-width="1"/></pattern>
+        </defs>
+        <rect width="400" height="400" fill="url(#bp2-bg)"/>
+        <rect width="400" height="400" fill="url(#bp2-grid)"/>
+        <rect width="400" height="400" fill="url(#bp2-glow)"/>
+
+        <!-- header + status -->
+        <text x="28" y="36" fill="#9aa6bb" font-family="'IBM Plex Mono',monospace" font-size="11" letter-spacing="2">ОБ'ЄКТ · ЦИСТЕРНА</text>
+        <text x="28" y="52" fill="#5d6c84" font-family="'IBM Plex Mono',monospace" font-size="9.5" letter-spacing="1">ADR · 6.8 · 24 М³</text>
+        <circle cx="285" cy="32" r="3" fill="#36c98e"/>
+        <text x="294" y="36" fill="#36c98e" font-family="'IBM Plex Mono',monospace" font-size="9.5" letter-spacing="1">СЕРТИФІКОВАНО</text>
+
+        <!-- road -->
+        <line x1="40" y1="312" x2="360" y2="312" stroke="#cdd8ec" stroke-opacity=".22" stroke-width="1" stroke-dasharray="3 6"/>
+
+        <!-- chassis + supports -->
+        <g stroke="#cdd8ec" stroke-width="1.6" fill="none" stroke-linecap="round">
+          <line x1="62" y1="272" x2="345" y2="272"/>
+          <line x1="120" y1="250" x2="120" y2="272"/>
+          <line x1="280" y1="250" x2="280" y2="272"/>
+          <rect x="80" y="272" width="8" height="20" rx="1"/>
+          <line x1="74" y1="292" x2="94" y2="292"/>
+        </g>
+
+        <!-- tank -->
+        <g stroke="#cdd8ec" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M110 150 H290 Q330 150 330 200 Q330 250 290 250 H110 Q70 250 70 200 Q70 150 110 150 Z" fill="#5b8bff" fill-opacity=".06"/>
+          <path d="M108 151 Q92 200 108 249"/>
+          <path d="M292 151 Q308 200 292 249"/>
+          <rect x="186" y="138" width="28" height="14" rx="3"/>
+          <circle cx="200" cy="145" r="4"/>
+        </g>
+        <!-- stiffening rings -->
+        <line x1="150" y1="152" x2="150" y2="248" stroke="#cdd8ec" stroke-opacity=".3" stroke-width="1" stroke-dasharray="3 5"/>
+        <line x1="250" y1="152" x2="250" y2="248" stroke="#cdd8ec" stroke-opacity=".3" stroke-width="1" stroke-dasharray="3 5"/>
+
+        <!-- ADR hazard plate -->
+        <rect x="168" y="184" width="64" height="32" rx="2" fill="#f15a22" fill-opacity=".08" stroke="#f15a22" stroke-width="1.4"/>
+        <line x1="168" y1="200" x2="232" y2="200" stroke="#f15a22" stroke-width="1"/>
+        <text x="200" y="197" fill="#f15a22" font-family="'IBM Plex Mono',monospace" font-size="11" font-weight="600" letter-spacing="2" text-anchor="middle">33</text>
+        <text x="200" y="213" fill="#f15a22" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="2" text-anchor="middle">1203</text>
+
+        <!-- wheels -->
+        <g stroke="#cdd8ec" stroke-width="1.6" fill="none">
+          <line x1="252" y1="292" x2="323" y2="292"/>
+          <circle cx="270" cy="292" r="18"/><circle cx="270" cy="292" r="6"/>
+          <circle cx="305" cy="292" r="18"/><circle cx="305" cy="292" r="6"/>
+        </g>
+
+        <!-- length dimension -->
+        <g stroke="#5b8bff" stroke-width="1" fill="none">
+          <line x1="70" y1="350" x2="330" y2="350"/>
+          <path d="M76 346 L70 350 L76 354"/><path d="M324 346 L330 350 L324 354"/>
+          <line x1="70" y1="250" x2="70" y2="350" stroke-dasharray="2 4" stroke-opacity=".3"/>
+          <line x1="330" y1="250" x2="330" y2="350" stroke-dasharray="2 4" stroke-opacity=".3"/>
+        </g>
+        <text x="200" y="370" fill="#cdd8ec" font-family="'IBM Plex Mono',monospace" font-size="11" letter-spacing="1" text-anchor="middle">L · 8200</text>
+      </svg>
+    </div>
+
+    <!-- R2C2 featured (dark) -->
+    <a class="card feat p-r2c2" href="cysterny.html">
+      <div class="card-top">
+        <span class="feat-flag">Основний напрям</span>
+        <span class="card-code">ADR 6.8</span>
+      </div>
+      <span class="card-ico" style="margin-bottom:16px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="8" width="15" height="8" rx="3"/><path d="M16 11h5l1 4h-6"/><circle cx="5.5" cy="18" r="1.9"/><circle cx="13" cy="18" r="1.9"/><circle cx="19" cy="18" r="1.9"/></svg>
+      </span>
+      <h3>Сертифікація та перевірка цистерн для небезпечних вантажів</h3>
+      <p>Технічний нагляд, сертифікація та періодична перевірка автоцистерн і знімних цистерн за угодою ADR — від інспекції до видачі свідоцтва.</p>
+      <span class="card-link">Детальніше <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- R2C3 -->
+    <a class="card p-r2c3" href="inspection.html">
+      <div class="card-top">
+        <span class="card-code">НК · УЗД/МК/РК</span>
+        <span class="card-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M8 11h6M11 8v6"/></svg>
+        </span>
+      </div>
+      <h3>Технічний огляд, діагностування та неруйнівний контроль</h3>
+      <p>Діагностування резервуарів, трубопроводів та обладнання підвищеної небезпеки: ультразвуковий, магнітний і радіографічний контроль.</p>
+      <span class="card-link">Детальніше <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- R3C1 soon -->
+    <div class="card soon p-r3c1">
+      <div class="card-top">
+        <span class="card-code">ISO 6892 · незабаром</span>
+        <span class="card-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6.2l-4.4 8.9A1 1 0 0 0 6.5 20h11a1 1 0 0 0 .9-1.5L14 9.2V3"/></svg>
+        </span>
+      </div>
+      <h3>Лабораторія та руйнівні випробування</h3>
+      <p>Механічні та фізико-хімічні випробування матеріалів і зварних з'єднань: розривні, згинальні й ударні тести за ДСТУ та ISO.</p>
+      <span class="card-link">Скоро відкриється</span>
+    </div>
+
+    <!-- R4 rect img : reshaped to 2-card slot, sits beside the Lab card -->
+    <div class="imgb rect filled p-r4">
+      <span class="regmark tl"></span><span class="regmark tr"></span><span class="regmark bl"></span><span class="regmark br"></span>
+      <svg class="blueprint" viewBox="0 0 800 296" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Технічна схема горизонтального резервуара з ультразвуковим контролем зварних швів та А-скан осцилограмою">
+        <defs>
+          <linearGradient id="bp3-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#13203a"/><stop offset="1" stop-color="#0b1320"/></linearGradient>
+          <radialGradient id="bp3-glow" cx="40%" cy="0%" r="70%"><stop offset="0" stop-color="#1e57e3" stop-opacity=".2"/><stop offset="65%" stop-color="#1e57e3" stop-opacity="0"/></radialGradient>
+          <pattern id="bp3-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#ffffff" stroke-opacity=".05" stroke-width="1"/></pattern>
+        </defs>
+        <rect width="800" height="296" fill="url(#bp3-bg)"/>
+        <rect width="800" height="296" fill="url(#bp3-grid)"/>
+        <rect width="800" height="296" fill="url(#bp3-glow)"/>
+
+        <!-- header + verdict -->
+        <text x="24" y="32" fill="#9aa6bb" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="2">ОБ'ЄКТ · РЕЗЕРВУАР</text>
+        <text x="24" y="48" fill="#5d6c84" font-family="'IBM Plex Mono',monospace" font-size="9.5" letter-spacing="1">НК · УЗД · КОНТРОЛЬ ШВІВ</text>
+        <circle cx="28" cy="268" r="3" fill="#36c98e"/>
+        <text x="38" y="272" fill="#36c98e" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="1">БЕЗ ДЕФЕКТІВ</text>
+
+        <!-- foundation + saddles -->
+        <line x1="60" y1="211" x2="566" y2="211" stroke="#cdd8ec" stroke-opacity=".22" stroke-width="1" stroke-dasharray="3 6"/>
+        <g stroke="#cdd8ec" stroke-width="1.6" fill="none" stroke-linejoin="round">
+          <path d="M150 210 L168 186 L206 186 L224 210 Z"/>
+          <path d="M400 210 L418 186 L456 186 L474 210 Z"/>
+        </g>
+
+        <!-- vessel -->
+        <g stroke="#cdd8ec" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M120 86 H510 Q560 86 560 136 Q560 186 510 186 H120 Q70 186 70 136 Q70 86 120 86 Z" fill="#5b8bff" fill-opacity=".06"/>
+          <path d="M118 87 Q78 136 118 185"/>
+          <path d="M512 87 Q552 136 512 185"/>
+        </g>
+        <line x1="70" y1="136" x2="560" y2="136" stroke="#cdd8ec" stroke-opacity=".15" stroke-width="1" stroke-dasharray="6 6"/>
+
+        <!-- inspection points T01 / T03 -->
+        <g font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1" text-anchor="middle">
+          <line x1="200" y1="87" x2="200" y2="185" stroke="#cdd8ec" stroke-opacity=".3" stroke-width="1" stroke-dasharray="3 5"/>
+          <circle cx="200" cy="136" r="6" fill="none" stroke="#5b8bff" stroke-width="1.2"/>
+          <line x1="191" y1="136" x2="209" y2="136" stroke="#5b8bff" stroke-width="1"/>
+          <line x1="200" y1="127" x2="200" y2="145" stroke="#5b8bff" stroke-width="1"/>
+          <circle cx="200" cy="66" r="2.5" fill="#36c98e"/>
+          <text x="200" y="80" fill="#cdd8ec">T01</text>
+
+          <line x1="440" y1="87" x2="440" y2="185" stroke="#cdd8ec" stroke-opacity=".3" stroke-width="1" stroke-dasharray="3 5"/>
+          <circle cx="440" cy="136" r="6" fill="none" stroke="#5b8bff" stroke-width="1.2"/>
+          <line x1="431" y1="136" x2="449" y2="136" stroke="#5b8bff" stroke-width="1"/>
+          <line x1="440" y1="127" x2="440" y2="145" stroke="#5b8bff" stroke-width="1"/>
+          <circle cx="440" cy="66" r="2.5" fill="#36c98e"/>
+          <text x="440" y="80" fill="#cdd8ec">T03</text>
+        </g>
+
+        <!-- UT probe at T02 (x=320) -->
+        <line x1="320" y1="87" x2="320" y2="185" stroke="#cdd8ec" stroke-opacity=".3" stroke-width="1" stroke-dasharray="3 5"/>
+        <text x="320" y="48" fill="#5b8bff" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1" text-anchor="middle">УЗД · T02</text>
+        <rect x="306" y="56" width="28" height="15" rx="2" fill="#101a2c" stroke="#cdd8ec" stroke-width="1.4"/>
+        <line x1="320" y1="71" x2="320" y2="86" stroke="#cdd8ec" stroke-width="1.4"/>
+        <g stroke="#5b8bff" stroke-width="1" fill="none" stroke-opacity=".55">
+          <path d="M320 86 L309 124"/><path d="M320 86 L331 124"/><path d="M309 124 Q320 132 331 124"/>
+        </g>
+
+        <!-- length dimension -->
+        <g stroke="#5b8bff" stroke-width="1" fill="none">
+          <line x1="70" y1="234" x2="560" y2="234"/>
+          <path d="M76 230 L70 234 L76 238"/><path d="M554 230 L560 234 L554 238"/>
+          <line x1="70" y1="186" x2="70" y2="234" stroke-dasharray="2 4" stroke-opacity=".3"/>
+          <line x1="560" y1="186" x2="560" y2="234" stroke-dasharray="2 4" stroke-opacity=".3"/>
+        </g>
+        <text x="315" y="230" fill="#cdd8ec" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="1" text-anchor="middle">L · 12000</text>
+
+        <!-- A-scan oscilloscope -->
+        <rect x="592" y="70" width="182" height="150" rx="4" fill="#0d1626" stroke="#5b8bff" stroke-opacity=".3" stroke-width="1"/>
+        <text x="606" y="90" fill="#9aa6bb" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1">A-SCAN · УЗД</text>
+        <line x1="604" y1="118" x2="762" y2="118" stroke="#5b8bff" stroke-opacity=".12" stroke-width="1"/>
+        <line x1="604" y1="150" x2="762" y2="150" stroke="#5b8bff" stroke-opacity=".12" stroke-width="1"/>
+        <line x1="604" y1="180" x2="762" y2="180" stroke="#5d6c84" stroke-opacity=".5" stroke-width="1"/>
+        <polyline points="604,180 616,180 620,128 624,180 640,180 700,180 704,158 708,180 740,180 746,108 752,180 762,180" fill="none" stroke="#5b8bff" stroke-width="1.4" stroke-linejoin="round"/>
+        <text x="746" y="102" fill="#5d6c84" font-family="'IBM Plex Mono',monospace" font-size="7.5" letter-spacing="1" text-anchor="middle">BWE</text>
+        <text x="606" y="206" fill="#5d6c84" font-family="'IBM Plex Mono',monospace" font-size="8" letter-spacing="1">ТОВЩ · 12.4 ММ</text>
+        <text x="762" y="206" fill="#36c98e" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1" text-anchor="end">✓ OK</text>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about" id="about">
+  <div class="about-in">
+    <div class="about-l">
+      <span class="tag">Про компанію</span>
+      <h2>Надійний партнер у промисловій безпеці</h2>
+      <p>НВП «ТЦ DIEX» — акредитований орган технічного нагляду зі спеціалізацією на сертифікації, інспекції та діагностиці промислового обладнання.</p>
+      <p>Працюємо з підприємствами хімічної, нафтогазової, транспортної та машинобудівної галузей, забезпечуючи відповідність обладнання чинним стандартам безпеки.</p>
+      <ul class="checks">
+        <li><span class="x"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>Офіційний дозвіл на проведення технічного нагляду</li>
+        <li><span class="x"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>Сертифіковані інженери на об'єктах підвищеної небезпеки</li>
+        <li><span class="x"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>Виїзд і виконання робіт по всій Україні</li>
+        <li><span class="x"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>Висновки та свідоцтва, що мають юридичну силу</li>
+      </ul>
+    </div>
+
+    <div class="sheet">
+      <div class="sheet-head">
+        <span class="tag">Паспорт · DIEX</span>
+        <span class="dot"></span>
+      </div>
+      <div class="sheet-rows">
+        <div class="sheet-cell"><div class="sheet-n">10+</div><div class="sheet-l">РОКІВ НА РИНКУ</div></div>
+        <div class="sheet-cell"><div class="sheet-n">05</div><div class="sheet-l">НАПРЯМКІВ</div></div>
+        <div class="sheet-cell"><div class="sheet-n">ADR</div><div class="sheet-l">ПОВНА ВІДПОВІДНІСТЬ</div></div>
+        <div class="sheet-cell"><div class="sheet-n">ДСТУ</div><div class="sheet-l">ВСІ СТАНДАРТИ</div></div>
+      </div>
+      <div class="sheet-foot">
+        <span class="chip">ДСТУ</span><span class="chip">ADR</span><span class="chip">ТР 154</span><span class="chip">ISO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta" id="contacts">
+  <div class="cta-box">
+    <div class="cta-l">
+      <span class="tag">Зв'язатися</span>
+      <h2>Потрібна консультація<br>або оцінка вартості?</h2>
+      <p>Спеціаліст розгляне вашу задачу та надасть відповідь у стислі терміни. Виїзд по всій Україні.</p>
+    </div>
+    <div class="cta-act">
+      <a href="tel:+380000000000" class="btn-white">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        Замовити дзвінок
+      </a>
+      <a href="mailto:info@diex.ua" class="btn-ghost">Написати на пошту</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-brand">
+      <a class="brand" href="#">
+        <span class="brand-mark"><span>TC</span></span>
+        <span>
+          <span class="brand-name">DIEX</span>
+          <span class="brand-sub">Технічний нагляд</span>
+        </span>
+      </a>
+      <p>Акредитований орган технічного нагляду та сертифікації промислового обладнання. Відповідність ДСТУ та ADR.</p>
+    </div>
+    <div>
+      <h4>Послуги</h4>
+      <ul>
+        <li><a href="tc.html">Сертифікація аерозолів</a></li>
+        <li><a href="balony.html">Сертифікація балонів</a></li>
+        <li><a href="cysterny.html">Перевірка цистерн</a></li>
+        <li><a href="inspection.html">Тех. діагностування</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакти</h4>
+      <ul>
+        <li>+38 (000) 000-00-00</li>
+        <li>info@diex.ua</li>
+        <li>Україна</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ftr-bot">
+    <span class="ftr-copy">© 2026 НВП «ТЦ DIEX» · Усі права захищені</span>
+    <div class="ftr-std"><span>ДСТУ</span><span>ADR</span><span>ТР 154</span></div>
+  </div>
+</footer>
+
+<a href="tel:+380000000000" class="mcall">Замовити дзвінок</a>
+
+<script>
+  const root=document.documentElement,
+        btn=document.getElementById('themeBtn'),
+        lbl=document.getElementById('themeLbl');
+  const saved=localStorage.getItem('diex-theme');
+  if(saved) root.setAttribute('data-theme',saved);
+  sync();
+  btn.addEventListener('click',()=>{
+    const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    localStorage.setItem('diex-theme',next);
+    sync();
+  });
+  function sync(){lbl.textContent=root.getAttribute('data-theme')==='dark'?'LIGHT':'DARK';}
+  addEventListener('scroll',()=>{
+    document.getElementById('hdr').style.boxShadow=scrollY>8?'0 2px 20px rgba(0,0,0,.10)':'none';
+  });
+</script>
 </body>
 </html>
