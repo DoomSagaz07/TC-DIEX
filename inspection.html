@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="dark">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18202402233"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18202402233');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Технічне діагностування та неруйнівний контроль | DIEX</title>
+<meta name="robots" content="index, follow">
+<meta name="description" content="Технічне діагностування, неруйнівний контроль, технічний огляд обладнання, резервуарів, цистерн та трубопроводів по всій Україні.">
+<meta name="keywords" content="технічне діагностування, неруйнівний контроль, ультразвуковий контроль, магнітопорошковий контроль, вихрострумовий контроль, акустична емісія, радіографічний контроль, технічний огляд обладнання, резервуари, цистерни, трубопроводи, промислове обладнання, ДІЕКС, DIEX, технічна діагностика Україна">
+<link rel="icon" href="logo TC DIEX.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0b1320;--ink-2:#121d31;--ink-3:#1b2942;
+  --on-ink:#eef2f8;--on-ink-mut:#9aa6bb;--on-ink-faint:#5d6c84;
+  --line-ink:rgba(255,255,255,.10);--line-ink-2:rgba(255,255,255,.06);
+  --blue:#1e57e3;--blue-br:#5b8bff;--orange:#f15a22;--orange-soft:#ff7a4d;--ok:#36c98e;
+  --paper:#eceff4;--card:#ffffff;--card-2:#f6f8fb;
+  --ink-text:#0b1320;--mut:#5a6679;--faint:#8b95a6;--line:#d7dde6;--line-2:#e6eaf0;
+  --r:4px;--r-lg:8px;--hh:66px;--max:1180px;
+}
+[data-theme="dark"]{
+  --paper:#0a111e;--card:#101a2c;--card-2:#0d1626;
+  --ink-text:#eef2f8;--mut:#9aa6bb;--faint:#5d6c84;--line:#1e2c46;--line-2:#17233a;
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink-text);font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .35s,color .35s}
+.tag{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--hh);background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:background .35s,border-color .35s}
+.hdr-in{height:100%;max-width:var(--max);margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:20px}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{text-decoration:none;color:var(--mut);font-size:14px;font-weight:500;padding:8px 14px;border-radius:var(--r);transition:color .2s,background .2s}
+.nav a:hover{color:var(--ink-text);background:var(--card-2)}
+.hdr-r{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.theme-btn{display:flex;align-items:center;gap:8px;padding:7px 11px;border-radius:var(--r);border:1px solid var(--line);background:none;cursor:pointer;color:var(--mut);font-family:'IBM Plex Mono';font-size:11px;font-weight:500;letter-spacing:.5px;transition:border-color .2s,color .2s}
+.theme-btn:hover{border-color:var(--faint);color:var(--ink-text)}
+.ttrack{width:28px;height:15px;border-radius:999px;background:var(--line);position:relative;flex-shrink:0;transition:background .35s}
+[data-theme="dark"] .ttrack{background:var(--blue)}
+.tknob{position:absolute;top:2px;left:2px;width:9px;height:9px;border-radius:50%;background:var(--faint);transition:transform .35s,background .35s}
+[data-theme="dark"] .tknob{background:#fff;transform:translateX(13px)}
+.btn-warn{padding:9px 18px;border-radius:var(--r);background:var(--orange);color:#fff;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .2s,transform .15s}
+.btn-warn:hover{background:#d8481a;transform:translateY(-1px)}
+.hero{position:relative;background:var(--ink);color:var(--on-ink);padding:calc(var(--hh) + 70px) 28px 64px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(var(--line-ink-2) 1px,transparent 1px) 0 0/100% 56px,linear-gradient(90deg,var(--line-ink-2) 1px,transparent 1px) 0 0/56px 100%;mask-image:radial-gradient(120% 90% at 50% 0%,#000 40%,transparent 100%);opacity:.7}
+.hero::after{content:"";position:absolute;top:-30%;right:-10%;width:780px;height:780px;pointer-events:none;background:radial-gradient(circle,rgba(30,87,227,.28),transparent 62%);filter:blur(10px)}
+.hero-in{position:relative;max-width:var(--max);margin:0 auto;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;padding:10px 16px;border-radius:999px;background:rgba(241,90,34,.12);border:1px solid rgba(241,90,34,.22);color:var(--orange-soft);font-family:'IBM Plex Mono';font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px}
+.hero h1{font-family:'Space Grotesk';font-size:clamp(36px,5vw,64px);line-height:.95;font-weight:800;margin-bottom:24px;color:var(--on-ink)}
+.hero-desc{font-size:17px;line-height:1.8;color:var(--on-ink-mut);margin-bottom:28px}
+.points{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.point{padding:10px 16px;border-radius:var(--r-lg);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);font-size:13px;font-weight:700;color:var(--on-ink)}
+.cta-group{display:flex;gap:12px;flex-wrap:wrap}
+.btn-orange{display:inline-flex;align-items:center;justify-content:center;padding:14px 26px;border-radius:999px;font-weight:700;background:var(--orange);color:#fff;text-decoration:none;font-size:15px;box-shadow:0 10px 30px rgba(241,90,34,.25);transition:transform .2s,background .2s}
+.btn-orange:hover{transform:translateY(-3px);background:#d8481a}
+.btn-outline-hero{display:inline-flex;align-items:center;justify-content:center;padding:13px 26px;border-radius:999px;font-weight:700;border:1px solid rgba(255,255,255,.15);color:var(--on-ink);text-decoration:none;font-size:15px;transition:background .2s,border-color .2s}
+.btn-outline-hero:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3)}
+.form-card{background:rgba(255,255,255,.07);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.09);padding:36px;border-radius:var(--r-lg);box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.form-card h3{font-family:'Space Grotesk';font-size:26px;font-weight:700;margin-bottom:10px;color:var(--on-ink)}
+.form-card p{font-size:14px;color:var(--on-ink-mut);margin-bottom:20px}
+.hero-input{width:100%;height:52px;border:none;border-radius:var(--r-lg);padding:0 16px;font-size:14px;margin-bottom:12px;color:#111827;outline:none;font-family:'IBM Plex Sans',sans-serif;background:#fff}
+textarea.hero-input{height:100px;resize:none;padding-top:14px}
+.svc{padding:72px 28px;background:var(--paper);transition:background .35s}
+.svc-head{max-width:var(--max);margin:0 auto 40px;padding-bottom:20px;border-bottom:1px solid var(--line);transition:border-color .35s}
+.svc-head .tag{color:var(--orange);display:block;margin-bottom:10px}
+.svc-head h2{font-family:'Space Grotesk';font-size:clamp(26px,3vw,40px);font-weight:700;letter-spacing:-1px;line-height:1.05;color:var(--ink-text);transition:color .35s}
+.svc-head .section-text{font-size:16px;line-height:1.75;color:var(--mut);max-width:640px;margin-top:12px;transition:color .35s}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;max-width:var(--max);margin:0 auto}
+.stat-card{background:var(--card);border:1px solid var(--line);padding:28px 24px;border-radius:var(--r-lg);transition:border-color .2s,background .35s}
+.stat-card:hover{border-color:var(--blue)}
+.stat-number{font-family:'Space Grotesk';font-size:44px;font-weight:800;color:var(--orange);margin-bottom:8px;line-height:1}
+.stat-title{font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:10px;color:var(--ink-text);transition:color .35s}
+.stat-card p{color:var(--mut);line-height:1.7;font-size:13px;transition:color .35s}
+.section-wrap{padding:72px 28px;background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .35s,border-color .35s}
+.services-grid,.methods-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;max-width:var(--max);margin:0 auto}
+.service-card,.method-card{background:var(--card-2);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;transition:border-color .2s,transform .2s,background .35s}
+.service-card:hover,.method-card:hover{transform:translateY(-6px);border-color:var(--orange)}
+.service-card img,.method-card img{width:100%;height:200px;object-fit:cover}
+.service-card h3,.method-card h3{font-family:'Space Grotesk';font-size:20px;font-weight:700;padding:22px 22px 10px;color:var(--ink-text);transition:color .35s}
+.service-card p,.method-card p{padding:0 22px 22px;line-height:1.7;color:var(--mut);font-size:14px;transition:color .35s}
+.cta{padding:64px 28px}
+.cta-box{position:relative;max-width:var(--max);margin:0 auto;background:var(--ink);border-radius:var(--r-lg);padding:52px 56px;overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.cta-box::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px 300px at 85% 50%,rgba(30,87,227,.22),transparent 70%)}
+.cta-box::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange)}
+.cta-l{position:relative;z-index:1}
+.cta-l .tag{color:var(--blue-br);display:block;margin-bottom:12px}
+.cta-l h2{font-family:'Space Grotesk';font-size:clamp(24px,2.6vw,34px);font-weight:700;color:var(--on-ink);letter-spacing:-1px;line-height:1.12;margin-bottom:12px}
+.cta-l p{color:var(--on-ink-mut);font-size:15px;line-height:1.75;max-width:440px}
+.cta-act{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px}
+.btn-white{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:var(--r);background:#fff;color:var(--ink);font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;transition:transform .15s,background .2s}
+.btn-white:hover{background:#e9eefb;transform:translateY(-1px)}
+.ftr{background:var(--paper);border-top:1px solid var(--line);padding:48px 28px 26px;transition:background .35s,border-color .35s}
+.ftr-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:36px}
+.ftr-brand p{color:var(--faint);font-size:13px;line-height:1.75;margin-top:12px;max-width:270px;transition:color .35s}
+.ftr h4{font-family:'IBM Plex Mono';font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-text);margin-bottom:14px;transition:color .35s}
+.ftr ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ftr a{text-decoration:none;color:var(--mut);font-size:13.5px;font-weight:500;transition:color .2s}
+.ftr a:hover{color:var(--blue)}
+.ftr li:not(:has(a)){color:var(--faint);font-size:13.5px;font-family:'IBM Plex Mono';transition:color .35s}
+.ftr-bot{max-width:var(--max);margin:0 auto;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:border-color .35s}
+.ftr-copy{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:var(--faint);transition:color .35s}
+.ftr-std{display:flex;gap:6px}
+.ftr-std span{font-family:'IBM Plex Mono';font-size:10px;font-weight:500;color:var(--faint);padding:3px 8px;border:1px solid var(--line);border-radius:var(--r);transition:border-color .35s,color .35s}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:2px}
+@media(max-width:1024px){
+  .nav{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .services-grid,.methods-grid{grid-template-columns:1fr 1fr}
+  .cta-box{grid-template-columns:1fr;padding:40px;gap:28px}
+  .cta-act{flex-direction:row}
+  .ftr-in{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .services-grid,.methods-grid{grid-template-columns:1fr}
+  .cta-box{padding:30px 24px}
+  .cta-act{flex-direction:column}
+  .ftr-in{grid-template-columns:1fr}
+  .ftr-bot{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a href="index.html" style="display:flex;align-items:center;text-decoration:none;flex-shrink:0">
+      <svg height="40" viewBox="140 260 640 215" xmlns="http://www.w3.org/2000/svg">
+        <path style="fill:var(--ink-text);stroke:none" d="m 234.10188,337.50291 0.72477,-26.57503 h 52.66688 c 0,0 40.10414,8.45569 41.3121,50.00938 1.20795,41.55368 -29.71572,53.63324 -29.71572,53.63324 l -14.74208,3.45241 -36.81403,36.81404 47.06388,-0.42708 c 0,0 73.37182,-16.05809 73.37182,-89.51533 0,-73.45723 -66.11151,-91.56529 -91.5653,-91.56529 -25.45379,0 -78.75299,0 -78.75299,0 v 96.00689 z"/>
+        <path style="fill:#297fff;stroke:none" d="m 197.38001,414.08732 0.24159,41.43289 83.71136,-77.30918 -43.12403,-0.60398 z"/>
+        <text style="font-size:233.333px;font-family:Impact,'Arial Narrow',sans-serif;font-stretch:condensed;fill:var(--ink-text);stroke:none" x="375.41321" y="456.60797">IEX</text>
+      </svg>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Головна</a>
+      <a href="#advantages">Переваги</a>
+      <a href="#services">Послуги</a>
+      <a href="#methods">Методи</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <div class="hdr-r">
+      <button class="theme-btn" id="themeBtn" aria-label="Перемкнути тему">
+        <span class="ttrack"><span class="tknob"></span></span>
+        <span id="themeLbl">DARK</span>
+      </button>
+      <a href="#contacts" class="btn-warn">Отримати консультацію</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-in">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">Технічний контроль та діагностика</div>
+        <h1>Технічне діагностування та неруйнівний контроль промислового обладнання</h1>
+        <p class="hero-desc">Професійний технічний огляд, діагностика та неруйнівний контроль обладнання, резервуарів, цистерн, трубопроводів та об'єктів підвищеної небезпеки відповідно до ДСТУ, ADR та галузевих стандартів.</p>
+        <div class="points">
+          <div class="point">✓ Виїзд по всій Україні</div>
+          <div class="point">✓ Сертифіковані фахівці</div>
+          <div class="point">✓ Сучасне обладнання</div>
+          <div class="point">✓ Швидкий технічний звіт</div>
+        </div>
+        <div class="cta-group">
+          <a href="#contacts" class="btn-orange">Замовити діагностику</a>
+          <a href="tel:+380000000000" class="btn-outline-hero">Замовити дзвінок</a>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>Отримати консультацію</h3>
+        <p>Залиште заявку — наш спеціаліст зв'яжеться з вами найближчим часом</p>
+        <input type="text" class="hero-input" placeholder="Ваше ім'я">
+        <input type="tel" class="hero-input" placeholder="+380">
+        <input type="text" class="hero-input" placeholder="Тип обладнання">
+        <textarea class="hero-input" placeholder="Коротко опишіть задачу"></textarea>
+        <button class="btn-orange" style="width:100%;border:none;cursor:pointer">Передзвоніть мені</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="svc" id="advantages">
+  <div class="svc-head">
+    <span class="tag">Чому обирають нас</span>
+    <h2>Надійна технічна діагностика для промислових об'єктів</h2>
+    <p class="section-text">Працюємо з обладнанням, резервуарами, цистернами, трубопроводами та об'єктами підвищеної небезпеки по всій Україні.</p>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">14+</div>
+      <div class="stat-title">Методів контролю</div>
+      <p>Комплексна технічна діагностика обладнання та металоконструкцій.</p>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">1000+</div>
+      <div class="stat-title">Перевірених об'єктів</div>
+      <p>Досвід роботи з небезпечними та промисловими об'єктами.</p>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">24/7</div>
+      <div class="stat-title">Консультація</div>
+      <p>Швидка технічна підтримка та оперативний виїзд.</p>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">100%</div>
+      <div class="stat-title">Відповідність нормам</div>
+      <p>Контроль відповідно до ДСТУ та галузевих стандартів.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-wrap" id="services">
+  <div class="svc-head" style="max-width:var(--max);margin-left:auto;margin-right:auto">
+    <span class="tag">Наші послуги</span>
+    <h2>Комплексні рішення для технічного контролю</h2>
+    <p class="section-text">Виконуємо неруйнівний контроль та технічну діагностику для промислового обладнання.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="ut.png" alt="Ультразвукова дефектоскопія">
+      <h3>Ультразвукова дефектоскопія</h3>
+      <p>Виявлення внутрішніх дефектів, тріщин, корозії та непроварів у металевих конструкціях.</p>
+    </div>
+    <div class="service-card">
+      <img src="acust.png" alt="Акустико-емісійний контроль">
+      <h3>Акустико-емісійний контроль</h3>
+      <p>Реєстрація розвитку дефектів у режимі реального часу без зупинки обладнання.</p>
+    </div>
+    <div class="service-card">
+      <img src="kapilar.png" alt="Капілярний контроль">
+      <h3>Капілярний контроль</h3>
+      <p>Виявлення дрібних поверхневих тріщин та порушень суцільності металу.</p>
+    </div>
+    <div class="service-card">
+      <img src="magnit.png" alt="Магнітно-порошковий контроль">
+      <h3>Магнітно-порошковий контроль</h3>
+      <p>Пошук поверхневих та підповерхневих дефектів металу з високою точністю.</p>
+    </div>
+    <div class="service-card">
+      <img src="rengen.png" alt="Радіографічний контроль">
+      <h3>Радіографічний контроль</h3>
+      <p>Виявлення внутрішніх дефектів зварних з'єднань методом рентгенографії.</p>
+    </div>
+    <div class="service-card">
+      <img src="spectr.png" alt="Спектральний аналіз">
+      <h3>Спектральний аналіз</h3>
+      <p>Визначення хімічного складу металів та сплавів без руйнування зразка.</p>
+    </div>
+  </div>
+</div>
+
+<section class="svc" id="methods">
+  <div class="svc-head">
+    <span class="tag">Методи контролю</span>
+    <h2>Сучасні методи неруйнівного контролю</h2>
+    <p class="section-text">Використовуємо сучасне обладнання для точного визначення дефектів без руйнування матеріалу.</p>
+  </div>
+  <div class="methods-grid">
+    <div class="method-card">
+      <img src="ut.png" alt="Ультразвуковий контроль">
+      <h3>Ультразвуковий контроль</h3>
+      <p>Пошук внутрішніх пошкоджень та неоднорідностей металу.</p>
+    </div>
+    <div class="method-card">
+      <img src="acust.png" alt="Акустико-емісійний контроль">
+      <h3>Акустико-емісійний контроль</h3>
+      <p>Моніторинг розвитку тріщин та дефектів у реальному часі.</p>
+    </div>
+    <div class="method-card">
+      <img src="kapilar.png" alt="Капілярний контроль">
+      <h3>Капілярний контроль</h3>
+      <p>Виявлення мікротріщин на поверхні металу.</p>
+    </div>
+    <div class="method-card">
+      <img src="magnit.png" alt="Магнітний контроль">
+      <h3>Магнітний контроль</h3>
+      <p>Виявлення поверхневих дефектів феромагнітних матеріалів.</p>
+    </div>
+    <div class="method-card">
+      <img src="metal doslid.png" alt="Металографічні дослідження">
+      <h3>Металографічні дослідження</h3>
+      <p>Аналіз структури металу та причин руйнування.</p>
+    </div>
+    <div class="method-card">
+      <img src="teplo.png" alt="Тепловізійний контроль">
+      <h3>Тепловізійний контроль</h3>
+      <p>Виявлення прихованих дефектів за розподілом теплового поля.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contacts">
+  <div class="cta-box">
+    <div class="cta-l">
+      <span class="tag">Зв'язатися</span>
+      <h2>Замовити діагностику або консультацію</h2>
+      <p>Спеціаліст розгляне вашу задачу та надасть відповідь у стислі терміни. Виїзд по всій Україні.</p>
+    </div>
+    <div class="cta-act">
+      <a href="tel:+380000000000" class="btn-white">Замовити дзвінок</a>
+      <a href="index.html" class="btn-white">На головну</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-brand">
+      <div style="display:flex;align-items:center;gap:8px">
+        <img src="logo TC DIEX.jpg" alt="TC DIEX" style="height:36px;border-radius:var(--r);background:#fff;padding:3px">
+      </div>
+      <p>Акредитований орган технічного нагляду. Технічне діагностування та неруйнівний контроль промислового обладнання.</p>
+    </div>
+    <div>
+      <h4>Послуги</h4>
+      <ul>
+        <li><a href="tc.html">Сертифікація аерозолів</a></li>
+        <li><a href="balony.html">Сертифікація балонів</a></li>
+        <li><a href="cysterny.html">Перевірка цистерн</a></li>
+        <li><a href="inspection.html">Тех. діагностування</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Методи НК</h4>
+      <ul>
+        <li>Ультразвуковий</li>
+        <li>Капілярний</li>
+        <li>Магнітний</li>
+        <li>Радіографічний</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ftr-bot">
+    <span class="ftr-copy">© 2026 ОТН DIEX. Всі права захищені.</span>
+    <div class="ftr-std"><span>ДСТУ</span><span>ADR</span><span>НК</span></div>
+  </div>
+</footer>
+
+<script>
+const root=document.documentElement,btn=document.getElementById('themeBtn'),lbl=document.getElementById('themeLbl');
+const saved=localStorage.getItem('diex-theme');
+if(saved)root.setAttribute('data-theme',saved);
+sync();
+btn.addEventListener('click',()=>{const next=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',next);localStorage.setItem('diex-theme',next);sync();});
+function sync(){lbl.textContent=root.getAttribute('data-theme')==='dark'?'LIGHT':'DARK';}
+addEventListener('scroll',()=>{document.getElementById('hdr').style.boxShadow=scrollY>8?'0 2px 20px rgba(0,0,0,.10)':'none';});
+</script>
+</body>
+</html>

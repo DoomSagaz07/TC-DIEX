@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Незабаром — Лабораторія | ТЦ DIEX</title>
+<link rel="icon" href="logo TC DIEX.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0b1320;--ink-2:#121d31;--ink-3:#1b2942;
+  --on-ink:#eef2f8;--on-ink-mut:#9aa6bb;--on-ink-faint:#5d6c84;
+  --line-ink:rgba(255,255,255,.10);--line-ink-2:rgba(255,255,255,.06);
+  --blue:#1e57e3;--blue-br:#5b8bff;--orange:#f15a22;--orange-soft:#ff7a4d;--ok:#36c98e;
+  --paper:#eceff4;--card:#ffffff;--card-2:#f6f8fb;
+  --ink-text:#0b1320;--mut:#5a6679;--faint:#8b95a6;--line:#d7dde6;
+  --r:4px;--r-lg:8px;--hh:66px;--max:1180px;
+}
+[data-theme="dark"]{
+  --paper:#0a111e;--card:#101a2c;--card-2:#0d1626;
+  --ink-text:#eef2f8;--mut:#9aa6bb;--faint:#5d6c84;--line:#1e2c46;
+}
+html,body{height:100%;-webkit-font-smoothing:antialiased}
+body{
+  background:var(--ink);
+  color:var(--on-ink);
+  font-family:'IBM Plex Sans',-apple-system,sans-serif;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:100vh;
+  overflow:hidden;
+  position:relative;
+}
+
+/* grid background */
+body::before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;
+  background:
+    linear-gradient(var(--line-ink-2) 1px,transparent 1px) 0 0 / 60px 60px,
+    linear-gradient(90deg,var(--line-ink-2) 1px,transparent 1px) 0 0 / 60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 30%,transparent 100%);
+}
+
+/* glow */
+.glow{
+  position:fixed;pointer-events:none;border-radius:50%;filter:blur(80px);
+}
+.glow-1{width:700px;height:700px;top:-200px;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(30,87,227,.22),transparent 70%)}
+.glow-2{width:400px;height:400px;bottom:-100px;right:10%;background:radial-gradient(circle,rgba(241,90,34,.12),transparent 70%)}
+
+/* header */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:10;height:var(--hh);display:flex;align-items:center;padding:0 28px;border-bottom:1px solid var(--line-ink)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{height:40px;border-radius:var(--r);background:#fff;padding:4px}
+.back-btn{margin-left:auto;display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:var(--r);border:1px solid var(--line-ink);color:var(--on-ink-mut);font-family:'IBM Plex Mono';font-size:11px;font-weight:500;letter-spacing:.5px;text-decoration:none;transition:border-color .2s,color .2s}
+.back-btn:hover{border-color:rgba(255,255,255,.25);color:var(--on-ink)}
+.back-btn svg{flex-shrink:0}
+
+/* main */
+.wrap{position:relative;z-index:1;text-align:center;padding:0 28px;max-width:640px}
+
+/* badge */
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;border-radius:999px;
+  background:rgba(241,90,34,.10);border:1px solid rgba(241,90,34,.20);
+  font-family:'IBM Plex Mono';font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--orange-soft);margin-bottom:32px;
+}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+/* code block */
+.code-num{
+  font-family:'Space Grotesk';
+  font-size:clamp(100px,18vw,180px);
+  font-weight:800;line-height:1;
+  letter-spacing:-8px;
+  background:linear-gradient(135deg,var(--on-ink-faint) 0%,var(--on-ink-mut) 50%,var(--on-ink-faint) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:8px;
+  user-select:none;
+}
+
+.title{
+  font-family:'Space Grotesk';
+  font-size:clamp(28px,5vw,48px);
+  font-weight:800;line-height:1.05;
+  letter-spacing:-1.5px;
+  margin-bottom:18px;
+  color:var(--on-ink);
+}
+.title em{
+  font-style:normal;
+  background:linear-gradient(90deg,var(--orange-soft),var(--blue-br));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+.desc{
+  font-size:16px;line-height:1.8;
+  color:var(--on-ink-mut);
+  max-width:420px;margin:0 auto 36px;
+}
+
+/* pills */
+.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:40px}
+.pill{
+  padding:7px 14px;border-radius:var(--r);
+  background:rgba(255,255,255,.05);border:1px solid var(--line-ink);
+  font-family:'IBM Plex Mono';font-size:11px;font-weight:500;letter-spacing:.5px;
+  color:var(--on-ink-faint);
+}
+
+/* cta */
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-home{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 24px;border-radius:var(--r-lg);
+  background:var(--blue);color:#fff;
+  font-size:14px;font-weight:600;text-decoration:none;
+  transition:background .2s,transform .15s;
+}
+.btn-home:hover{background:#1748c4;transform:translateY(-2px)}
+.btn-call{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:var(--r-lg);
+  border:1px solid var(--line-ink);color:var(--on-ink-mut);
+  font-size:14px;font-weight:500;text-decoration:none;
+  transition:border-color .2s,color .2s,transform .15s;
+}
+.btn-call:hover{border-color:rgba(255,255,255,.25);color:var(--on-ink);transform:translateY(-2px)}
+
+/* footer note */
+.ftr-note{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1px;
+  color:var(--on-ink-faint);white-space:nowrap;
+}
+</style>
+</head>
+<body>
+
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+
+<header class="hdr">
+  <a class="brand" href="index.html" style="display:flex;align-items:center;text-decoration:none">
+    <svg height="40" viewBox="140 260 640 215" xmlns="http://www.w3.org/2000/svg">
+      <path style="fill:var(--on-ink);stroke:none" d="m 234.10188,337.50291 0.72477,-26.57503 h 52.66688 c 0,0 40.10414,8.45569 41.3121,50.00938 1.20795,41.55368 -29.71572,53.63324 -29.71572,53.63324 l -14.74208,3.45241 -36.81403,36.81404 47.06388,-0.42708 c 0,0 73.37182,-16.05809 73.37182,-89.51533 0,-73.45723 -66.11151,-91.56529 -91.5653,-91.56529 -25.45379,0 -78.75299,0 -78.75299,0 v 96.00689 z"/>
+      <path style="fill:#297fff;stroke:none" d="m 197.38001,414.08732 0.24159,41.43289 83.71136,-77.30918 -43.12403,-0.60398 z"/>
+      <text style="font-size:233.333px;font-family:Impact,'Arial Narrow',sans-serif;font-stretch:condensed;fill:var(--on-ink);stroke:none" x="375.41321" y="456.60797">IEX</text>
+    </svg>
+  </a>
+  <a class="back-btn" href="index.html">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    На головну
+  </a>
+</header>
+
+<div class="wrap">
+  <div class="badge">
+    <span class="badge-dot"></span>
+    В розробці
+  </div>
+
+  <div class="code-num">soon</div>
+
+  <h1 class="title">Незабаром<br><em>відкриється</em></h1>
+
+  <p class="desc">
+    Лабораторія механічних та руйнівних випробувань матеріалів і зварних з'єднань —&nbsp;ми активно готуємо цей розділ.
+  </p>
+
+  <div class="pills">
+    <span class="pill">ISO 6892 · Розтяг</span>
+    <span class="pill">ISO 148 · Шарпі</span>
+    <span class="pill">HB / HV / HRC</span>
+    <span class="pill">Металографія</span>
+    <span class="pill">Спектральний аналіз</span>
+  </div>
+
+  <div class="cta-row">
+    <a href="index.html" class="btn-home">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      На головну
+    </a>
+    <a href="tel:+380675617679" class="btn-call">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.66 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Зателефонувати
+    </a>
+  </div>
+</div>
+
+<p class="ftr-note">© 2026 ТЦ DIEX · Орган технічного нагляду</p>
+
+<script>
+const saved=localStorage.getItem('diex-theme');
+if(saved)document.documentElement.setAttribute('data-theme',saved);
+</script>
+</body>
+</html>

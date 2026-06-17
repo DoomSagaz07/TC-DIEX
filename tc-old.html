@@ -1,0 +1,500 @@
+﻿<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3977105266362580"
+     crossorigin="anonymous">
+    </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18202402233">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18202402233');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18202402233"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18202402233');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="НВП «ТЦ DIEX» — сертифікація аерозольної продукції в Україні. Професійний супровід ТР 154, оцінка відповідності, експертиза та документи для промислової безпеки.">
+    <link rel="icon" href="logo TC DIEX.jpg" type="image/jpeg">
+    <meta name="keywords" content="сертификация, сертификация аэрозолей, аэрозольная продукция, ТР 154, техрегламент, НВП ТЦ DIEX, оценка соответствия, промышленная безопасность, сертификация оборудования, сертификация продукции Украины, дымовые системы, переносные баллоны, безопасность производства, технический регламент, испытания, документация, аккредитация, подтверждение соответствия">
+    <title>НВП «ТЦ DIEX»</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+            .dropdownPanel {
+                max-height: 0;
+                opacity: 0;
+                transform: translateY(-8px);
+                transition: max-height 320ms ease, opacity 220ms ease, transform 260ms ease;
+                overflow: hidden;
+            }
+            .dropdownPanel.show {
+                max-height: 600px;
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .hero-section {
+                position: relative;
+                overflow: hidden;
+            }
+            .hero-section::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(circle at top left, rgba(99,102,241,0.18), transparent 32%), radial-gradient(circle at bottom right, rgba(129,140,248,0.16), transparent 28%);
+                pointer-events: none;
+            }
+            #particleCanvas {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+                pointer-events: none;
+            }
+            .modal {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 40;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 300ms ease;
+            }
+            .modal.show {
+                display: flex;
+                opacity: 1;
+            }
+            .modal-content {
+                background: white;
+                border-radius: 1rem;
+                padding: 2rem;
+                max-width: 28rem;
+                width: 90%;
+                box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+                transform: scale(0.95);
+                transition: transform 300ms ease;
+            }
+            .modal.show .modal-content {
+                transform: scale(1);
+            }
+        </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+    <header class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <a href="https://diex.org.ua" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 rounded-full bg-white/90 border border-indigo-100 px-4 py-2 shadow-sm hover:bg-indigo-50 transition">
+                    <img src="logo TC DIEX.jpg" alt="TC DIEX логотип" class="h-12 w-15 rounded-xl bg-white shadow-sm" />
+                </a>
+                <a href="http://www.tuev-dieks.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center rounded-full bg-indigo-50 text-indigo-700 px-3 py-2 text-sm font-semibold border border-indigo-100 shadow-sm hover:bg-indigo-100 transition">
+                    <img src="логотип отн.png" alt="Другой логотип" class="h-12 w-18 rounded-xl bg-white shadow-sm" />
+                </a>
+            </div>
+                <nav class="space-x-6 hidden sm:block">
+                    <a href="#about" class="hover:text-indigo-600 transition">Про послугу</a>
+                    <a href="#cta" class="hover:text-indigo-600 transition">Контакти</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section class="hero-section relative max-w-6xl mx-auto px-4 py-0">
+        <canvas id="particleCanvas"></canvas>
+        <h1 class="relative z-10 text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight text-center mb-0 pt-6 pb-6">
+            НВП «ТЦ Діекс» <span class="text-indigo-600">сертифікація аерозольної продукції</span>
+        </h1>
+        <div class="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8 text-center sm:text-left pb-12">
+            <div class="sm:w-1/2 space-y-6">
+                <div class="space-y-4 text-lg text-gray-600">
+                    <p>Ваша компанія займається постачанням на ринок України аерозольної продукції,  Ви виробник або імпортер аерозольної продукції і зацікавлені у наявності сертифікатів відповідно до діючого законодавства України?</p>
+                    <p>НВП «ТЦ Діекс» надасть повний професійний комплекс послуг щодо введення в обіг аерозольної продукції (оцінка відповідності, сертифікація, проведення випробувань по визначенню категорії горіння, перевірка вимог до маркування), допомагаючи виробникам та імпортерам швидко й відповідно до законодавства ввести в обіг товар на український ринок.</p>
+                </div>
+                <div class="pt-2 flex flex-col sm:flex-row items-center justify-start gap-4">
+                    <a href="Zayavca.doc" download class="inline-block bg-indigo-600 text-white font-medium px-8 py-3 rounded-lg shadow-md hover:bg-indigo-700 transition transform hover:-translate-y-0.5">
+                        Заявка на сертифікацію
+                    </a>
+                    <button id="heroCallBtn" class="inline-flex items-center justify-center rounded-lg border border-indigo-200 text-indigo-700 bg-white px-8 py-3 font-semibold hover:bg-indigo-50 transition">
+                        Замовити дзвінок
+                    </button>
+                </div>
+            </div>
+            <div class="sm:w-3/5 flex justify-center">
+                <div class="w-full max-w-[36rem] h-96 sm:h-[26rem] bg-indigo-100 rounded-[2rem] overflow-hidden shadow-inner">
+                    <img src="Picture.png" alt="Иллюстрация" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+    </section>
+        <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Діекс — технічний центр діагностики та експертизи</h2>
+            <div class="space-y-4 text-gray-600">
+                <p>Орган сертифікації систем менеджменту Українсько-німецького науково-виробничого підприємства «Технічний центр діагностики та експертизи» товариство з обмеженою відповідальністю (скорочено - ОССМ  НВП «ТЦ Діекс»)  акредитований Національним агентством з акредитації України на сертифікацію систем менеджменту відповідно до ДСТУ EN ISO/IEC 17021, атестат про акредитацію № 8О167, чинний до 03.10.2029 р.</p>
+                <p>Свідоцтвом Мінекономіки України  про призначення № 3431-07/8 від 28.01.2025 р.  ОССМ  НВП «ТЦ Діекс» призначено органом з оцінки відповідності для виконання як третьою стороною певних завдань з оцінки відповідності, визначених у Технічному регламенті аерозольних розпилювачів, затвердженому постановою Кабінету Міністрів України від 21 лютого 2023 р. № 154 (далі - Технічний регламент 154)</p>
+                <p>Ідентифікаційний номер призначеного органу: UA.TR.146</p>
+                <p>ОССM  НВП «ТЦ Діекс»  здійснює схвалення методів випробування аерозольних розпилювачів згідно з підпунктами 2 та 3 пункту 6.1.4.1 додатка 1 до Технічного регламенту 154, пункт 6.1.4.3 додатку 1 до Технічного регламенту 154 та пункту 6.2.6.3 додатка А до Європейської угоди про міжнародне дорожнє перевезення небезпечних вантажів (ДОПНВ).</p>
+            </div>
+            <div class="mt-6 bg-indigo-50 rounded-2xl p-4 shadow-sm border border-indigo-100 max-w-4xl mx-auto text-center">
+                <button id="aboutToggle" class="inline-flex items-center justify-center gap-2 bg-indigo-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition text-sm whitespace-normal text-center">
+                    Докладніше про методи випробувань
+                </button>
+                <div id="aboutPanel" class="dropdownPanel bg-white text-gray-900 rounded-2xl p-4 mt-3 shadow-inner border border-gray-100 text-left">
+                    <div class="space-y-3 text-sm leading-6">
+                        <p><strong>ОССМ  НВП «ТЦ Діекс» проводить оцінку відповідності на виконання вимог Технічного регламенту 154, а саме схвалення наступних методів випробувань:</strong></p>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-base font-semibold">Кінцеве випробування за гарячих умов</p>
+                                <p>Регулюється: підпункту 2 пункту 6.1.4.1 додатка 1 до Технічного регламенту 154.</p>
+                                <p><strong>Мета методу</strong>: Наповнені аерозольні розпилювачі нагріваються без використання традиційної водяної бані (наприклад, за допомогою інфрачервоного випромінювання, струмів високої частоти або гарячого повітря).</p>
+                                <p><strong>Умови випробування</strong>: Інтенсивність та тривалість нагрівання мають бути такими, щоб внутрішній тиск у балончику досяг значення, яке створюється його вмістом за рівномірної температури <strong>50 °C</strong>.</p>
+                                <p><strong>Критерії відбракування</strong>: Будь-який аерозольний розпилювач, що має ознаки остаточної деформації, порушення герметичності або витоку вмісту, вважається бракованим і вилучається з партії.</p>
+                            </div>
+                            <div>
+                                <p class="text-base font-semibold">Кінцеве випробування за холодних умов</p>
+                                <p>Регулюється: підпункту 3 пункту 6.1.4.1 додатка 1 до Технічного регламенту 154.</p>
+                                <p><strong>Мета методу</strong>: Перевірка здійснюється шляхом контролю параметрів наповнення та герметичності безпосередньо під час технологічного процесу при нормальній (або зниженій) температурі.</p>
+                                <p><strong>Умови випробування</strong>: Метод базується на високоточних автоматизованих системах контролю на лінії наповнення. Сюди входить перевірка правильного функціонування клапана, точне дозування пропеленту і продукту, а також зважування кожного балона.</p>
+                                <p><strong>Критерії відбракування</strong>: Система автоматично відсікає розпилювачі з відхиленнями за масою, геометрією або з виявленими мікровитоками газів.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 bg-indigo-50 rounded-2xl p-4 shadow-sm border border-indigo-100 max-w-4xl mx-auto text-center">
+                <button id="qualityToggle" class="inline-flex items-center justify-center gap-2 bg-indigo-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition text-sm whitespace-normal text-center">
+                    Вимоги до Системи якості виробників які потребують схвалення
+                </button>
+                <div id="qualityPanel" class="dropdownPanel bg-white text-gray-900 rounded-2xl p-4 mt-3 shadow-inner border border-gray-100 text-left">
+                    <div class="space-y-3 text-sm leading-6">
+                        <p><strong>Регулюється:</strong> пункт 6.1.4.3 додатка 1 до Технічного регламенту 154 та пункт 6.2.6.3 додатка А до ДОПНВ.</strong></p>
+                        <p><strong>Ці пункти встановлюють вимоги до автоматизованих альтернативних методів випробувань, які інтегруються у систему якості виробника (схвалену та контрольовану ОССМ):</strong></p>
+                        <p class="font-semibold">Перевірка перед наповненням (ДОПНВ 6.2.6.3.2.2.1):</p>
+                        <p>Кожен порожній балон тестується під тиском, що дорівнює або перевищує максимальний очікуваний тиск у наповненому стані при 55 °C (або 50 °C, якщо рідка фаза не перевищує 95% місткості). Цей тиск має складати щонайменше 2/3 від розрахункового тиску розпилювача. Балони з дефектами або швидкістю витоку більше 2,0 × 10-3 мбар.л.с-1 при 20°С бракуються.</p>
+                        <p class="font-semibold">Перевірка після наповнення (ДОПНВ 6.2.6.3.2.2.2):</p>
+                        <p>Наповнені аерозольні розпилювачі проходять обов’язковий 100% автоматичний контроль.</p>
+                        <p><strong>Виявлення витоків:</strong> Застосовується високочутливе обладнання (наприклад, газоаналізатори), здатне фіксувати мікровитоки зі швидкістю 2,0 × 10-3 мбар.л.с-1 при температурі 20 °C.</p>
+                        <p><strong>Контроль наповнення:</strong> Автоматичні конвеєрні ваги перевіряють відповідність маси брутто для виключення надмірного наповнення балона.</p>
+                        <p>Впровадження та схвалення цих альтернативних методів надає підприємствам наступні переваги:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Оптимізація виробництва:</strong> відмова від громіздких водяних бань на користь автоматизованих систем тестування.</li>
+                            <li><strong>Прискорення ліній наповнення:</strong> альтернативні методи контролю скорочують час перевірки готової продукції.</li>
+                            <li><strong>Зниження браку:</strong> сучасні методи дозволяють точніше фіксувати мікровитоки газу без пошкодження маркування вологою.</li>
+                            <li><strong>Легальне маркування:</strong> право наносити на етикетку знак «перевернутий епсилон» (<span class="inline-flex items-center justify-center text-lg font-black" style="font-family:serif; width:1.25rem; height:1.25rem;">ɜ</span>), що підтверджує повну відповідність європейським нормам безпеки.</li>
+                            <li><strong>Безперешкодний експорт:</strong> спрощення процедури виходу на ринки ЄС, оскільки український ТР 154 повністю гармонізовано з Директивою Ради 75/324/ЄЕС.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Як проходить сертифікація?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm text-center">
+                    <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">📄</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Надсилаєте документи</h3>
+                    <p class="text-sm text-gray-600">Надішліть пакет документів для попередної перевірки.</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm text-center">
+                    <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🔍</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Проводимо аналіз</h3>
+                    <p class="text-sm text-gray-600">Аналізуємо документи та готуємо план сертифікації.</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm text-center">
+                    <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">⚙️</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Узгоджуємо випробування</h3>
+                    <p class="text-sm text-gray-600">Домовляємось про терміни та методи випробувань.</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm text-center">
+                    <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">✅</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Видаємо документи</h3>
+                    <p class="text-sm text-gray-600">Після успішної перевірки ви отримуєте офіційні документи.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="features" class="bg-white py-20 border-y border-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Наші переваги</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
+                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center font-bold text-lg mb-4">1</div>
+                    <h3 class="text-xl font-bold mb-2">Швидкість</h3>
+                    <p class="text-gray-600">Наші сертифікати видаються швидко, щоб не затримувати ваш бізнес.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
+                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center font-bold text-lg mb-4">2</div>
+                    <h3 class="text-xl font-bold mb-2">Клієнто-орієнтованість</h3>
+                    <p class="text-gray-600">Ми зосереджуємося на потребах наших клієнтів і надаємо персоналізовані рішення.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
+                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center font-bold text-lg mb-4">3</div>
+                    <h3 class="text-xl font-bold mb-2">Якість</h3>
+                    <p class="text-gray-600">Ми прагнемо до найвищих стандартів якості у всіх наших послугах.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="cta" class="max-w-3xl mx-auto px-4 py-14 text-center">
+        <div class="bg-indigo-600 text-white rounded-2xl p-8 shadow-xl space-y-5">
+            <h2 class="text-2xl sm:text-3xl font-bold">Зв'яжіться з нами</h2>
+            <p class="text-indigo-100 max-w-2xl mx-auto text-base sm:text-lg">
+                Якщо у вас є питання або ви хочете отримати консультацію, не зволайте. Ми завжди раді допомогти вам з сертифікацією вашої продукції.
+            </p>
+            <button id="documentsToggle" class="inline-flex items-center justify-center gap-2 bg-white text-indigo-600 font-semibold px-5 py-2.5 rounded-lg shadow-sm hover:bg-indigo-50 transition">
+                Дозвільні документи
+            </button>
+            <div id="documentsPanel" class="dropdownPanel bg-white text-indigo-900 rounded-2xl p-5 shadow-inner border border-white/30 max-w-xl mx-auto text-left">
+                <p class="mb-3 font-medium">Дозвільні документи:</p>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="Atestat.pdf" target="_blank" class="block rounded-xl bg-indigo-50 px-4 py-2.5 text-indigo-700 font-semibold hover:bg-indigo-100 transition">
+                            Атестат (PDF)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Svidotsvo.pdf" target="_blank" class="block rounded-xl bg-indigo-50 px-4 py-2.5 text-indigo-700 font-semibold hover:bg-indigo-100 transition">
+                            Свідоцтво (PDF)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-3 pt-1">
+                <a href="mailto:aero@diex.org.ua" class="w-full sm:w-auto bg-white text-indigo-600 font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-50 transition">
+                    aero@diex.org.ua
+                </a>
+                <a href="tel:+380675617679" class="w-full sm:w-auto bg-indigo-700 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-800 transition border border-indigo-500">
+                    +38 067-561-76-79
+                </a>
+                <button id="ctaCallBtn" class="w-full sm:w-auto bg-white text-indigo-700 font-semibold px-5 py-2.5 rounded-lg border border-indigo-200 hover:bg-indigo-50 transition">
+                    Замовити дзвінок
+                </button>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm border-t border-gray-800">
+        <p>&copy; 2026 ТС DIEX. Всі права захищені.</p>
+    </footer>
+    <button id="floatingCallBtn" class="fixed right-4 bottom-4 z-50 inline-flex items-center gap-2 rounded-full bg-indigo-600 px-5 py-3 text-white font-semibold shadow-2xl shadow-indigo-700/30 transition hover:bg-indigo-700 hover:-translate-y-0.5">
+        <span style="filter: brightness(0) invert(1);">📞</span>
+        <span>Замовити дзвінок</span>
+    </button>
+    <div id="callModal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">Замовити дзвінок</h2>
+                <button id="closeModal" class="text-gray-500 hover:text-gray-700 text-2xl leading-none">×</button>
+            </div>
+            <form id="callForm" action="https://formspree.io/f/xqeokgra" method="POST" class="space-y-4">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Ім'я</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none" placeholder="Ваше ім'я">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none" placeholder="your@email.com">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Телефон</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none" placeholder="+380...">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Повідомлення</label>
+                    <textarea id="message" name="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none resize-none" placeholder="Ваше повідомлення (опціонально)"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 text-white font-semibold py-2.5 rounded-lg hover:bg-indigo-700 transition">
+                    Надіслати запит
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Modal management
+            const modal = document.getElementById('callModal');
+            const closeModal = document.getElementById('closeModal');
+            const heroCallBtn = document.getElementById('heroCallBtn');
+            const ctaCallBtn = document.getElementById('ctaCallBtn');
+            const floatingCallBtn = document.getElementById('floatingCallBtn');
+            const callForm = document.getElementById('callForm');
+
+            const openModal = () => {
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeModalFunc = () => {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            };
+
+            heroCallBtn.addEventListener('click', openModal);
+            ctaCallBtn.addEventListener('click', openModal);
+            floatingCallBtn.addEventListener('click', openModal);
+            closeModal.addEventListener('click', closeModalFunc);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModalFunc();
+                }
+            });
+
+            // Close modal on form submission
+            callForm.addEventListener('submit', () => {
+                setTimeout(closeModalFunc, 500);
+            });
+
+            // Keyboard: ESC to close modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('show')) {
+                    closeModalFunc();
+                }
+            });
+
+            const toggleButton = document.getElementById('documentsToggle');
+            const panel = document.getElementById('documentsPanel');
+            const aboutToggle = document.getElementById('aboutToggle');
+            const aboutPanel = document.getElementById('aboutPanel');
+            const qualityToggle = document.getElementById('qualityToggle');
+            const qualityPanel = document.getElementById('qualityPanel');
+
+            if (toggleButton && panel) {
+                toggleButton.setAttribute('aria-expanded', 'false');
+                toggleButton.addEventListener('click', () => {
+                    const isOpen = panel.classList.toggle('show');
+                    toggleButton.setAttribute('aria-expanded', String(isOpen));
+                    toggleButton.textContent = isOpen ? 'Сховати документи' : 'Дозвільні документи';
+                });
+            }
+
+            if (aboutToggle && aboutPanel) {
+                aboutToggle.setAttribute('aria-expanded', 'false');
+                aboutToggle.addEventListener('click', () => {
+                    const isOpen = aboutPanel.classList.toggle('show');
+                    aboutToggle.setAttribute('aria-expanded', String(isOpen));
+                });
+            }
+
+            if (qualityToggle && qualityPanel) {
+                qualityToggle.setAttribute('aria-expanded', 'false');
+                qualityToggle.addEventListener('click', () => {
+                    const isOpen = qualityPanel.classList.toggle('show');
+                    qualityToggle.setAttribute('aria-expanded', String(isOpen));
+                });
+            }
+
+            const methodsToggle = document.getElementById('methodsToggle');
+            const methodsPanel = document.getElementById('methodsPanel');
+            const qualitySystemToggle = document.getElementById('qualitySystemToggle');
+            const qualitySystemPanel = document.getElementById('qualitySystemPanel');
+
+            if (methodsToggle && methodsPanel) {
+                methodsToggle.setAttribute('aria-expanded', 'false');
+                methodsToggle.addEventListener('click', () => {
+                    const isOpen = methodsPanel.classList.toggle('show');
+                    methodsToggle.setAttribute('aria-expanded', String(isOpen));
+                });
+            }
+
+            if (qualitySystemToggle && qualitySystemPanel) {
+                qualitySystemToggle.setAttribute('aria-expanded', 'false');
+                qualitySystemToggle.addEventListener('click', () => {
+                    const isOpen = qualitySystemPanel.classList.toggle('show');
+                    qualitySystemToggle.setAttribute('aria-expanded', String(isOpen));
+                });
+            }
+
+            const canvas = document.getElementById('particleCanvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                const particles = [];
+                const particleCount = 40;
+
+                const resize = () => {
+                    canvas.width = canvas.clientWidth * window.devicePixelRatio;
+                    canvas.height = canvas.clientHeight * window.devicePixelRatio;
+                    ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+                };
+
+                const random = (min, max) => Math.random() * (max - min) + min;
+
+                class Particle {
+                    constructor() {
+                        this.reset();
+                    }
+                    reset() {
+                        this.x = random(0, canvas.clientWidth);
+                        this.y = random(0, canvas.clientHeight);
+                        this.radius = random(2, 5);
+                        this.speed = random(0.15, 0.45);
+                        this.angle = random(0, Math.PI * 2);
+                        this.alpha = random(0.2, 0.7);
+                        this.color = 'rgba(99,102,241,' + this.alpha + ')';
+                    }
+                    update() {
+                        this.x += Math.cos(this.angle) * this.speed;
+                        this.y += Math.sin(this.angle) * this.speed;
+                        if (this.x < -20 || this.x > canvas.clientWidth + 20 || this.y < -20 || this.y > canvas.clientHeight + 20) {
+                            this.reset();
+                            this.y = -10;
+                        }
+                    }
+                    draw() {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                        ctx.fillStyle = this.color;
+                        ctx.fill();
+                    }
+                }
+
+                const initParticles = () => {
+                    particles.length = 0;
+                    for (let i = 0; i < particleCount; i++) {
+                        particles.push(new Particle());
+                    }
+                };
+
+                const animate = () => {
+                    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+                    particles.forEach((particle) => {
+                        particle.update();
+                        particle.draw();
+                    });
+                    requestAnimationFrame(animate);
+                };
+
+                window.addEventListener('resize', () => {
+                    resize();
+                    initParticles();
+                });
+
+                resize();
+                initParticles();
+                animate();
+            }
+        });
+    </script>
+</body>
+</html>
