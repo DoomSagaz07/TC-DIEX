@@ -1,0 +1,1049 @@
+﻿<!DOCTYPE html>
+<html lang="uk" data-theme="dark">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18202402233"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18202402233');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIEX — Технічний нагляд та сертифікація</title>
+<meta name="robots" content="index, follow">
+<meta name="description" content="ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС» — орган технічного нагляду. Сертифікація, технічне діагностування та неруйнівний контроль промислового обладнання за ДСТУ та ADR.">
+<meta name="keywords" content="орган технічного нагляду, технічний нагляд, сертифікація обладнання, технічне діагностування, неруйнівний контроль, промислова безпека, ДІЕКС, DIEX, ADR, ДОПНВ, оцінка відповідності, ДСТУ, сертифікація цистерн, сертифікація балонів, аерозольна продукція, технічна перевірка, Україна">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ═══════════════ TOKENS ═══════════════ */
+/*открит в тём теме. текст со страничек в хиро.. лаборатор руй подумать над заглушкой*/
+:root{
+  /* instrument surfaces — constant across themes */
+  --ink:#0b1320;
+  --ink-2:#121d31;
+  --ink-3:#1b2942;
+  --on-ink:#eef2f8;
+  --on-ink-mut:#9aa6bb;
+  --on-ink-faint:#5d6c84;
+  --line-ink:rgba(255,255,255,.10);
+  --line-ink-2:rgba(255,255,255,.06);
+
+  /* accents */
+  --blue:#1e57e3;
+  --blue-br:#5b8bff;
+  --orange:#f15a22;
+  --orange-soft:#ff7a4d;
+  --ok:#36c98e;
+
+  /* body — light theme */
+  --paper:#eceff4;
+  --card:#ffffff;
+  --card-2:#f6f8fb;
+  --ink-text:#0b1320;
+  --mut:#5a6679;
+  --faint:#8b95a6;
+  --line:#d7dde6;
+  --line-2:#e6eaf0;
+
+  --r:4px;            /* tight, technical radius */
+  --r-lg:8px;
+  --hh:66px;          /* header height */
+  --max:1180px;
+}
+[data-theme="dark"]{
+  --paper:#0a111e;
+  --card:#101a2c;
+  --card-2:#0d1626;
+  --ink-text:#eef2f8;
+  --mut:#9aa6bb;
+  --faint:#5d6c84;
+  --line:#1e2c46;
+  --line-2:#17233a;
+}
+
+/* ═══════════════ BASE ═══════════════ */
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink-text);
+  font-family:'IBM Plex Sans',-apple-system,sans-serif;
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  transition:background .35s,color .35s;
+}
+.mono{font-family:'IBM Plex Mono',monospace}
+.disp{font-family:'Space Grotesk',sans-serif}
+
+/* reusable mono eyebrow */
+.tag{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;
+}
+
+/* registration corner-tick set (drafting marks) */
+.regmark{position:absolute;width:13px;height:13px;pointer-events:none;opacity:.9}
+.regmark.tl{top:0;left:0;border-top:1.5px solid var(--orange);border-left:1.5px solid var(--orange)}
+.regmark.tr{top:0;right:0;border-top:1.5px solid var(--orange);border-right:1.5px solid var(--orange)}
+.regmark.bl{bottom:0;left:0;border-bottom:1.5px solid var(--orange);border-left:1.5px solid var(--orange)}
+.regmark.br{bottom:0;right:0;border-bottom:1.5px solid var(--orange);border-right:1.5px solid var(--orange)}
+
+/* ═══════════════ HEADER ═══════════════ */
+.hdr{
+  position:fixed;top:0;left:0;right:0;z-index:100;height:var(--hh);
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  transition:background .35s,border-color .35s;
+}
+.hdr-in{height:100%;max-width:var(--max);margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.brand-mark{
+  width:36px;height:36px;border-radius:var(--r);background:var(--ink);
+  display:grid;place-items:center;position:relative;overflow:hidden;flex-shrink:0;
+  border:1px solid var(--ink-3);
+}
+.brand-mark span{font-family:'Space Grotesk';font-size:13px;font-weight:700;color:#fff;letter-spacing:.5px;z-index:1}
+.brand-mark::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--orange)}
+.brand-name{font-family:'Space Grotesk';font-size:17px;font-weight:700;color:var(--ink-text);line-height:1.1;letter-spacing:.3px;transition:color .35s}
+.brand-sub{font-family:'IBM Plex Mono';font-size:9.5px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);transition:color .35s}
+
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{
+  position:relative;text-decoration:none;color:var(--mut);font-size:14px;font-weight:500;
+  padding:8px 14px;border-radius:var(--r);transition:color .2s,background .2s;
+}
+.nav a:hover{color:var(--ink-text);background:var(--card-2)}
+
+.hdr-r{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.theme-btn{
+  display:flex;align-items:center;gap:8px;padding:7px 11px;border-radius:var(--r);
+  border:1px solid var(--line);background:none;cursor:pointer;color:var(--mut);
+  font-family:'IBM Plex Mono';font-size:11px;font-weight:500;letter-spacing:.5px;
+  transition:border-color .2s,color .2s;
+}
+.theme-btn:hover{border-color:var(--faint);color:var(--ink-text)}
+.ttrack{width:28px;height:15px;border-radius:999px;background:var(--line);position:relative;flex-shrink:0;transition:background .35s}
+[data-theme="dark"] .ttrack{background:var(--blue)}
+.tknob{position:absolute;top:2px;left:2px;width:9px;height:9px;border-radius:50%;background:var(--faint);transition:transform .35s,background .35s}
+[data-theme="dark"] .tknob{background:#fff;transform:translateX(13px)}
+.btn-warn{
+  padding:9px 18px;border-radius:var(--r);background:var(--orange);color:#fff;
+  font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;
+  transition:background .2s,transform .15s;
+}
+.btn-warn:hover{background:#d8481a;transform:translateY(-1px)}
+
+/* ═══════════════ HERO (always dark instrument) ═══════════════ */
+.hero{
+  position:relative;background:var(--ink);color:var(--on-ink);
+  padding:calc(var(--hh) + 70px) 28px 0;overflow:hidden;
+}
+/* faint blueprint grid + glow */
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(var(--line-ink-2) 1px,transparent 1px) 0 0/100% 56px,
+    linear-gradient(90deg,var(--line-ink-2) 1px,transparent 1px) 0 0/56px 100%;
+  mask-image:radial-gradient(120% 90% at 50% 0%,#000 40%,transparent 100%);
+  opacity:.7;
+}
+.hero::after{
+  content:"";position:absolute;top:-30%;right:-10%;width:780px;height:780px;pointer-events:none;
+  background:radial-gradient(circle,rgba(30,87,227,.28),transparent 62%);filter:blur(10px);
+}
+.hero-svg-bg{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.hero-diex{
+  position:absolute;right:20%;bottom:8%;
+  display:flex;align-items:flex-end;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(130px,18vw,268px);
+  font-weight:700;letter-spacing:-.04em;line-height:1;
+  color:transparent;-webkit-text-stroke:1.5px rgba(91,139,255,.26);
+  user-select:none;
+}
+.dchar{display:inline-block;transition:text-shadow .6s ease-out,-webkit-text-stroke-color .3s}
+.dchar.resolved{
+  -webkit-text-stroke-color:rgba(91,139,255,.36);
+  text-shadow:0 0 90px rgba(91,139,255,.13);
+}
+@keyframes diex-vscan{
+  0%{left:-4%;opacity:0}
+  6%{opacity:1}
+  90%{opacity:.85}
+  100%{left:104%;opacity:0}
+}
+.hero-diex-scan{
+  position:absolute;top:-20%;bottom:-20%;width:2px;left:-4%;pointer-events:none;
+  background:linear-gradient(to bottom,transparent 0%,rgba(241,90,34,.45) 38%,rgba(241,90,34,.7) 50%,rgba(241,90,34,.45) 62%,transparent 100%);
+  animation:diex-vscan 1.4s cubic-bezier(.4,0,.2,1) .1s both;
+}
+.hero-in{position:relative;max-width:var(--max);margin:0 auto;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1fr;align-items:center;padding-bottom:64px;max-width:680px}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--blue-br);margin-bottom:26px}
+.hero-eyebrow b{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(54,201,142,.18)}
+.hero h1{
+  font-family:'Space Grotesk';font-weight:700;
+  font-size:clamp(40px,5.4vw,68px);line-height:1.02;letter-spacing:-2px;
+  color:var(--on-ink);margin-bottom:24px;
+}
+.hero h1 em{font-style:normal;color:var(--orange-soft)}
+.hero-desc{font-size:16px;line-height:1.8;color:var(--on-ink-mut);max-width:440px;margin-bottom:16px}
+.hero-note{display:inline-flex;align-items:center;gap:7px;margin-bottom:28px;font-size:13px;font-weight:600;font-style:normal;letter-spacing:.3px;color:var(--ok)}
+.hero-act{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:40px}
+.btn-blue{
+  padding:13px 24px;border-radius:var(--r);background:var(--blue);color:#fff;
+  font-size:14px;font-weight:600;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .15s;
+}
+.btn-blue:hover{background:#1a4cc7;transform:translateY(-1px)}
+.btn-line{
+  padding:12px 22px;border-radius:var(--r);border:1px solid var(--line-ink);
+  color:var(--on-ink);font-size:14px;font-weight:500;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;transition:border-color .2s,background .2s;
+}
+.btn-line:hover{border-color:var(--on-ink-mut);background:rgba(255,255,255,.04)}
+
+/* signature: measurement ruler */
+.ruler{position:relative;height:34px;max-width:440px;margin-bottom:2px}
+.ruler-line{position:absolute;left:0;right:0;top:0;height:1px;background:var(--line-ink)}
+.ruler-ticks{
+  position:absolute;left:0;top:0;height:11px;width:100%;
+  background:repeating-linear-gradient(90deg,var(--on-ink-faint) 0 1px,transparent 1px 14.6px);
+  transform-origin:left;
+}
+.ruler-major{
+  position:absolute;left:0;top:0;height:18px;width:100%;
+  background:repeating-linear-gradient(90deg,var(--blue-br) 0 1px,transparent 1px 73px);
+}
+.ruler-cap{position:absolute;top:21px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1px;color:var(--on-ink-faint)}
+.ruler-cap.s{left:0}
+.ruler-cap.e{right:0}
+
+
+/* ═══════════════ CAPABILITY STRIP ═══════════════ */
+.strip{
+  background:var(--card);border-bottom:1px solid var(--line);
+  transition:background .35s,border-color .35s;
+}
+.strip-in{
+  max-width:var(--max);margin:0 auto;padding:0 28px;height:54px;
+  display:flex;align-items:center;gap:0;overflow:hidden;
+}
+.strip-lbl{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--faint);white-space:nowrap;padding-right:22px;border-right:1px solid var(--line);transition:color .35s,border-color .35s}
+.strip-items{display:flex;align-items:center;gap:0;flex-wrap:wrap;padding-left:22px}
+.strip-items span{font-family:'IBM Plex Mono';font-size:12px;font-weight:500;color:var(--mut);padding:0 16px;position:relative;transition:color .35s}
+.strip-items span+span::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:3px;border-radius:50%;background:var(--orange)}
+
+/* ═══════════════ SERVICES ═══════════════ */
+.svc{padding:84px 28px;position:relative}
+.svc-head{
+  max-width:var(--max);margin:0 auto 40px;display:flex;align-items:flex-end;
+  justify-content:space-between;gap:24px;
+  padding-bottom:20px;border-bottom:1px solid var(--line);transition:border-color .35s;
+}
+.svc-head .tag{color:var(--orange);display:block;margin-bottom:10px}
+.svc-head h2{font-family:'Space Grotesk';font-size:clamp(26px,3vw,40px);font-weight:700;letter-spacing:-1px;line-height:1.05;color:var(--ink-text);transition:color .35s}
+.svc-head-note{font-family:'IBM Plex Mono';font-size:11px;line-height:1.7;color:var(--faint);text-align:right;white-space:nowrap;transition:color .35s}
+
+.svc-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:13px}
+.p-r1c1{grid-column:1;grid-row:1}.p-r1c2{grid-column:2;grid-row:1}.p-r1c3{grid-column:3;grid-row:1}
+.p-r2c1{grid-column:1;grid-row:2}.p-r2c2{grid-column:2;grid-row:2}.p-r2c3{grid-column:3;grid-row:2}
+.p-r3c1{grid-column:1;grid-row:3}.p-r4{grid-column:2 / -1;grid-row:3}
+
+/* card */
+.card{
+  position:relative;display:flex;flex-direction:column;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:24px 22px;text-decoration:none;color:inherit;overflow:hidden;
+  transition:border-color .2s,box-shadow .2s,transform .2s,background .35s;
+}
+.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.card-code{font-family:'IBM Plex Mono';font-size:11px;font-weight:500;letter-spacing:.5px;color:var(--blue);padding:3px 8px;border:1px solid var(--line);border-radius:var(--r);transition:border-color .2s,color .35s}
+.card-ico{color:var(--mut);transition:color .2s}
+.card h3{font-family:'Space Grotesk';font-size:17px;font-weight:600;line-height:1.28;color:var(--ink-text);margin-bottom:9px;letter-spacing:-.3px;transition:color .35s}
+.card p{font-size:13px;line-height:1.7;color:var(--mut);flex:1;transition:color .35s;display:-webkit-box;-webkit-line-clamp:5;line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.card-link{display:inline-flex;align-items:center;gap:5px;margin-top:18px;font-family:'IBM Plex Mono';font-size:12px;font-weight:500;letter-spacing:.5px;color:var(--blue);transition:gap .2s}
+.card-link svg{transition:transform .2s}
+.card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 8px 30px rgba(30,87,227,.10)}
+.card:hover .card-ico{color:var(--blue)}
+.card:hover .card-link{gap:9px}
+/* orange progress tick on hover */
+.card::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--orange);transition:width .3s ease}
+.card:hover::after{width:100%}
+
+/* featured = dark instrument card */
+.card.feat{
+  background:var(--ink);color:var(--on-ink);
+  border-color:rgba(241,90,34,.45);
+  box-shadow:0 0 0 1px rgba(241,90,34,.18),0 16px 48px rgba(241,90,34,.14);
+  transform:translateY(-4px);
+  z-index:1;
+}
+.card.feat::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(420px 200px at 80% 0%,rgba(30,87,227,.22),transparent 70%)}
+.card.feat::after{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange-soft));border-radius:var(--r-lg) var(--r-lg) 0 0}
+.card.feat .card-code{color:var(--blue-br);border-color:var(--line-ink)}
+.card.feat h3{color:var(--on-ink);font-size:19px}
+.card.feat p{color:var(--on-ink-mut)}
+.card.feat .card-ico{color:var(--orange-soft)}
+.card.feat .card-link{color:var(--orange-soft)}
+.card.feat:hover{border-color:var(--orange);box-shadow:0 0 0 1px rgba(241,90,34,.35),0 20px 60px rgba(241,90,34,.22);transform:translateY(-7px)}
+.feat-flag{font-family:'IBM Plex Mono';font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange-soft);display:inline-flex;align-items:center;gap:6px}
+.feat-flag::before{content:"";width:14px;height:1.5px;background:var(--orange)}
+
+/* soon */
+.card.soon{opacity:.5}
+.card.soon .card-code{color:var(--orange);border-color:rgba(241,90,34,.3)}
+.card.soon .card-link{color:var(--faint)}
+
+/* image placeholder block */
+.imgb{
+  position:relative;border:1px dashed var(--line);border-radius:var(--r-lg);
+  background:var(--card-2);display:grid;place-items:center;overflow:hidden;cursor:pointer;
+  transition:border-color .2s,background .35s;
+}
+.imgb:hover{border-color:var(--blue);border-style:solid;background:var(--card)}
+.imgb.sq{aspect-ratio:1/1}
+.imgb.rect{min-height:188px}
+.imgb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.imgb img ~ .imgb-ph{display:none}
+.imgb-ph{display:flex;flex-direction:column;align-items:center;gap:11px;padding:20px;text-align:center;pointer-events:none}
+.imgb-ph .frame{width:40px;height:40px;border:1px dashed var(--faint);border-radius:var(--r);display:grid;place-items:center;color:var(--faint);transition:color .2s,border-color .2s}
+.imgb:hover .frame{color:var(--blue);border-color:var(--blue)}
+.imgb-ph .cap{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);transition:color .2s}
+.imgb:hover .cap{color:var(--blue)}
+.imgb .regmark{opacity:.45}
+.imgb.rect .imgb-ph{flex-direction:row;gap:14px}
+.imgb.rect .cap{text-align:left}
+/* filled with generated blueprint */
+.imgb.filled{border-style:solid;border-color:var(--line);background-color:var(--ink);background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:25px 25px}
+.imgb.filled:hover{border-color:var(--blue);background-color:var(--ink)}
+.imgb.filled .regmark{opacity:.85}
+.imgb.rect.filled{min-height:200px}
+.blueprint{display:block;width:100%;height:100%}
+
+/* ═══════════════ ABOUT ═══════════════ */
+.about{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:84px 28px;transition:background .35s,border-color .35s}
+.about-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 392px;gap:64px;align-items:start}
+.about-l .tag{color:var(--orange);display:block;margin-bottom:14px}
+.about-l h2{font-family:'Space Grotesk';font-size:clamp(26px,2.9vw,38px);font-weight:700;letter-spacing:-1px;line-height:1.1;color:var(--ink-text);margin-bottom:18px;transition:color .35s}
+.about-l p{color:var(--mut);font-size:15px;line-height:1.8;margin-bottom:14px;max-width:540px;transition:color .35s}
+.checks{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:11px}
+.checks li{display:flex;align-items:flex-start;gap:11px;font-size:14px;font-weight:500;color:var(--ink-text);transition:color .35s}
+.checks .x{width:19px;height:19px;border-radius:var(--r);flex-shrink:0;margin-top:2px;background:var(--blue);display:grid;place-items:center;color:#fff}
+
+/* datasheet panel */
+.sheet{background:var(--ink);border-radius:var(--r-lg);overflow:hidden;color:var(--on-ink);position:relative}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line-ink)}
+.sheet-head .tag{color:var(--on-ink-faint)}
+.sheet-head .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.sheet-rows{display:grid;grid-template-columns:1fr 1fr}
+.sheet-cell{padding:20px;border-bottom:1px solid var(--line-ink)}
+.sheet-cell:nth-child(odd){border-right:1px solid var(--line-ink)}
+.sheet-cell:nth-last-child(-n+2){border-bottom:none}
+.sheet-n{font-family:'Space Grotesk';font-size:28px;font-weight:600;color:var(--on-ink);line-height:1}
+.sheet-l{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.5px;color:var(--on-ink-faint);margin-top:6px}
+.sheet-foot{display:flex;gap:6px;padding:16px 20px;border-top:1px solid var(--line-ink)}
+
+/* ═══════════════ CTA ═══════════════ */
+.cta{padding:84px 28px}
+.cta-box{position:relative;max-width:var(--max);margin:0 auto;background:var(--ink);border-radius:var(--r-lg);padding:56px 60px;overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.cta-box::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px 300px at 85% 50%,rgba(30,87,227,.22),transparent 70%)}
+.cta-box::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange)}
+.cta-l{position:relative;z-index:1}
+.cta-l .tag{color:var(--blue-br);display:block;margin-bottom:12px}
+.cta-l h2{font-family:'Space Grotesk';font-size:clamp(26px,2.9vw,38px);font-weight:700;color:var(--on-ink);letter-spacing:-1px;line-height:1.12;margin-bottom:12px}
+.cta-l p{color:var(--on-ink-mut);font-size:15px;line-height:1.75;max-width:440px}
+.cta-act{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px}
+.btn-white{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:var(--r);background:#fff;color:var(--ink);font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;transition:transform .15s,background .2s}
+.btn-white:hover{background:#e9eefb;transform:translateY(-1px)}
+.btn-ghost{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:var(--r);border:1px solid var(--line-ink);color:var(--on-ink);font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap;transition:border-color .2s,background .2s}
+.btn-ghost:hover{border-color:var(--on-ink-mut);background:rgba(255,255,255,.05)}
+
+/* ═══════════════ FOOTER ═══════════════ */
+.ftr{background:var(--paper);border-top:1px solid var(--line);padding:48px 28px 26px;transition:background .35s,border-color .35s}
+.ftr-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:36px}
+.ftr-brand p{color:var(--faint);font-size:13px;line-height:1.75;margin-top:12px;max-width:270px;transition:color .35s}
+.ftr h4{font-family:'IBM Plex Mono';font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-text);margin-bottom:14px;transition:color .35s}
+.ftr ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ftr a{text-decoration:none;color:var(--mut);font-size:13.5px;font-weight:500;transition:color .2s}
+.ftr a:hover{color:var(--blue)}
+.ftr li:not(:has(a)){color:var(--faint);font-size:13.5px;font-family:'IBM Plex Mono';transition:color .35s}
+.ftr-bot{max-width:var(--max);margin:0 auto;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:border-color .35s}
+.ftr-copy{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:var(--faint);transition:color .35s}
+.ftr-std{display:flex;gap:6px}
+.ftr-std span{font-family:'IBM Plex Mono';font-size:10px;font-weight:500;color:var(--faint);padding:3px 8px;border:1px solid var(--line);border-radius:var(--r);transition:border-color .35s,color .35s}
+
+.mcall{display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:99;background:var(--orange);color:#fff;font-weight:600;font-size:15px;padding:15px;border-radius:var(--r-lg);text-align:center;text-decoration:none}
+
+/* ═══════════════ MOTION ═══════════════ */
+@keyframes rulerIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.anim{opacity:0;animation:rise .7s cubic-bezier(.22,.61,.36,1) forwards}
+.anim.d1{animation-delay:.05s}.anim.d2{animation-delay:.13s}.anim.d3{animation-delay:.21s}.anim.d4{animation-delay:.30s}.anim.d5{animation-delay:.40s}
+.ruler-ticks,.ruler-major{animation:rulerIn .9s cubic-bezier(.22,.61,.36,1) .25s both}
+
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:2px}
+
+/* ─── Scroll reveal ─── */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s cubic-bezier(.22,.61,.36,1) var(--rev-d,0ms),transform .65s cubic-bezier(.22,.61,.36,1) var(--rev-d,0ms)}
+.reveal.visible{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .anim{opacity:1;transform:none}
+  .ruler-ticks,.ruler-major{transform:none}
+  .reveal,.reveal.visible{opacity:1;transform:none;transition:none}
+}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media (max-width:1024px){
+  .nav{display:none}
+  .about-in{grid-template-columns:1fr;gap:40px}
+  .sheet{max-width:440px}
+  .cta-box{grid-template-columns:1fr;padding:44px;gap:30px}
+  .cta-act{flex-direction:row}
+  .ftr-in{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .hdr-in{padding:0 16px;gap:10px}
+  .btn-warn{padding:8px 14px;font-size:12px}
+  .hero{padding:calc(var(--hh) + 40px) 20px 0}
+  .hero-svg-bg{display:none}
+  .hero h1{letter-spacing:-1px}
+  .svc{padding:52px 20px}
+  .svc-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .p-r1c1,.p-r1c2,.p-r1c3,.p-r2c1,.p-r2c2,.p-r2c3,.p-r3c1,.p-r4{grid-column:auto;grid-row:auto}
+  .imgb.sq{aspect-ratio:4/3}
+  .svc-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .svc-head-note{text-align:left;white-space:normal}
+  .about{padding:52px 20px}
+  .strip-in{height:auto;flex-direction:column;align-items:flex-start;gap:10px;padding:14px 20px}
+  .strip-lbl{border-right:none;padding-right:0}
+  .strip-items{padding-left:0}
+  .cta{padding:52px 20px}
+  .cta-box{padding:32px 24px}
+  .cta-act{flex-direction:column}
+  .ftr{padding:40px 20px 80px}
+  .ftr-in{grid-template-columns:1fr}
+  .ftr-bot{flex-direction:column;align-items:flex-start}
+  .mcall{display:block}
+}
+@media (max-width:480px){
+  .hdr-in{padding:0 14px}
+  .brand-sub{display:none}
+  .hero{padding:calc(var(--hh) + 24px) 16px 0}
+  .hero h1{font-size:clamp(28px,8.5vw,40px);letter-spacing:-.5px}
+  .hero-desc{font-size:15px}
+  .hero-act{gap:8px}
+  .ruler{display:none}
+  .svc{padding:40px 14px}
+  .svc-head h2{font-size:clamp(22px,6vw,30px)}
+  .imgb.sq{aspect-ratio:3/2}
+  .card h3{font-size:15px}
+  .about{padding:44px 14px}
+  .cta{padding:40px 14px}
+  .cta-box{padding:24px 18px}
+  .cta-l h2{font-size:clamp(22px,6vw,30px)}
+  .ftr{padding:36px 14px 80px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a href="#" style="display:flex;align-items:center;text-decoration:none;flex-shrink:0">
+      <svg height="40" viewBox="140 260 640 215" xmlns="http://www.w3.org/2000/svg">
+        <path style="fill:var(--ink-text);stroke:none" d="m 234.10188,337.50291 0.72477,-26.57503 h 52.66688 c 0,0 40.10414,8.45569 41.3121,50.00938 1.20795,41.55368 -29.71572,53.63324 -29.71572,53.63324 l -14.74208,3.45241 -36.81403,36.81404 47.06388,-0.42708 c 0,0 73.37182,-16.05809 73.37182,-89.51533 0,-73.45723 -66.11151,-91.56529 -91.5653,-91.56529 -25.45379,0 -78.75299,0 -78.75299,0 v 96.00689 z"/>
+        <path style="fill:#297fff;stroke:none" d="m 197.38001,414.08732 0.24159,41.43289 83.71136,-77.30918 -43.12403,-0.60398 z"/>
+        <text style="font-size:233.333px;font-family:Impact,'Arial Narrow',sans-serif;font-stretch:condensed;fill:var(--ink-text);stroke:none" x="375.41321" y="456.60797">IEX</text>
+      </svg>
+    </a>
+    <nav class="nav">
+      <a href="#services">Послуги</a>
+      <a href="#about">Про компанію</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <div class="hdr-r">
+      <button class="theme-btn" id="themeBtn" aria-label="Перемкнути тему">
+        <span class="ttrack"><span class="tknob"></span></span>
+        <span id="themeLbl">DARK</span>
+      </button>
+      <a href="#contacts" class="btn-warn">Запит на оцінку</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-svg-bg" aria-hidden="true">
+    <canvas id="diex-px" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+    <div class="hero-diex">
+      <div class="hero-diex-scan"></div>
+      <span class="dchar">D</span><span class="dchar">I</span><span class="dchar">E</span><span class="dchar">X</span>
+    </div>
+  </div>
+  <div class="hero-in">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow tag anim d1"><b></b>Орган технічного нагляду · UA</div>
+        <h1 class="anim d2">Технічна перевірка та сертифікація продукції<br><em>без похибок</em></h1>
+        <p class="hero-desc anim d3">Сертифікація, технічне діагностування та неруйнівний контроль промислового обладнання — у точній відповідності до міжнародних стандартів та європейських вимог.</p>
+        <p class="hero-note anim d3">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Виїзд по всій Україні
+        </p>
+        <div class="hero-act anim d4">
+          <a href="#services" class="btn-blue">Обрати послугу
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contacts" class="btn-line">Зв'язатися</a>
+        </div>
+        <div class="ruler anim d5">
+          <div class="ruler-line"></div>
+          <div class="ruler-ticks"></div>
+          <div class="ruler-major"></div>
+          <span class="ruler-cap s mono">0</span>
+          <span class="ruler-cap e mono">ДОПУСК · 100%</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAPABILITY STRIP ═══ -->
+<div class="strip">
+  <div class="strip-in">
+    <span class="strip-lbl">Напрямки контролю</span>
+    <div class="strip-items mono">
+      <span>УЗД</span><span>Магнітний</span><span>Радіографічний</span><span>Вихрострумовий</span><span>Капілярний</span><span>Візуальний</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="svc" id="services">
+  <div class="svc-head">
+    <div>
+      <span class="tag">Реєстр послуг</span>
+      <h2>Напрямки діяльності</h2>
+    </div>
+    <div class="svc-head-note">Код біля кожної позиції —<br>стандарт, за яким ведеться робота</div>
+  </div>
+
+  <div class="svc-grid">
+
+    <!-- R1C1 -->
+    <a class="card p-r1c1" href="balloon.html">
+      <div class="card-top">
+        <span class="card-code">ДСТУ EN 1968</span>
+        <span class="card-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><ellipse cx="12" cy="6" rx="4" ry="1.8"/><path d="M8 6v12M16 6v12"/><ellipse cx="12" cy="18" rx="4" ry="1.8"/><path d="M12 1.5v2.7"/></svg>
+        </span>
+      </div>
+      <h3>Сертифікація балонів та балончиків</h3>
+      <p>Повний супровід процедури сертифікації та інспектування (перевірки) газових балонів та балончиків відповідно до вимог українського та європейського законодавства.</p>
+      <span class="card-link">Детальніше <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- R1C2 -->
+    <a class="card p-r1c2" href="aerosols.html">
+      <div class="card-top">
+        <span class="card-code">ТР 154</span>
+        <span class="card-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="9" height="13" rx="2"/><path d="M11 8V6h3v2"/><path d="M17 6h3v2"/><path d="M20 4.5v.5m0 3v.5m-2-2h.5"/></svg>
+        </span>
+      </div>
+      <h3>Сертифікація аерозольної продукції</h3>
+      <p>Ваша компанія займається постачанням на ринок України аерозольної продукції, Ви виробник або імпортер аерозольної продукції і зацікавлені у наявності сертифікатів відповідно до діючого законодавства України?
+
+НВП «ТЦ Діекс» надасть повний професійний комплекс послуг щодо введення в обіг аерозольної продукції (оцінка відповідності, сертифікація, проведення випробувань по визначенню категорії горіння, перевірка вимог до маркування), допомагаючи виробникам та імпортерам швидко й відповідно до законодавства ввести в обіг товар на український ринок.</p>
+      <span class="card-link">Детальніше <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- R1C3 square img — aerosol can -->
+    <div class="imgb sq filled p-r1c3">
+      <span class="regmark tl"></span><span class="regmark tr"></span><span class="regmark bl"></span><span class="regmark br"></span>
+      <svg class="blueprint" viewBox="0 -700 1007 1600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Технічна схема аерозольного балончика">
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M404.5 172.753C348.748 176.982 311.5 184.639 311.5 193.384C311.5 206.703 397.909 217.5 504.5 217.5C611.091 217.5 697.5 206.703 697.5 193.384C697.5 184.587 659.806 176.89 603.5 172.678"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M152 393.5C111.541 405.826 78.5 415.373 78.5 430.952C78.5 475.438 269.003 511.5 504 511.5C738.997 511.5 929.5 475.438 929.5 430.952C929.5 415.74 894.213 406.137 855.5 394"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M311.5 192.942V212.699C311.5 225.844 397.909 236.5 504.5 236.5C611.091 236.5 697.5 225.844 697.5 212.699V192.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M78.5 425.607V485.865C78.5 531.62 268.969 568.711 503.924 568.711C738.879 568.711 929.347 531.62 929.347 485.865V426.903"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M318.5 220C242.341 270.609 149.5 358.523 149.5 417.399C149.5 476.274 857.5 478.415 857.5 418.469C857.5 358.523 767.212 270.801 690 220"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1005.5 571.701C1005.5 617.041 780.747 653.796 503.5 653.796C226.253 653.796 1.5 617.041 1.5 571.701"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1.5 2752.55V2812.27C1.5 2857.61 226.253 2894.36 503.5 2894.36C780.747 2894.36 1005.5 2857.61 1005.5 2812.27V2753.84"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1005.5 2778.23C1005.5 2823.57 780.747 2860.33 503.5 2860.33C226.253 2860.33 1.5 2823.57 1.5 2778.23"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1005.5 605.582V545.869C1005.5 529.235 975.248 513.756 923.251 500.824M1.49997 604.297V545.869C1.49997 529.084 32.3021 513.476 85.1666 500.473"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1005.5 2763.82V605.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1.5 2776.58V605.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1005.5 542.212C1005.5 587.552 780.747 624.308 503.5 624.308C226.253 624.308 1.5 587.552 1.5 542.212"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M587.5 115.5L584.5 10.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M404.5 123.5V182.244C404.5 194.536 449.048 204.5 504 204.5C558.952 204.5 603.5 194.536 603.5 182.244V150.853M603.5 150.853C603.5 140.171 603.5 134.182 603.5 123.5V150.853Z"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M420.5 110.5V115.159C420.5 123.632 457.884 130.5 504 130.5C550.116 130.5 587.5 123.632 587.5 115.159V110.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M423.5 10.5V13.5284C423.5 19.0356 459.541 23.5 504 23.5C548.459 23.5 584.5 19.0356 584.5 13.5284V10.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M423.5 14.5V11.4716C423.5 5.96442 459.541 1.5 504 1.5C548.459 1.5 584.5 5.96442 584.5 11.4716V14.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M603.5 122.5C603.5 136.859 558.952 148.5 504 148.5C449.048 148.5 404.5 136.859 404.5 122.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M404.5 123.5C404.5 120.923 410.246 118.52 420.157 116.5M603.5 123.5C603.5 120.923 597.754 118.52 587.843 116.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M420.5 118.5L423.5 13.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" d="M573.5 39C573.959 39 574.751 39.3529 575.748 40.876C576.705 42.3369 577.623 44.5499 578.418 47.4189C580.001 53.1364 581 61.1208 581 70C581 78.8792 580.001 86.8636 578.418 92.5811C577.623 95.4501 576.705 97.6631 575.748 99.124C574.751 100.647 573.959 101 573.5 101C573.041 101 572.249 100.647 571.252 99.124C570.295 97.6631 569.377 95.4501 568.582 92.5811C566.999 86.8636 566 78.8792 566 70C566 61.1208 566.999 53.1364 568.582 47.4189C569.377 44.5499 570.295 42.3369 571.252 40.876C572.249 39.3529 573.041 39 573.5 39Z"/>
+      </svg>
+    </div>
+
+    <!-- R2C1 square img -->
+    <div class="imgb sq filled p-r2c1">
+      <span class="regmark tl"></span><span class="regmark tr"></span><span class="regmark bl"></span><span class="regmark br"></span>
+      <svg class="blueprint" viewBox="255 185 620 365" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Технічна схема автоцистерни ADR">
+        <defs>
+          <clipPath id="tank-body-clip">
+            <path d="m 386.06274,258.98577 c 0,0 -60.88098,-0.96636 -60.88098,87.45602 0,88.42238 55.97156,96.94558 55.97156,96.94558 h 357.1494 c 0,0 66.27231,7.42102 66.67917,-95.97922 0.34166,-86.83044 -83.03977,-88.51159 -83.03977,-88.51159 l -12.48569,-0.0386 -5.87984,6.13123 -39.32169,0.28278 -6.58266,-6.43204 -187.88316,0.0395 -6.02434,6.21212 -38.90964,0.14642 -6.62028,-6.41216 z"/>
+          </clipPath>
+        </defs>
+        <!-- Animated liquid fill -->
+        <g clip-path="url(#tank-body-clip)">
+          <rect x="150" y="368" width="900" height="200" fill="rgba(91,139,255,0.09)"/>
+          <path fill="rgba(91,139,255,0.18)" d="M 150,368 q 35,-11 70,0 q 35,11 70,0 q 35,-11 70,0 q 35,11 70,0 q 35,-11 70,0 q 35,11 70,0 q 35,-11 70,0 q 35,11 70,0 q 35,-11 70,0 q 35,11 70,0 q 35,-11 70,0 q 35,11 70,0 q 35,-11 70,0 q 35,11 70,0 V 600 H 150 Z">
+            <animateTransform attributeName="transform" type="translate" from="0,0" to="-140,0" dur="3.2s" repeatCount="indefinite"/>
+          </path>
+          <path fill="rgba(91,139,255,0.11)" d="M 80,372 q 35,-7 70,0 q 35,7 70,0 q 35,-7 70,0 q 35,7 70,0 q 35,-7 70,0 q 35,7 70,0 q 35,-7 70,0 q 35,7 70,0 q 35,-7 70,0 q 35,7 70,0 q 35,-7 70,0 q 35,7 70,0 q 35,-7 70,0 q 35,7 70,0 V 600 H 80 Z">
+            <animateTransform attributeName="transform" type="translate" from="-70,0" to="70,0" dur="5s" repeatCount="indefinite"/>
+          </path>
+        </g>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 386.06274,258.98577 c 0,0 -60.88098,-0.96636 -60.88098,87.45602 0,88.42238 55.97156,96.94558 55.97156,96.94558 h 357.1494 c 0,0 66.27231,7.42102 66.67917,-95.97922 0.34166,-86.83044 -83.03977,-88.51159 -83.03977,-88.51159 l -12.48569,-0.0386 -5.87984,6.13123 -39.32169,0.28278 -6.58266,-6.43204 -187.88316,0.0395 -6.02434,6.21212 -38.90964,0.14642 -6.62028,-6.41216 z"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 395.64408,259.32112 c 0,0 -14.89634,56.43858 -14.89634,94.60999 0,38.17141 15.70342,89.14716 15.70342,89.14716"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 508.59073,259.60871 c 0,0 -15.34177,56.22719 -15.34177,94.3986 0,38.17141 15.70342,89.14716 15.70342,89.14716"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 633.0533,260.15926 c 0,0 -15.77185,56.00083 -15.77185,94.17224 0,38.17141 15.70342,89.14716 15.70342,89.14716"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 734.53608,260.99818 c 0,0 -16.14433,55.32004 -16.14433,93.49145 0,38.17141 15.60527,88.99617 15.60527,88.99617"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 734.87389,260.88184 c 0,0 15.58572,47.80938 15.58572,92.73787 0,44.9285 -16.05809,89.51533 -16.05809,89.51533"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 633.61087,260.09381 c 0,0 15.91929,49.40213 15.91929,94.33062 0,44.9285 -15.88726,88.89607 -15.88726,88.89607"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 509.54702,259.94627 c 0,0 15.37477,49.54093 15.37477,94.46942 0,44.9285 -16.05809,89.51533 -16.05809,89.51533"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 397.09398,259.75733 c 0,0 15.37477,49.54093 15.37477,94.46942 0,44.9285 -16.05809,89.51533 -16.05809,89.51533"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 657.96336,258.6378 6.32074,6.32074 h 39.12025 l 5.21033,-5.21034 V 237.62561 H 657.6217 Z"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 418.21824,258.72422 6.32074,6.32074 h 39.12025 l 5.21033,-5.21034 v -22.12259 h -50.99298 z"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="M 310.4447,450.66238 H 834.21443"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 343.3011,450.78318 v 73.44373 h -12.44195 v 1.75153 h 39.67281 v -2.01469 H 359.0863 v -73.2864"/>
+        <circle style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" cx="693.91461" cy="487.74765" r="32.628677"/>
+        <circle style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" cx="760.54474" cy="487.56296" r="32.628677"/>
+        <circle style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" cx="694.68341" cy="488.17471" r="11.018585"/>
+        <circle style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" cx="759.6261" cy="488.31137" r="11.018585"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 310.2635,450.84358 v -7.48933 h 523.89053 v 7.54973"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 324.83416,345.85869 0.16641,-136.15753"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 805.08275,342.38758 0,-132.19377"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 804.43631,221.29755 -3.89974,0.92569 v -1.9158 l 3.94245,0.99011 h -478.6876 l 2.6787,1.06337 v -2.11049 l -2.6787,1.04712"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="M 307.78719,349.34088 H 427.61643"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 431.45892,349.30623 h 6.05857"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="M 441.65349,349.37031 H 561.48273"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 565.32522,349.33566 h 6.05857"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="M 575.0452,349.34883 H 694.87444"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 698.71693,349.31418 h 6.05857"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="M 708.9115,349.37826 H 828.74074"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 443.92384,226.73334 v 45.41915"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 683.70311,226.85414 v 47.95585"/>
+      </svg>
+    </div>
+
+    <!-- R2C2 featured (dark) -->
+    <a class="card feat p-r2c2" href="tanks.html">
+      <div class="card-top">
+        <span class="feat-flag">Основний напрям</span>
+        <span class="card-code">ADR 6.8</span>
+      </div>
+      <span class="card-ico" style="margin-bottom:16px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="8" width="15" height="8" rx="3"/><path d="M16 11h5l1 4h-6"/><circle cx="5.5" cy="18" r="1.9"/><circle cx="13" cy="18" r="1.9"/><circle cx="19" cy="18" r="1.9"/></svg>
+      </span>
+      <h3>Сертифікація та перевірка цистерн для небезпечних вантажів</h3>
+      <p>Для підприємств, що займаються перевезенням в цистернах небезпечних вантажів таких як паливо, пропан та бутан, аміак безводний, кисень, двоокис вуглецю та ін., ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС» надає послуги з сертифікації та перевірки цистерн відповідно до ДОПНВ (ADR) для отримання дозволів на перевезення небезпечних вантажів у сервісних центрах МВС.</p>
+      <span class="card-link">Детальніше <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- R2C3 -->
+    <a class="card p-r2c3" href="inspection.html">
+      <div class="card-top">
+        <span class="card-code">НК · УЗД/МK/РK</span>
+        <span class="card-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M8 11h6M11 8v6"/></svg>
+        </span>
+      </div>
+      <h3>Технічний огляд, діагностування та неруйнівний контроль</h3>
+      <p>Професійний технічний огляд, діагностика та неруйнівний контроль обладнання, резервуарів, цистерн, трубопроводів та об'єктів підвищеної небезпеки відповідно до ДСТУ, ADR та галузевих стандартів.</p>
+      <span class="card-link">Детальніше <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- R3C1 soon -->
+    <a class="card soon p-r3c1" href="lab.html">
+      <div class="card-top">
+        <span class="card-code">ISO 6892 · незабаром</span>
+        <span class="card-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6.2l-4.4 8.9A1 1 0 0 0 6.5 20h11a1 1 0 0 0 .9-1.5L14 9.2V3"/></svg>
+        </span>
+      </div>
+      <h3>Лабораторія та руйнівні випробування</h3>
+      <p>Механічні та фізико-хімічні випробування матеріалів і зварних з'єднань: розривні, згинальні й ударні тести за ДСТУ та ISO.</p>
+      <span class="card-link">Незабаром</span>
+    </a>
+
+    <!-- R4 rect img : reshaped to 2-card slot, sits beside the Lab card -->
+    <div class="imgb rect filled p-r4">
+      <span class="regmark tl"></span><span class="regmark tr"></span><span class="regmark bl"></span><span class="regmark br"></span>
+      <svg class="blueprint" viewBox="255 175 815 300" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Технічна схема стаціонарного резервуара">
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 386.06274,258.98577 c 0,0 -60.88098,-0.96636 -60.88098,87.45602 0,88.42238 55.97156,96.94558 55.97156,96.94558 h 556.70373 c 0,0 66.27235,7.42102 66.67915,-95.97922 0.3417,-86.83044 -83.03975,-88.51159 -83.03975,-88.51159 l -211.67438,-0.0386 -5.87984,6.13123 -39.32169,0.28278 -6.58266,-6.43204 c -90.65796,0.24242 -181.31795,-0.30491 -271.97514,0.14584 z"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 395.64408,259.32112 c 0,0 -14.89634,56.43858 -14.89634,94.60999 0,38.17141 15.70342,89.14716 15.70342,89.14716"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 597.01311,259.60871 c 0,0 -15.34177,56.22719 -15.34177,94.3986 0,38.17141 15.70342,89.14716 15.70342,89.14716"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 760.13027,260.15926 c 0,0 -15.77185,56.00083 -15.77185,94.17224 0,38.17141 15.70342,89.14716 15.70342,89.14716"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 934.09041,260.99818 c 0,0 -16.14433,55.32004 -16.14433,93.49145 0,38.17141 15.60527,88.99617 15.60527,88.99617"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 934.42822,260.88184 c 0,0 15.58572,47.80938 15.58572,92.73787 0,44.9285 -16.05809,89.51533 -16.05809,89.51533"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 760.68784,260.09381 c 0,0 15.91929,49.40213 15.91929,94.33062 0,44.9285 -15.88726,88.89607 -15.88726,88.89607"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 597.9694,259.94627 c 0,0 15.37477,49.54093 15.37477,94.46942 0,44.9285 -16.05809,89.51533 -16.05809,89.51533"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 397.09398,259.75733 c 0,0 15.37477,49.54093 15.37477,94.46942 0,44.9285 -16.05809,89.51533 -16.05809,89.51533"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 658.329,258.6378 6.32074,6.32074 h 39.12025 l 5.21033,-5.21034 v -22.12259 h -50.99298 z"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 418.21824,258.72422 6.32074,6.32074 h 39.12025 l 5.21033,-5.21034 v -22.12259 h -50.99298 z"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 324.83416,345.85869 0.16641,-136.15753"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 1004.6371,342.38758 0,-132.19377"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 1003.9906,221.29755 -3.8997,0.92569 v -1.9158 l 3.9425,0.99011 -678.24198,0 2.6787,1.06337 v -2.11049 l -2.6787,1.04712"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="M 307.78719,349.34088 H 427.61643"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 431.45892,349.30623 h 6.05857"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="M 441.65349,349.37031 H 561.48273"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 565.32522,349.33566 h 6.05857"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="M 575.0452,349.34883 H 694.87444"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 698.71693,349.31418 h 6.05857"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="M 708.9115,349.37826 H 828.74074"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 832.82559,349.35981 h 6.05857"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="M 843.02016,349.42389 H 962.8494"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 966.69189,349.38924 h 6.05857"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 976.12255,349.3355 h 47.93055"/>
+        <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 683.70311,226.85414 v 47.95585"/>
+        <text style="font-size:13.3333px;font-family:Impact,'Arial Narrow',sans-serif;font-stretch:condensed;fill:#ffffff;stroke:#ffffff;stroke-width:0.1" x="666.13605" y="218.3259">12000</text>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about" id="about">
+  <div class="about-in">
+    <div class="about-l">
+      <span class="tag">Про компанію</span>
+      <h2>Надійний партнер у промисловій безпеці</h2>
+      <p>ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС» — акредитований орган технічного нагляду зі спеціалізацією на сертифікації, інспекції та діагностиці промислового обладнання.</p>
+      <p>Працюємо з підприємствами хімічної, нафтогазової, транспортної та машинобудівної галузей, забезпечуючи відповідність обладнання чинним стандартам безпеки.</p>
+      <ul class="checks">
+        <li><span class="x"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>Офіційний дозвіл на проведення технічного нагляду</li>
+        <li><span class="x"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>Сертифіковані інженери на об'єктах підвищеної небезпеки</li>
+        <li><span class="x"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>Виїзд і виконання робіт по всій Україні</li>
+        <li><span class="x"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>Висновки та свідоцтва, що мають юридичну силу</li>
+      </ul>
+    </div>
+
+    <div class="sheet">
+      <div class="sheet-head">
+        <span class="tag">DIEX</span>
+        <span class="dot"></span>
+      </div>
+      <div class="sheet-rows">
+        <div class="sheet-cell"><div class="sheet-n">20+</div><div class="sheet-l">РОКІВ НА РИНКУ</div></div>
+        <div class="sheet-cell"><div class="sheet-n">5+</div><div class="sheet-l">НАПРЯМКІВ акредитації</div></div>
+      </div>
+      <div class="sheet-foot">
+        <span class="chip">ДСТУ</span><span class="chip">ADR</span><span class="chip">ТР 154</span><span class="chip">ISO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta" id="contacts">
+  <div class="cta-box">
+    <div class="cta-l">
+      <span class="tag">Зв'язатися</span>
+      <h2>Потрібна консультація<br>або оцінка вартості?</h2>
+      <p>Спеціаліст розгляне вашу задачу та надасть відповідь у стислі терміни. Виїзд по всій Україні.</p>
+    </div>
+    <div class="cta-act">
+      <a href="tel:+38 067-561-76-79" class="btn-white">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        Замовити дзвінок
+      </a>
+      <a href="mailto:gas@tuev-diex.com" class="btn-ghost">Написати на пошту</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-brand">
+      <a class="brand" href="#">
+        <img src="логотип отн.png" alt="TC DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
+        <img src="logo TC DIEX.jpg" alt="TC DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
+      </a>
+      <p>Акредитований орган технічного нагляду та сертифікації промислового обладнання.</p>
+    </div>
+    <div>
+      <h4>Послуги</h4>
+      <ul>
+        <li><a href="aerosols.html">Сертифікація аерозолів</a></li>
+        <li><a href="balloon.html">Сертифікація балонів</a></li>
+        <li><a href="tanks.html">Перевірка цистерн</a></li>
+        <li><a href="inspection.html">Тех. діагностування</a></li>
+        <li><a href="lab.html">Лабораторія</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакти</h4>
+      <ul>
+        <li>+38 067-561-76-79</li>
+        <li>gas@tuev-diex.com</li>
+        <li>Україна, м.Дніпро</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ftr-bot">
+    <span class="ftr-copy">© 2026 DIEX · Усі права захищені</span>
+    <div class="ftr-std"><span>ДСТУ</span><span>ADR</span><span>ТР 154</span></div>
+  </div>
+</footer>
+
+<a href="tel:+38 067-561-76-79" class="mcall">Замовити дзвінок</a>
+
+<canvas id="spray-px" style="position:absolute;top:0;left:0;pointer-events:none;z-index:999"></canvas>
+<script>
+  const root=document.documentElement,
+        btn=document.getElementById('themeBtn'),
+        lbl=document.getElementById('themeLbl');
+  const saved=localStorage.getItem('diex-theme');
+  if(saved) root.setAttribute('data-theme',saved);
+  sync();
+  btn.addEventListener('click',()=>{
+    const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    localStorage.setItem('diex-theme',next);
+    sync();
+  });
+  function sync(){lbl.textContent=root.getAttribute('data-theme')==='dark'?'LIGHT':'DARK';}
+  addEventListener('scroll',()=>{
+    document.getElementById('hdr').style.boxShadow=scrollY>8?'0 2px 20px rgba(0,0,0,.10)':'none';
+  });
+
+  // ─── Scroll reveal ───
+  (function(){
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+    },{threshold:.08,rootMargin:'0px 0px -50px 0px'});
+
+    function rev(sel){
+      document.querySelectorAll(sel).forEach(el=>{el.classList.add('reveal');io.observe(el);});
+    }
+    function revGrid(sel,cols){
+      document.querySelectorAll(sel).forEach((el,i)=>{
+        el.classList.add('reveal');
+        el.style.setProperty('--rev-d',(i%cols*70)+'ms');
+        io.observe(el);
+      });
+    }
+
+    rev('.strip');
+    rev('.svc-head');
+    rev('.about-l');
+    rev('.sheet');
+    rev('.cta-box');
+    revGrid('.svc-grid > *', 3);
+    revGrid('.ftr-in > *', 3);
+  })();
+
+  // aerosol nozzle spray — service card R1C3
+  (function(){
+    const canvas=document.getElementById('spray-px');
+    if(!canvas)return;
+    const ctx=canvas.getContext('2d');
+    const pts=[];
+    const COUNT=180;
+    let frameN=0;
+
+    function resize(){
+      canvas.width=document.documentElement.scrollWidth;
+      canvas.height=document.documentElement.scrollHeight;
+    }
+    resize();
+    window.addEventListener('resize',resize);
+
+    function getNozzle(){
+      const card=document.querySelector('.p-r1c3');
+      if(!card)return{x:0,y:0};
+      const cr=card.getBoundingClientRect();
+      const vbY=-700,vbW=1007,vbH=1600;
+      const scale=Math.min(cr.width/vbW,cr.height/vbH);
+      const xOff=(cr.width-vbW*scale)/2;
+      const yOff=(cr.height-vbH*scale)/2;
+      return{
+        x:cr.left+window.scrollX+xOff+573*scale,
+        y:cr.top+window.scrollY+yOff+(65-vbY)*scale
+      };
+    }
+
+    class P{
+      constructor(s){this.s=s;this.born=false}
+      spawn(){
+        const n=getNozzle();
+        this.x=n.x+(Math.random()-.5)*5;
+        this.y=n.y+(Math.random()-.5)*5;
+        const base=0.0;
+        this.a=base+(Math.random()-.5)*.65;
+        this.spd=Math.random()*3.2+1;
+        this.r=Math.random()*4+.2;
+        this.life=1;
+        this.decay=Math.random()*.0022+.0008;
+        this.al=Math.random()*.45+.3;
+        this.born=true;
+      }
+      update(){
+        if(!this.born){if(frameN>=this.s)this.spawn();return;}
+        this.x+=Math.cos(this.a)*this.spd;
+        this.y+=Math.sin(this.a)*this.spd;
+        this.spd*=.997;this.r+=.014;
+        this.life-=this.decay;
+        if(this.life<=.04)this.spawn();
+      }
+      draw(){
+        if(!this.born)return;
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+        ctx.fillStyle=`rgba(100,160,255,${Math.max(0,this.life*this.al)})`;
+        ctx.fill();
+      }
+    }
+
+    for(let i=0;i<COUNT;i++)pts.push(new P(Math.floor(i/COUNT*150)));
+
+    (function tick(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      frameN++;
+      const card=document.querySelector('.p-r1c3');
+      if(card){
+        const cr=card.getBoundingClientRect();
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(cr.left+window.scrollX,cr.top+window.scrollY,cr.width,cr.height);
+        ctx.clip();
+      }
+      pts.forEach(p=>{p.update();p.draw();});
+      if(card)ctx.restore();
+      requestAnimationFrame(tick);
+    })();
+  })();
+
+  // DIEX decode scramble + particle burst + dynamic lighting
+  (function(){
+    const canvas=document.getElementById('diex-px');
+    const ctx=canvas?canvas.getContext('2d'):null;
+    const pts=[];
+    function resize(){
+      if(!canvas)return;
+      canvas.width=canvas.offsetWidth;
+      canvas.height=canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize',resize);
+
+    function burst(x,y,bw,bh){
+      // expanding corner brackets
+      pts.push({t:'bracket',x,y,
+        w:bw*.25,h:bh*.25,
+        tw:bw*.58,th:bh*.58,
+        life:1,decay:.018});
+      // horizontal data pulses — strict left/right, no Y drift
+      const rows=6;
+      for(let i=0;i<rows;i++){
+        const yOff=(i/(rows-1)-.5)*bh*.75;
+        [-1,1].forEach(dir=>{
+          pts.push({t:'pulse',
+            x,y:y+yOff,
+            vx:dir*(Math.random()*3+2.5),
+            len:Math.random()*30+12,
+            life:1,decay:.02+Math.random()*.014});
+        });
+      }
+    }
+
+    function tick(){
+      if(!ctx)return;
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.lineCap='square';
+      for(let i=pts.length-1;i>=0;i--){
+        const p=pts[i];
+        p.life-=p.decay;
+        if(p.life<=0){pts.splice(i,1);continue;}
+        if(p.t==='bracket'){
+          p.w+=(p.tw-p.w)*.14;
+          p.h+=(p.th-p.h)*.14;
+          const hw=p.w/2,hh=p.h/2,tk=14;
+          const a=p.life*.55;
+          ctx.strokeStyle=`rgba(91,139,255,${a})`;
+          ctx.lineWidth=1;
+          // 4 corner L-marks
+          [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([sx,sy])=>{
+            const cx=p.x+sx*hw, cy=p.y+sy*hh;
+            ctx.beginPath();
+            ctx.moveTo(cx+sx*tk,cy);
+            ctx.lineTo(cx,cy);
+            ctx.lineTo(cx,cy+sy*tk);
+            ctx.stroke();
+          });
+        } else {
+          p.x+=p.vx;
+          const tail=p.x-Math.sign(p.vx)*p.len;
+          const g=ctx.createLinearGradient(p.x,p.y,tail,p.y);
+          g.addColorStop(0,`rgba(91,139,255,${p.life*.7})`);
+          g.addColorStop(1,`rgba(91,139,255,0)`);
+          ctx.beginPath();
+          ctx.moveTo(p.x,p.y);
+          ctx.lineTo(tail,p.y);
+          ctx.strokeStyle=g;
+          ctx.lineWidth=.9;
+          ctx.stroke();
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+    tick();
+
+    const pool='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#@!$&%БГДЄЗИКЛМНПРСТУФХЦЧ';
+    const chars=pool.split('');
+    const word='DIEX';
+    const spans=[...document.querySelectorAll('.dchar')];
+    // measure correct-letter widths first, then lock them
+    spans.forEach((el,i)=>{ el.textContent=word[i]; });
+    spans.forEach(el=>{ el.style.width=el.offsetWidth+'px'; el.style.textAlign='center'; });
+    spans.forEach((el,i)=>{
+      const target=word[i];let n=0;const max=14+i*9;
+      setTimeout(()=>{
+        const iv=setInterval(()=>{
+          el.textContent=chars[Math.floor(Math.random()*chars.length)];
+          if(++n>=max){
+            clearInterval(iv);
+            el.textContent=target;
+            el.classList.add('resolved');
+            if(canvas){
+              const er=el.getBoundingClientRect();
+              const cr=canvas.getBoundingClientRect();
+              const cx=er.left-cr.left+er.width*.5;
+              const cy=er.top-cr.top+er.height*.5;
+              burst(cx,cy,er.width,er.height);
+            }
+          }
+        },55);
+      },180+i*170);
+    });
+  })();
+</script>
+
+</body>
+</html>
