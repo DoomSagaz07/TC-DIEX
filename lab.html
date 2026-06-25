@@ -14,6 +14,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Технічне діагностування та неруйнівний контроль | DIEX</title>
 <meta name="robots" content="index, follow">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="canonical" href="https://diex.pro/lab.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://diex.pro/lab.html">
+<meta property="og:title" content="Технічне діагностування та неруйнівний контроль | DIEX">
+<meta property="og:description" content="Технічне діагностування, неруйнівний контроль, технічний огляд обладнання, резервуарів, цистерн та трубопроводів по всій Україні.">
+<meta property="og:image" content="https://diex.pro/logo%20new.svg">
+<meta property="og:locale" content="uk_UA">
 <meta name="description" content="Технічне діагностування, неруйнівний контроль, технічний огляд обладнання, резервуарів, цистерн та трубопроводів по всій Україні.">
 <meta name="keywords" content="технічне діагностування, неруйнівний контроль, ультразвуковий контроль, магнітопорошковий контроль, вихрострумовий контроль, акустична емісія, радіографічний контроль, технічний огляд обладнання, резервуари, цистерни, трубопроводи, промислове обладнання, ДІЕКС, DIEX, технічна діагностика Україна">
 <link rel="icon" href="logo TC DIEX.jpg">
@@ -56,7 +64,7 @@ body{background:var(--paper);color:var(--ink-text);font-family:'IBM Plex Sans',-
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(var(--line-ink-2) 1px,transparent 1px) 0 0/100% 56px,linear-gradient(90deg,var(--line-ink-2) 1px,transparent 1px) 0 0/56px 100%;mask-image:radial-gradient(120% 90% at 50% 0%,#000 40%,transparent 100%);opacity:.7}
 .hero::after{content:"";position:absolute;top:-30%;right:-10%;width:780px;height:780px;pointer-events:none;background:radial-gradient(circle,rgba(30,87,227,.28),transparent 62%);filter:blur(10px)}
 .hero-in{position:relative;max-width:var(--max);margin:0 auto;z-index:1}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:40px;align-items:start}
 .hero-badge{display:inline-flex;padding:10px 16px;border-radius:999px;background:rgba(241,90,34,.12);border:1px solid rgba(241,90,34,.22);color:var(--orange-soft);font-family:'IBM Plex Mono';font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px}
 .hero h1{font-family:'Space Grotesk';font-size:clamp(36px,5vw,64px);line-height:.95;font-weight:800;margin-bottom:24px;color:var(--on-ink)}
 .hero-desc{font-size:17px;line-height:1.8;color:var(--on-ink-mut);margin-bottom:28px}
@@ -113,6 +121,27 @@ textarea.hero-input{height:100px;resize:none;padding-top:14px}
 .service-card:hover h3,.method-card:hover h3{color:#fff}
 .service-card p,.method-card p{padding:0;font-size:13px;line-height:1.72;color:var(--on-ink-faint);transition:color .2s}
 .service-card:hover p,.method-card:hover p{color:var(--on-ink-mut)}
+.why-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;max-width:var(--max);margin:0 auto}
+.why-l .tag{color:var(--orange);display:block;margin-bottom:14px}
+.why-l h2{font-family:'Space Grotesk';font-size:clamp(24px,2.8vw,38px);font-weight:700;letter-spacing:-1px;line-height:1.07;color:var(--ink-text);margin-bottom:16px;transition:color .35s}
+.why-l>p{color:var(--mut);font-size:15px;line-height:1.8;margin-bottom:28px;transition:color .35s}
+.why-advs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.why-adv{display:flex;align-items:flex-start;gap:12px;padding:16px 14px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card-2);transition:border-color .2s,background .35s}
+.why-adv:hover{border-color:var(--blue)}
+.why-adv-ico{width:34px;height:34px;border-radius:var(--r);background:rgba(30,87,227,.10);border:1px solid rgba(30,87,227,.18);display:grid;place-items:center;flex-shrink:0;color:var(--blue);transition:background .2s,border-color .2s}
+.why-adv:hover .why-adv-ico{background:rgba(30,87,227,.18);border-color:rgba(30,87,227,.35)}
+.why-adv h4{font-family:'Space Grotesk';font-size:13px;font-weight:700;color:var(--ink-text);margin-bottom:3px;transition:color .35s}
+.why-adv p{font-size:12px;line-height:1.6;color:var(--mut);margin:0;transition:color .35s}
+.why-stats{background:var(--ink);border-radius:var(--r-lg);overflow:hidden;position:relative;border:1px solid var(--line-ink)}
+.why-stats::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 280px at 85% 15%,rgba(30,87,227,.22),transparent 70%);pointer-events:none}
+.why-stats::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange)}
+.why-stats-grid{display:grid;grid-template-columns:1fr 1fr;position:relative;z-index:1}
+.why-stat{padding:26px 22px;border-right:1px solid var(--line-ink);border-bottom:1px solid var(--line-ink)}
+.why-stat:nth-child(even){border-right:none}
+.why-stat:nth-last-child(-n+2){border-bottom:none}
+.why-stat-n{font-family:'Space Grotesk';font-size:40px;font-weight:800;color:var(--orange);line-height:1;letter-spacing:-2px;margin-bottom:5px}
+.why-stat-l{font-family:'IBM Plex Mono';font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--on-ink-faint)}
+.why-stat p{font-size:12px;line-height:1.6;color:var(--on-ink-mut);margin-top:7px;padding:0}
 .cta{padding:64px 28px}
 .cta-box{position:relative;max-width:var(--max);margin:0 auto;background:var(--ink);border-radius:var(--r-lg);padding:52px 56px;overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
 .cta-box::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px 300px at 85% 50%,rgba(30,87,227,.22),transparent 70%)}
@@ -226,8 +255,8 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
   <div class="hero-in">
     <div class="hero-grid">
       <div>
-        <div class="hero-badge">Технічний контроль та діагностика</div>
-        <h1>Технічне діагностування та неруйнівний контроль промислового обладнання</h1>
+        <div class="hero-badge">Лабораторні випробування</div>
+        <h1>Руйнівний та не руйнівний контроль</h1>
         <p class="hero-desc">Професійний технічний огляд, діагностика та неруйнівний контроль обладнання, резервуарів, цистерн, трубопроводів та об'єктів підвищеної небезпеки відповідно до ДСТУ, ADR та галузевих стандартів.</p>
         <div class="points">
           <div class="point">✓ Виїзд по всій Україні</div>
@@ -240,37 +269,201 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
           <button id="heroCallBtn" class="btn-outline-hero">Замовити дзвінок</button>
         </div>
       </div>
-      <div class="hero-img-ph">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-        <span>Місце для фото</span>
-      </div>
+      <svg viewBox="0 0 880 660" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:var(--r-lg);overflow:hidden">
+        <defs>
+          <pattern id="ng" width="44" height="44" patternUnits="userSpaceOnUse">
+            <path d="M44 0H0V44" stroke="rgba(255,255,255,.05)" stroke-width=".8"/>
+          </pattern>
+          <filter id="nb"><feGaussianBlur stdDeviation="28"/></filter>
+          <filter id="wg"><feGaussianBlur stdDeviation="8"/></filter>
+        </defs>
+        <rect width="880" height="660" fill="#0b1320"/>
+        <rect width="880" height="660" fill="url(#ng)"/>
+        <ellipse cx="700" cy="80" rx="200" ry="140" fill="rgba(30,87,227,.18)" filter="url(#nb)"/>
+        <path d="M18 18H36M18 18V36" stroke="#f15a22" stroke-width="1.4"/>
+        <path d="M862 18H844M862 18V36" stroke="#f15a22" stroke-width="1.4"/>
+        <path d="M18 642H36M18 642V624" stroke="#f15a22" stroke-width="1.4"/>
+        <path d="M862 642H844M862 642V624" stroke="#f15a22" stroke-width="1.4"/>
+        <text x="440" y="42" text-anchor="middle" fill="rgba(255,255,255,.42)" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="2">СХЕМА КОМПЛЕКСНОГО НК ПРОМИСЛОВОГО ТРУБОПРОВОДУ</text>
+
+        <!-- ─── PIPE CROSS-SECTION (end view) ─── -->
+        <circle cx="440" cy="310" r="165" stroke="white" stroke-width="1.8" fill="rgba(14,22,40,.65)"/>
+        <circle cx="440" cy="310" r="151" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+        <circle cx="440" cy="310" r="138" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+        <circle cx="440" cy="310" r="128" stroke="rgba(255,255,255,.38)" stroke-width="1.3" fill="rgba(8,14,28,.82)"/>
+        <!-- Centerlines -->
+        <line x1="258" y1="310" x2="622" y2="310" stroke="rgba(91,139,255,.2)" stroke-width=".9" stroke-dasharray="8 5"/>
+        <line x1="440" y1="128" x2="440" y2="492" stroke="rgba(91,139,255,.2)" stroke-width=".9" stroke-dasharray="8 5"/>
+        <text x="626" y="314" fill="rgba(91,139,255,.25)" font-family="'IBM Plex Mono',monospace" font-size="8">CL</text>
+        <!-- Anomaly in wall at ~50° -->
+        <circle cx="540" cy="212" r="16" stroke="rgba(241,90,34,.18)" stroke-width="1" fill="none"/>
+        <circle cx="540" cy="212" r="9" stroke="rgba(241,90,34,.75)" stroke-width="1.5" fill="rgba(241,90,34,.12)" filter="url(#wg)"/>
+        <circle cx="540" cy="212" r="9" stroke="rgba(241,90,34,.75)" stroke-width="1.5" fill="rgba(241,90,34,.12)"/>
+        <line x1="540" y1="200" x2="540" y2="170" stroke="rgba(241,90,34,.45)" stroke-width=".9"/>
+        <text x="540" y="163" text-anchor="middle" fill="rgba(241,90,34,.62)" font-family="'IBM Plex Mono',monospace" font-size="8" letter-spacing="1">АНОМАЛІЯ</text>
+        <!-- Bore legend: remaining 8 methods -->
+        <text x="440" y="284" text-anchor="middle" fill="rgba(255,255,255,.16)" font-family="'IBM Plex Mono',monospace" font-size="8" letter-spacing="2">ТАКОЖ ВИКОНУЄМО</text>
+        <text x="440" y="304" text-anchor="middle" fill="rgba(91,139,255,.52)" font-family="Impact,'Arial Narrow',sans-serif" font-size="13" letter-spacing="2.5">АЕ · КК · СА · ММД</text>
+        <text x="440" y="324" text-anchor="middle" fill="rgba(91,139,255,.52)" font-family="Impact,'Arial Narrow',sans-serif" font-size="13" letter-spacing="2.5">СХ · МВМ · КМ · ВТ</text>
+
+        <!-- ─── PROBE 1: УЗД (top-left, 120°) ─── -->
+        <line x1="358" y1="167" x2="344" y2="112" stroke="rgba(91,139,255,.28)" stroke-width=".9" stroke-dasharray="4 3"/>
+        <rect x="285" y="98" width="58" height="22" rx="3" stroke="rgba(91,139,255,.7)" stroke-width="1.3" fill="rgba(91,139,255,.08)"/>
+        <rect x="340" y="102" width="5" height="14" rx="1" stroke="rgba(91,139,255,.85)" stroke-width="1" fill="rgba(91,139,255,.3)"/>
+        <path d="M348 102 Q355 109 348 116" stroke="rgba(91,139,255,.65)" stroke-width="1.2" fill="none"/>
+        <path d="M352 99 Q362 109 352 119" stroke="rgba(91,139,255,.42)" stroke-width="1.1" fill="none"/>
+        <path d="M356 96 Q370 109 356 122" stroke="rgba(91,139,255,.24)" stroke-width="1" fill="none"/>
+        <text x="278" y="88" text-anchor="end" fill="rgba(91,139,255,.95)" font-family="Impact,'Arial Narrow',sans-serif" font-size="22" letter-spacing="1">УЗД</text>
+        <text x="278" y="102" text-anchor="end" fill="rgba(255,255,255,.75)" font-family="'IBM Plex Mono',monospace" font-size="10">Ультразвуковий</text>
+        <text x="278" y="115" text-anchor="end" fill="rgba(255,255,255,.75)" font-family="'IBM Plex Mono',monospace" font-size="10">контроль</text>
+
+        <!-- ─── PROBE 2: РК (top-right, 60°) FEATURED ─── -->
+        <line x1="523" y1="167" x2="556" y2="120" stroke="rgba(241,90,34,.32)" stroke-width=".9" stroke-dasharray="4 3"/>
+        <path d="M524 95 L586 95 L555 120 Z" stroke="rgba(241,90,34,.72)" stroke-width="1.4" fill="rgba(241,90,34,.09)"/>
+        <circle cx="555" cy="103" r="2.8" fill="rgba(241,90,34,.55)"/>
+        <circle cx="543" cy="112" r="2" fill="rgba(241,90,34,.38)"/>
+        <circle cx="567" cy="112" r="2" fill="rgba(241,90,34,.38)"/>
+        <line x1="555" y1="120" x2="528" y2="168" stroke="rgba(241,90,34,.22)" stroke-width=".9" stroke-dasharray="3 3"/>
+        <line x1="555" y1="120" x2="512" y2="178" stroke="rgba(241,90,34,.14)" stroke-width=".8" stroke-dasharray="3 4"/>
+        <text x="594" y="88" text-anchor="start" fill="rgba(241,90,34,.98)" font-family="Impact,'Arial Narrow',sans-serif" font-size="22" letter-spacing="1">РК ★</text>
+        <text x="594" y="102" text-anchor="start" fill="rgba(241,90,34,.65)" font-family="'IBM Plex Mono',monospace" font-size="10">Радіографічний</text>
+        <text x="594" y="115" text-anchor="start" fill="rgba(241,90,34,.65)" font-family="'IBM Plex Mono',monospace" font-size="10">контроль · КЛЮЧОВИЙ</text>
+
+        <!-- ─── PROBE 3: ВК (left, 180°) ─── -->
+        <line x1="275" y1="310" x2="210" y2="310" stroke="rgba(91,139,255,.28)" stroke-width=".9" stroke-dasharray="4 3"/>
+        <circle cx="188" cy="308" r="22" stroke="rgba(91,139,255,.65)" stroke-width="1.4" fill="none"/>
+        <circle cx="188" cy="308" r="13" stroke="rgba(91,139,255,.32)" stroke-width="1" fill="rgba(91,139,255,.05)"/>
+        <line x1="204" y1="324" x2="216" y2="336" stroke="rgba(91,139,255,.65)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M180 300 Q184 295 189 297" stroke="rgba(255,255,255,.18)" stroke-width="1" fill="none"/>
+        <text x="158" y="302" text-anchor="end" fill="rgba(91,139,255,.95)" font-family="Impact,'Arial Narrow',sans-serif" font-size="22" letter-spacing="1">ВК</text>
+        <text x="158" y="316" text-anchor="end" fill="rgba(255,255,255,.75)" font-family="'IBM Plex Mono',monospace" font-size="10">Візуальний</text>
+        <text x="158" y="329" text-anchor="end" fill="rgba(255,255,255,.75)" font-family="'IBM Plex Mono',monospace" font-size="10">контроль</text>
+
+        <!-- ─── PROBE 4: ВСК (right, 0°) ─── -->
+        <line x1="605" y1="310" x2="650" y2="310" stroke="rgba(91,139,255,.28)" stroke-width=".9" stroke-dasharray="4 3"/>
+        <rect x="651" y="295" width="50" height="30" rx="3" stroke="rgba(91,139,255,.65)" stroke-width="1.3" fill="rgba(91,139,255,.08)"/>
+        <path d="M649 302 Q644 299 639 302 Q634 305 629 302" stroke="rgba(91,139,255,.5)" stroke-width="1.1" fill="none"/>
+        <path d="M649 310 Q644 307 639 310 Q634 313 629 310" stroke="rgba(91,139,255,.5)" stroke-width="1.1" fill="none"/>
+        <path d="M649 318 Q644 315 639 318 Q634 321 629 318" stroke="rgba(91,139,255,.5)" stroke-width="1.1" fill="none"/>
+        <line x1="701" y1="310" x2="726" y2="310" stroke="rgba(91,139,255,.4)" stroke-width="1.2"/>
+        <text x="730" y="302" text-anchor="start" fill="rgba(91,139,255,.95)" font-family="Impact,'Arial Narrow',sans-serif" font-size="22" letter-spacing="1">ВСК</text>
+        <text x="730" y="316" text-anchor="start" fill="rgba(255,255,255,.75)" font-family="'IBM Plex Mono',monospace" font-size="10">Вихрострумовий</text>
+        <text x="730" y="329" text-anchor="start" fill="rgba(255,255,255,.75)" font-family="'IBM Plex Mono',monospace" font-size="10">контроль</text>
+
+        <!-- ─── PROBE 5: МПК (bottom-left, 240°) ─── -->
+        <line x1="358" y1="453" x2="326" y2="490" stroke="rgba(91,139,255,.28)" stroke-width=".9" stroke-dasharray="4 3"/>
+        <path d="M308 533 L308 500 Q308 488 325 488 Q342 488 342 500 L342 533" stroke="rgba(91,139,255,.7)" stroke-width="1.5" fill="none"/>
+        <rect x="297" y="529" width="19" height="13" rx="2" stroke="rgba(91,139,255,.6)" stroke-width="1" fill="rgba(91,139,255,.12)"/>
+        <rect x="320" y="529" width="19" height="13" rx="2" stroke="rgba(241,90,34,.6)" stroke-width="1" fill="rgba(241,90,34,.08)"/>
+        <text x="309" y="539" text-anchor="middle" fill="rgba(91,139,255,.65)" font-family="'IBM Plex Mono',monospace" font-size="7">N</text>
+        <text x="332" y="539" text-anchor="middle" fill="rgba(241,90,34,.65)" font-family="'IBM Plex Mono',monospace" font-size="7">S</text>
+        <circle cx="348" cy="456" r="2.2" fill="rgba(91,139,255,.5)"/>
+        <circle cx="358" cy="458" r="1.8" fill="rgba(91,139,255,.5)"/>
+        <circle cx="366" cy="455" r="2.2" fill="rgba(91,139,255,.5)"/>
+        <text x="278" y="545" text-anchor="end" fill="rgba(91,139,255,.95)" font-family="Impact,'Arial Narrow',sans-serif" font-size="22" letter-spacing="1">МПК</text>
+        <text x="278" y="559" text-anchor="end" fill="rgba(255,255,255,.75)" font-family="'IBM Plex Mono',monospace" font-size="10">Магнітно-</text>
+        <text x="278" y="572" text-anchor="end" fill="rgba(255,255,255,.75)" font-family="'IBM Plex Mono',monospace" font-size="10">порошковий к.</text>
+
+        <!-- ─── PROBE 6: ТВ (bottom-right, 300°) ─── -->
+        <line x1="523" y1="453" x2="556" y2="490" stroke="rgba(241,90,34,.28)" stroke-width=".9" stroke-dasharray="4 3"/>
+        <rect x="533" y="491" width="52" height="28" rx="4" stroke="rgba(241,90,34,.6)" stroke-width="1.3" fill="rgba(241,90,34,.06)"/>
+        <circle cx="547" cy="505" r="9" stroke="rgba(241,90,34,.55)" stroke-width="1.1" fill="rgba(241,90,34,.08)"/>
+        <path d="M530 488 Q525 482 530 476 Q535 470 530 464" stroke="rgba(241,90,34,.45)" stroke-width="1.2" fill="none"/>
+        <path d="M547 488 Q542 481 547 474 Q552 467 547 460" stroke="rgba(241,90,34,.58)" stroke-width="1.3" fill="none"/>
+        <path d="M564 488 Q569 482 564 476 Q559 470 564 464" stroke="rgba(241,90,34,.45)" stroke-width="1.2" fill="none"/>
+        <text x="594" y="545" text-anchor="start" fill="rgba(241,90,34,.85)" font-family="Impact,'Arial Narrow',sans-serif" font-size="22" letter-spacing="1">ТВ</text>
+        <text x="594" y="559" text-anchor="start" fill="rgba(255,255,255,.75)" font-family="'IBM Plex Mono',monospace" font-size="10">Метод</text>
+        <text x="594" y="572" text-anchor="start" fill="rgba(255,255,255,.75)" font-family="'IBM Plex Mono',monospace" font-size="10">теплобачення</text>
+
+        <!-- ─── DIMENSION (outer Ø) ─── -->
+        <line x1="275" y1="598" x2="605" y2="598" stroke="#f69600" stroke-width=".9"/>
+        <line x1="275" y1="591" x2="275" y2="605" stroke="#f69600" stroke-width=".9"/>
+        <line x1="605" y1="591" x2="605" y2="605" stroke="#f69600" stroke-width=".9"/>
+        <line x1="275" y1="475" x2="275" y2="598" stroke="#f69600" stroke-width=".5" stroke-dasharray="3 4"/>
+        <line x1="605" y1="475" x2="605" y2="598" stroke="#f69600" stroke-width=".5" stroke-dasharray="3 4"/>
+        <text x="440" y="618" text-anchor="middle" fill="white" font-family="Impact,'Arial Narrow',sans-serif" font-size="13" letter-spacing="1">Ø 820</text>
+        <text x="440" y="632" text-anchor="middle" fill="rgba(255,255,255,.38)" font-family="'IBM Plex Mono',monospace" font-size="8" letter-spacing=".5">мм · ЗОВНІШНІЙ ДІАМЕТР</text>
+
+        <text x="840" y="648" text-anchor="end" fill="rgba(255,255,255,.12)" font-family="'IBM Plex Mono',monospace" font-size="8" letter-spacing="1">DIEX · КОМПЛЕКСНИЙ НК</text>
+      </svg>
     </div>
   </div>
 </section>
 
 <section class="svc" id="advantages">
-  <div class="svc-head">
-    <span class="tag">Чому обирають нас</span>
-    <h2>Надійна технічна діагностика для промислових об'єктів</h2>
-    <p class="section-text">Працюємо з обладнанням, резервуарами, цистернами, трубопроводами та об'єктами підвищеної небезпеки по всій Україні.</p>
-  </div>
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-number">14+</div>
-      <div class="stat-title">Методів контролю</div>
-      <p>Комплексна технічна діагностика обладнання та металоконструкцій.</p>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">1000+</div>
-      <div class="stat-title">Перевірених об'єктів</div>
-      <p>Досвід роботи з небезпечними та промисловими об'єктами.</p>
+  <div class="why-grid">
+
+    <!-- Left: heading + advantages -->
+    <div class="why-l">
+      <span class="tag">Чому обирають нас</span>
+      <h2>Надійна технічна діагностика для промислових об'єктів</h2>
+      <p>Працюємо з обладнанням, резервуарами, цистернами, трубопроводами та об'єктами підвищеної небезпеки по всій Україні.</p>
+      <div class="why-advs">
+        <div class="why-adv">
+          <div class="why-adv-ico">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h4>Офіційна акредитація</h4>
+            <p>Дозвіл на проведення технічного нагляду</p>
+          </div>
+        </div>
+        <div class="why-adv">
+          <div class="why-adv-ico">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <div>
+            <h4>Виїзд по всій Україні</h4>
+            <p>Оперативно до будь-якого об'єкта</p>
+          </div>
+        </div>
+        <div class="why-adv">
+          <div class="why-adv-ico">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+          </div>
+          <div>
+            <h4>Швидкий технічний звіт</h4>
+            <p>Протоколи та висновки у стислі терміни</p>
+          </div>
+        </div>
+        <div class="why-adv">
+          <div class="why-adv-ico">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div>
+            <h4>Відповідність ДСТУ / ADR</h4>
+            <p>Висновки, що мають юридичну силу</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="stat-card">
-      <div class="stat-number">100%</div>
-      <div class="stat-title">Відповідність нормам</div>
-      <p>Контроль відповідно до ДСТУ та галузевих стандартів.</p>
+    <!-- Right: stats panel -->
+    <div class="why-stats">
+      <div class="why-stats-grid">
+        <div class="why-stat">
+          <div class="why-stat-n">14+</div>
+          <div class="why-stat-l">Методів НК</div>
+          <p>УЗД, радіографія, АЕ, магнітний, вихрострумовий та ін.</p>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-n">1000+</div>
+          <div class="why-stat-l">Об'єктів</div>
+          <p>Резервуари, цистерни, трубопроводи, металоконструкції</p>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-n">100%</div>
+          <div class="why-stat-l">Відповідність</div>
+          <p>Контроль відповідно до ДСТУ та галузевих стандартів</p>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-n">20+</div>
+          <div class="why-stat-l">Років досвіду</div>
+          <p>На ринку технічного нагляду та діагностики</p>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 

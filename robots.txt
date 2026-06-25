@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+Disallow: /test.html
+Disallow: /tc-old.html
+Disallow: /balony%20java.html
+Disallow: /index%20v2.html
+Disallow: /0.0.3/
+Disallow: /v0.0.1/
+Disallow: /v0.0.2/
+Disallow: /star%20name/
+
+Sitemap: https://diex.pro/sitemap.xml

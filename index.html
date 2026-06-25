@@ -12,9 +12,18 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ТЦ DIEX — Технічний нагляд та сертифікація</title>
+<link rel="icon" href="logo TC DIEX.jpg" type="image/jpeg">
+<title>DIEX — Технічний нагляд та сертифікація</title>
 <meta name="robots" content="index, follow">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="canonical" href="https://diex.pro/">
 <meta name="description" content="ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС» — орган технічного нагляду. Сертифікація, технічне діагностування та неруйнівний контроль промислового обладнання за ДСТУ та ADR.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://diex.pro/">
+<meta property="og:title" content="DIEX — Технічний нагляд та сертифікація">
+<meta property="og:description" content="ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС» — орган технічного нагляду. Сертифікація, технічне діагностування та неруйнівний контроль промислового обладнання за ДСТУ та ADR.">
+<meta property="og:image" content="https://diex.pro/logo%20new.svg">
+<meta property="og:locale" content="uk_UA">
 <meta name="keywords" content="орган технічного нагляду, технічний нагляд, сертифікація обладнання, технічне діагностування, неруйнівний контроль, промислова безпека, ДІЕКС, DIEX, ADR, ДОПНВ, оцінка відповідності, ДСТУ, сертифікація цистерн, сертифікація балонів, аерозольна продукція, технічна перевірка, Україна">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,7 +166,31 @@ body{
   background:radial-gradient(circle,rgba(30,87,227,.28),transparent 62%);filter:blur(10px);
 }
 .hero-svg-bg{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.hero-svg-bg svg{position:absolute;right:-2%;bottom:-18%;width:65%;height:auto;opacity:.18}
+.hero-diex{
+  position:absolute;right:20%;bottom:8%;
+  display:flex;align-items:flex-end;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(130px,18vw,268px);
+  font-weight:700;letter-spacing:-.04em;line-height:1;
+  color:transparent;-webkit-text-stroke:1.5px rgba(91,139,255,.26);
+  user-select:none;
+}
+.dchar{display:inline-block;transition:text-shadow .6s ease-out,-webkit-text-stroke-color .3s}
+.dchar.resolved{
+  -webkit-text-stroke-color:rgba(91,139,255,.36);
+  text-shadow:0 0 90px rgba(91,139,255,.13);
+}
+@keyframes diex-vscan{
+  0%{left:-4%;opacity:0}
+  6%{opacity:1}
+  90%{opacity:.85}
+  100%{left:104%;opacity:0}
+}
+.hero-diex-scan{
+  position:absolute;top:-20%;bottom:-20%;width:2px;left:-4%;pointer-events:none;
+  background:linear-gradient(to bottom,transparent 0%,rgba(241,90,34,.45) 38%,rgba(241,90,34,.7) 50%,rgba(241,90,34,.45) 62%,transparent 100%);
+  animation:diex-vscan 1.4s cubic-bezier(.4,0,.2,1) .1s both;
+}
 .hero-in{position:relative;max-width:var(--max);margin:0 auto;z-index:1}
 .hero-grid{display:grid;grid-template-columns:1fr;align-items:center;padding-bottom:64px;max-width:680px}
 
@@ -217,7 +250,7 @@ body{
 .strip-items span+span::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:3px;border-radius:50%;background:var(--orange)}
 
 /* ═══════════════ SERVICES ═══════════════ */
-.svc{padding:84px 28px}
+.svc{padding:84px 28px;position:relative}
 .svc-head{
   max-width:var(--max);margin:0 auto 40px;display:flex;align-items:flex-end;
   justify-content:space-between;gap:24px;
@@ -381,8 +414,6 @@ body{
 /* ═══════════════ RESPONSIVE ═══════════════ */
 @media (max-width:1024px){
   .nav{display:none}
-  .hero-grid{grid-template-columns:1fr;gap:40px}
-  .gauge{max-width:440px}
   .about-in{grid-template-columns:1fr;gap:40px}
   .sheet{max-width:440px}
   .cta-box{grid-template-columns:1fr;padding:44px;gap:30px}
@@ -390,19 +421,46 @@ body{
   .ftr-in{grid-template-columns:1fr 1fr}
 }
 @media (max-width:720px){
-  .svc-grid{grid-template-columns:1fr}
+  .hdr-in{padding:0 16px;gap:10px}
+  .btn-warn{padding:8px 14px;font-size:12px}
+  .hero{padding:calc(var(--hh) + 40px) 20px 0}
+  .hero-svg-bg{display:none}
+  .hero h1{letter-spacing:-1px}
+  .svc{padding:52px 20px}
+  .svc-grid{grid-template-columns:1fr;grid-template-rows:auto}
   .p-r1c1,.p-r1c2,.p-r1c3,.p-r2c1,.p-r2c2,.p-r2c3,.p-r3c1,.p-r4{grid-column:auto;grid-row:auto}
+  .imgb.sq{aspect-ratio:4/3}
   .svc-head{flex-direction:column;align-items:flex-start;gap:12px}
   .svc-head-note{text-align:left;white-space:normal}
-  .strip-in{height:auto;flex-direction:column;align-items:flex-start;gap:10px;padding:14px 28px}
+  .about{padding:52px 20px}
+  .strip-in{height:auto;flex-direction:column;align-items:flex-start;gap:10px;padding:14px 20px}
   .strip-lbl{border-right:none;padding-right:0}
   .strip-items{padding-left:0}
-  .cta-box{padding:34px 26px}
+  .cta{padding:52px 20px}
+  .cta-box{padding:32px 24px}
   .cta-act{flex-direction:column}
+  .ftr{padding:40px 20px 80px}
   .ftr-in{grid-template-columns:1fr}
   .ftr-bot{flex-direction:column;align-items:flex-start}
   .mcall{display:block}
-  .hero h1{letter-spacing:-1px}
+}
+@media (max-width:480px){
+  .hdr-in{padding:0 14px}
+  .brand-sub{display:none}
+  .hero{padding:calc(var(--hh) + 24px) 16px 0}
+  .hero h1{font-size:clamp(28px,8.5vw,40px);letter-spacing:-.5px}
+  .hero-desc{font-size:15px}
+  .hero-act{gap:8px}
+  .ruler{display:none}
+  .svc{padding:40px 14px}
+  .svc-head h2{font-size:clamp(22px,6vw,30px)}
+  .imgb.sq{aspect-ratio:3/2}
+  .card h3{font-size:15px}
+  .about{padding:44px 14px}
+  .cta{padding:40px 14px}
+  .cta-box{padding:24px 18px}
+  .cta-l h2{font-size:clamp(22px,6vw,30px)}
+  .ftr{padding:36px 14px 80px}
 }
 </style>
 </head>
@@ -436,13 +494,11 @@ body{
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="hero-svg-bg" aria-hidden="true">
-    <svg viewBox="0 0 1171 747" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-      <path style="fill:none;stroke:#fff;stroke-width:2;stroke-opacity:1;stroke-dasharray:1,4;stroke-dashoffset:0;stroke-linecap:square" d="m 171.96539,214.56632 97.11966,-0.96637 c 0,0 147.37064,-4.34864 148.337,156.06792 0.96636,160.41656 -138.19017,160.41656 -138.19017,160.41656 l -107.74968,0.48318 z"/>
-      <path style="fill:none;stroke:#fff;stroke-width:2;stroke-opacity:1;stroke-dasharray:1,4;stroke-dashoffset:0;stroke-linecap:square" d="m 267.51471,316.7594 -0.24159,112.09831 c 0,0 52.0629,1.93273 52.0629,-55.20359 0,-57.13632 -51.82131,-56.89472 -51.82131,-56.89472 z"/>
-      <path style="fill:none;stroke:#fff;stroke-width:2;stroke-opacity:1;stroke-dasharray:1,4;stroke-dashoffset:0;stroke-linecap:square" d="m 432.6423,213.59995 96.63648,-0.48318 v 318.29641 h -98.8108 z"/>
-      <path style="fill:none;stroke:#fff;stroke-width:2;stroke-opacity:1;stroke-dasharray:1,4;stroke-dashoffset:0;stroke-linejoin:bevel;stroke-linecap:square" d="m 547.17098,214.56346 v 315.69528 h 177.83484 v -88.83201 h -81.99877 v -26.99126 h 70.38228 v -85.41539 h -70.72394 v -25.28296 h 79.60714 v -89.17366 z"/>
-      <path style="fill:none;stroke:#fff;stroke-width:2;stroke-opacity:1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1,4;stroke-dashoffset:0" d="m 728.10834,214.08313 h 107.26649 l 23.55514,63.90088 24.64231,-63.2365 h 110.52797 l -79.96669,147.91421 83.34897,167.6643 H 892.87354 l -34.30595,-84.55692 -34.54754,84.79851 h -99.77717 l 80.44987,-167.66429 z"/>
-    </svg>
+    <canvas id="diex-px" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+    <div class="hero-diex">
+      <div class="hero-diex-scan"></div>
+      <span class="dchar">D</span><span class="dchar">I</span><span class="dchar">E</span><span class="dchar">X</span>
+    </div>
   </div>
   <div class="hero-in">
     <div class="hero-grid">
@@ -496,7 +552,20 @@ body{
   <div class="svc-grid">
 
     <!-- R1C1 -->
-    <a class="card p-r1c1" href="aerosols.html">
+    <a class="card p-r1c1" href="balloon.html">
+      <div class="card-top">
+        <span class="card-code">ДСТУ EN 1968</span>
+        <span class="card-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><ellipse cx="12" cy="6" rx="4" ry="1.8"/><path d="M8 6v12M16 6v12"/><ellipse cx="12" cy="18" rx="4" ry="1.8"/><path d="M12 1.5v2.7"/></svg>
+        </span>
+      </div>
+      <h3>Сертифікація балонів та балончиків</h3>
+      <p>Повний супровід процедури сертифікації та інспектування (перевірки) газових балонів та балончиків відповідно до вимог українського та європейського законодавства.</p>
+      <span class="card-link">Детальніше <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- R1C2 -->
+    <a class="card p-r1c2" href="aerosols.html">
       <div class="card-top">
         <span class="card-code">ТР 154</span>
         <span class="card-ico">
@@ -510,29 +579,31 @@ body{
       <span class="card-link">Детальніше <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
     </a>
 
-    <!-- R1C2 -->
-    <a class="card p-r1c2" href="balloon.html">
-      <div class="card-top">
-        <span class="card-code">ДСТУ EN 1968</span>
-        <span class="card-ico">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><ellipse cx="12" cy="6" rx="4" ry="1.8"/><path d="M8 6v12M16 6v12"/><ellipse cx="12" cy="18" rx="4" ry="1.8"/><path d="M12 1.5v2.7"/></svg>
-        </span>
-      </div>
-      <h3>Сертифікація балонів та балончиків</h3>
-      <p>Повний супровід процедури сертифікації та інспектування (перевірки) газових балонів та балончиків відповідно до вимог українського та європейського законодавства.</p>
-      <span class="card-link">Детальніше <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-    </a>
-
-    <!-- R1C3 square img -->
+    <!-- R1C3 square img — aerosol can -->
     <div class="imgb sq filled p-r1c3">
       <span class="regmark tl"></span><span class="regmark tr"></span><span class="regmark bl"></span><span class="regmark br"></span>
-      <svg class="blueprint" viewBox="385 110 265 550" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Технічна схема газового балона">
-        <circle style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" cx="518.5755" cy="166.09395" r="22.588778"/>
-        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 540.68111,161.38292 c 37.20505,0 34.78914,0 34.78914,0 v 14.97866 h -36.96346"/>
-        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 533.67497,183.12613 h 12.32115 v 31.16527 h 14.49547 v 10.63001 c 0,0 42.03687,21.01844 41.07051,96.39489 -0.96637,75.37646 0,263.81759 0,263.81759 0,0 -0.60398,17.03218 -7.97251,22.70958 -7.36853,5.67739 -16.4282,9.30126 -20.05207,9.66365 -3.62387,0.36238 -111.49434,0 -111.49434,0 0,0 -16.04034,0.66992 -23.07196,-11.47559 -6.64376,-11.47557 -6.33167,-23.63009 -6.33167,-23.63009 V 313.47448 c 0,0 1.61229,-39.80357 13.39961,-60.13244 11.78733,-20.32886 28.52874,-26.47877 28.52874,-26.47877 v -12.12898 h 14.86228 v -30.74954 h 15.20394"/>
-        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 432.71436,322.52851 c 0,0 69.02172,-26.86769 169.2933,0"/>
-        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="M 561.00828,224.98414 H 474.65332"/>
-        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 489.08852,214.64887 h 57.39914"/>
+      <svg class="blueprint" viewBox="0 -700 1007 1600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Технічна схема аерозольного балончика">
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M404.5 172.753C348.748 176.982 311.5 184.639 311.5 193.384C311.5 206.703 397.909 217.5 504.5 217.5C611.091 217.5 697.5 206.703 697.5 193.384C697.5 184.587 659.806 176.89 603.5 172.678"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M152 393.5C111.541 405.826 78.5 415.373 78.5 430.952C78.5 475.438 269.003 511.5 504 511.5C738.997 511.5 929.5 475.438 929.5 430.952C929.5 415.74 894.213 406.137 855.5 394"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M311.5 192.942V212.699C311.5 225.844 397.909 236.5 504.5 236.5C611.091 236.5 697.5 225.844 697.5 212.699V192.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M78.5 425.607V485.865C78.5 531.62 268.969 568.711 503.924 568.711C738.879 568.711 929.347 531.62 929.347 485.865V426.903"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M318.5 220C242.341 270.609 149.5 358.523 149.5 417.399C149.5 476.274 857.5 478.415 857.5 418.469C857.5 358.523 767.212 270.801 690 220"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1005.5 571.701C1005.5 617.041 780.747 653.796 503.5 653.796C226.253 653.796 1.5 617.041 1.5 571.701"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1.5 2752.55V2812.27C1.5 2857.61 226.253 2894.36 503.5 2894.36C780.747 2894.36 1005.5 2857.61 1005.5 2812.27V2753.84"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1005.5 2778.23C1005.5 2823.57 780.747 2860.33 503.5 2860.33C226.253 2860.33 1.5 2823.57 1.5 2778.23"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1005.5 605.582V545.869C1005.5 529.235 975.248 513.756 923.251 500.824M1.49997 604.297V545.869C1.49997 529.084 32.3021 513.476 85.1666 500.473"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1005.5 2763.82V605.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1.5 2776.58V605.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M1005.5 542.212C1005.5 587.552 780.747 624.308 503.5 624.308C226.253 624.308 1.5 587.552 1.5 542.212"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M587.5 115.5L584.5 10.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M404.5 123.5V182.244C404.5 194.536 449.048 204.5 504 204.5C558.952 204.5 603.5 194.536 603.5 182.244V150.853M603.5 150.853C603.5 140.171 603.5 134.182 603.5 123.5V150.853Z"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M420.5 110.5V115.159C420.5 123.632 457.884 130.5 504 130.5C550.116 130.5 587.5 123.632 587.5 115.159V110.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M423.5 10.5V13.5284C423.5 19.0356 459.541 23.5 504 23.5C548.459 23.5 584.5 19.0356 584.5 13.5284V10.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M423.5 14.5V11.4716C423.5 5.96442 459.541 1.5 504 1.5C548.459 1.5 584.5 5.96442 584.5 11.4716V14.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M603.5 122.5C603.5 136.859 558.952 148.5 504 148.5C449.048 148.5 404.5 136.859 404.5 122.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M404.5 123.5C404.5 120.923 410.246 118.52 420.157 116.5M603.5 123.5C603.5 120.923 597.754 118.52 587.843 116.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M420.5 118.5L423.5 13.5"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" d="M573.5 39C573.959 39 574.751 39.3529 575.748 40.876C576.705 42.3369 577.623 44.5499 578.418 47.4189C580.001 53.1364 581 61.1208 581 70C581 78.8792 580.001 86.8636 578.418 92.5811C577.623 95.4501 576.705 97.6631 575.748 99.124C574.751 100.647 573.959 101 573.5 101C573.041 101 572.249 100.647 571.252 99.124C570.295 97.6631 569.377 95.4501 568.582 92.5811C566.999 86.8636 566 78.8792 566 70C566 61.1208 566.999 53.1364 568.582 47.4189C569.377 44.5499 570.295 42.3369 571.252 40.876C572.249 39.3529 573.041 39 573.5 39Z"/>
       </svg>
     </div>
 
@@ -540,13 +611,28 @@ body{
     <div class="imgb sq filled p-r2c1">
       <span class="regmark tl"></span><span class="regmark tr"></span><span class="regmark bl"></span><span class="regmark br"></span>
       <svg class="blueprint" viewBox="255 185 620 365" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Технічна схема автоцистерни ADR">
+        <defs>
+          <clipPath id="tank-body-clip">
+            <path d="m 386.06274,258.98577 c 0,0 -60.88098,-0.96636 -60.88098,87.45602 0,88.42238 55.97156,96.94558 55.97156,96.94558 h 357.1494 c 0,0 66.27231,7.42102 66.67917,-95.97922 0.34166,-86.83044 -83.03977,-88.51159 -83.03977,-88.51159 l -12.48569,-0.0386 -5.87984,6.13123 -39.32169,0.28278 -6.58266,-6.43204 -187.88316,0.0395 -6.02434,6.21212 -38.90964,0.14642 -6.62028,-6.41216 z"/>
+          </clipPath>
+        </defs>
+        <!-- Animated liquid fill -->
+        <g clip-path="url(#tank-body-clip)">
+          <rect x="150" y="368" width="900" height="200" fill="rgba(91,139,255,0.09)"/>
+          <path fill="rgba(91,139,255,0.18)" d="M 150,368 q 35,-11 70,0 q 35,11 70,0 q 35,-11 70,0 q 35,11 70,0 q 35,-11 70,0 q 35,11 70,0 q 35,-11 70,0 q 35,11 70,0 q 35,-11 70,0 q 35,11 70,0 q 35,-11 70,0 q 35,11 70,0 q 35,-11 70,0 q 35,11 70,0 V 600 H 150 Z">
+            <animateTransform attributeName="transform" type="translate" from="0,0" to="-140,0" dur="3.2s" repeatCount="indefinite"/>
+          </path>
+          <path fill="rgba(91,139,255,0.11)" d="M 80,372 q 35,-7 70,0 q 35,7 70,0 q 35,-7 70,0 q 35,7 70,0 q 35,-7 70,0 q 35,7 70,0 q 35,-7 70,0 q 35,7 70,0 q 35,-7 70,0 q 35,7 70,0 q 35,-7 70,0 q 35,7 70,0 q 35,-7 70,0 q 35,7 70,0 V 600 H 80 Z">
+            <animateTransform attributeName="transform" type="translate" from="-70,0" to="70,0" dur="5s" repeatCount="indefinite"/>
+          </path>
+        </g>
         <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 386.06274,258.98577 c 0,0 -60.88098,-0.96636 -60.88098,87.45602 0,88.42238 55.97156,96.94558 55.97156,96.94558 h 357.1494 c 0,0 66.27231,7.42102 66.67917,-95.97922 0.34166,-86.83044 -83.03977,-88.51159 -83.03977,-88.51159 l -12.48569,-0.0386 -5.87984,6.13123 -39.32169,0.28278 -6.58266,-6.43204 -187.88316,0.0395 -6.02434,6.21212 -38.90964,0.14642 -6.62028,-6.41216 z"/>
         <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 395.64408,259.32112 c 0,0 -14.89634,56.43858 -14.89634,94.60999 0,38.17141 15.70342,89.14716 15.70342,89.14716"/>
         <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 508.59073,259.60871 c 0,0 -15.34177,56.22719 -15.34177,94.3986 0,38.17141 15.70342,89.14716 15.70342,89.14716"/>
-        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 633.0533,260.15926 c 0,0 -15.77185,56.00083 -15.77185,94.17224 0,38.17141 15.70342,89.14716 15.70342,89.14716"/>
-        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 734.53608,260.99818 c 0,0 -16.14433,55.32004 -16.14433,93.49145 0,38.17141 15.60527,88.99617 15.60527,88.99617"/>
-        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 734.87389,260.88184 c 0,0 15.58572,47.80938 15.58572,92.73787 0,44.9285 -16.05809,89.51533 -16.05809,89.51533"/>
-        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 633.61087,260.09381 c 0,0 15.91929,49.40213 15.91929,94.33062 0,44.9285 -15.88726,88.89607 -15.88726,88.89607"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 633.0533,260.15926 c 0,0 -15.77185,56.00083 -15.77185,94.17224 0,38.17141 15.70342,89.14716 15.70342,89.14716"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 734.53608,260.99818 c 0,0 -16.14433,55.32004 -16.14433,93.49145 0,38.17141 15.60527,88.99617 15.60527,88.99617"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 734.87389,260.88184 c 0,0 15.58572,47.80938 15.58572,92.73787 0,44.9285 -16.05809,89.51533 -16.05809,89.51533"/>
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 633.61087,260.09381 c 0,0 15.91929,49.40213 15.91929,94.33062 0,44.9285 -15.88726,88.89607 -15.88726,88.89607"/>
         <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 509.54702,259.94627 c 0,0 15.37477,49.54093 15.37477,94.46942 0,44.9285 -16.05809,89.51533 -16.05809,89.51533"/>
         <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:1.1, 3.3" d="m 397.09398,259.75733 c 0,0 15.37477,49.54093 15.37477,94.46942 0,44.9285 -16.05809,89.51533 -16.05809,89.51533"/>
         <path style="fill:none;stroke:#ffffff;stroke-width:1.1;stroke-linecap:square;stroke-linejoin:bevel" d="m 657.96336,258.6378 6.32074,6.32074 h 39.12025 l 5.21033,-5.21034 V 237.62561 H 657.6217 Z"/>
@@ -570,7 +656,6 @@ body{
         <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="M 708.9115,349.37826 H 828.74074"/>
         <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 443.92384,226.73334 v 45.41915"/>
         <path style="fill:none;stroke:#f69600;stroke-width:0.9;stroke-linecap:square;stroke-linejoin:bevel" d="m 683.70311,226.85414 v 47.95585"/>
-        <text style="font-size:26px;font-family:Impact,'Arial Narrow',sans-serif;font-stretch:condensed;fill:#ffffff" text-anchor="middle" x="565" y="221">10780</text>
       </svg>
     </div>
 
@@ -604,7 +689,7 @@ body{
     <!-- R3C1 soon -->
     <a class="card soon p-r3c1" href="lab.html">
       <div class="card-top">
-        <span class="card-code">ISO 6892 · незабаром</span>
+        <span class="card-code">ISO 6892</span>
         <span class="card-ico">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6.2l-4.4 8.9A1 1 0 0 0 6.5 20h11a1 1 0 0 0 .9-1.5L14 9.2V3"/></svg>
         </span>
@@ -738,6 +823,7 @@ body{
 
 <a href="tel:+38 067-561-76-79" class="mcall">Замовити дзвінок</a>
 
+<canvas id="spray-px" style="position:absolute;top:0;left:0;pointer-events:none;z-index:999"></canvas>
 <script>
   const root=document.documentElement,
         btn=document.getElementById('themeBtn'),
@@ -781,6 +867,224 @@ body{
     revGrid('.svc-grid > *', 3);
     revGrid('.ftr-in > *', 3);
   })();
+
+  // aerosol nozzle spray — service card R1C3
+  (function(){
+    const canvas=document.getElementById('spray-px');
+    if(!canvas)return;
+    const ctx=canvas.getContext('2d');
+    const pts=[];
+    const COUNT=180;
+    let frameN=0;
+
+    function resize(){
+      canvas.width=document.documentElement.scrollWidth;
+      canvas.height=document.documentElement.scrollHeight;
+    }
+    resize();
+    window.addEventListener('resize',resize);
+
+    function getNozzle(){
+      const card=document.querySelector('.p-r1c3');
+      if(!card)return{x:0,y:0};
+      const cr=card.getBoundingClientRect();
+      const vbY=-700,vbW=1007,vbH=1600;
+      const scale=Math.min(cr.width/vbW,cr.height/vbH);
+      const xOff=(cr.width-vbW*scale)/2;
+      const yOff=(cr.height-vbH*scale)/2;
+      return{
+        x:cr.left+window.scrollX+xOff+573*scale,
+        y:cr.top+window.scrollY+yOff+(65-vbY)*scale
+      };
+    }
+
+    class P{
+      constructor(s){this.s=s;this.born=false}
+      spawn(){
+        const n=getNozzle();
+        this.x=n.x+(Math.random()-.5)*5;
+        this.y=n.y+(Math.random()-.5)*5;
+        const base=0.0;
+        this.a=base+(Math.random()-.5)*.65;
+        this.spd=Math.random()*3.2+1;
+        this.r=Math.random()*4+.2;
+        this.life=1;
+        this.decay=Math.random()*.0022+.0008;
+        this.al=Math.random()*.45+.3;
+        this.born=true;
+      }
+      update(){
+        if(!this.born){if(frameN>=this.s)this.spawn();return;}
+        this.x+=Math.cos(this.a)*this.spd;
+        this.y+=Math.sin(this.a)*this.spd;
+        this.spd*=.997;this.r+=.014;
+        this.life-=this.decay;
+        if(this.life<=.04)this.spawn();
+      }
+      draw(){
+        if(!this.born)return;
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+        ctx.fillStyle=`rgba(100,160,255,${Math.max(0,this.life*this.al)})`;
+        ctx.fill();
+      }
+    }
+
+    for(let i=0;i<COUNT;i++)pts.push(new P(Math.floor(i/COUNT*150)));
+
+    (function tick(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      frameN++;
+      const card=document.querySelector('.p-r1c3');
+      if(card){
+        const cr=card.getBoundingClientRect();
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(cr.left+window.scrollX,cr.top+window.scrollY,cr.width,cr.height);
+        ctx.clip();
+      }
+      pts.forEach(p=>{p.update();p.draw();});
+      if(card)ctx.restore();
+      requestAnimationFrame(tick);
+    })();
+  })();
+
+  // DIEX decode scramble + particle burst + dynamic lighting
+  (function(){
+    const canvas=document.getElementById('diex-px');
+    const ctx=canvas?canvas.getContext('2d'):null;
+    const pts=[];
+    function resize(){
+      if(!canvas)return;
+      canvas.width=canvas.offsetWidth;
+      canvas.height=canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize',resize);
+
+    function burst(x,y,bw,bh){
+      // expanding corner brackets
+      pts.push({t:'bracket',x,y,
+        w:bw*.25,h:bh*.25,
+        tw:bw*.58,th:bh*.58,
+        life:1,decay:.018});
+      // horizontal data pulses — strict left/right, no Y drift
+      const rows=6;
+      for(let i=0;i<rows;i++){
+        const yOff=(i/(rows-1)-.5)*bh*.75;
+        [-1,1].forEach(dir=>{
+          pts.push({t:'pulse',
+            x,y:y+yOff,
+            vx:dir*(Math.random()*3+2.5),
+            len:Math.random()*30+12,
+            life:1,decay:.02+Math.random()*.014});
+        });
+      }
+    }
+
+    function tick(){
+      if(!ctx)return;
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.lineCap='square';
+      for(let i=pts.length-1;i>=0;i--){
+        const p=pts[i];
+        p.life-=p.decay;
+        if(p.life<=0){pts.splice(i,1);continue;}
+        if(p.t==='bracket'){
+          p.w+=(p.tw-p.w)*.14;
+          p.h+=(p.th-p.h)*.14;
+          const hw=p.w/2,hh=p.h/2,tk=14;
+          const a=p.life*.55;
+          ctx.strokeStyle=`rgba(91,139,255,${a})`;
+          ctx.lineWidth=1;
+          // 4 corner L-marks
+          [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([sx,sy])=>{
+            const cx=p.x+sx*hw, cy=p.y+sy*hh;
+            ctx.beginPath();
+            ctx.moveTo(cx+sx*tk,cy);
+            ctx.lineTo(cx,cy);
+            ctx.lineTo(cx,cy+sy*tk);
+            ctx.stroke();
+          });
+        } else {
+          p.x+=p.vx;
+          const tail=p.x-Math.sign(p.vx)*p.len;
+          const g=ctx.createLinearGradient(p.x,p.y,tail,p.y);
+          g.addColorStop(0,`rgba(91,139,255,${p.life*.7})`);
+          g.addColorStop(1,`rgba(91,139,255,0)`);
+          ctx.beginPath();
+          ctx.moveTo(p.x,p.y);
+          ctx.lineTo(tail,p.y);
+          ctx.strokeStyle=g;
+          ctx.lineWidth=.9;
+          ctx.stroke();
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+    tick();
+
+    const pool='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#@!$&%БГДЄЗИКЛМНПРСТУФХЦЧ';
+    const chars=pool.split('');
+    const word='DIEX';
+    const spans=[...document.querySelectorAll('.dchar')];
+    // measure correct-letter widths first, then lock them
+    spans.forEach((el,i)=>{ el.textContent=word[i]; });
+    spans.forEach(el=>{ el.style.width=el.offsetWidth+'px'; el.style.textAlign='center'; });
+    spans.forEach((el,i)=>{
+      const target=word[i];let n=0;const max=14+i*9;
+      setTimeout(()=>{
+        const iv=setInterval(()=>{
+          el.textContent=chars[Math.floor(Math.random()*chars.length)];
+          if(++n>=max){
+            clearInterval(iv);
+            el.textContent=target;
+            el.classList.add('resolved');
+            if(canvas){
+              const er=el.getBoundingClientRect();
+              const cr=canvas.getBoundingClientRect();
+              const cx=er.left-cr.left+er.width*.5;
+              const cy=er.top-cr.top+er.height*.5;
+              burst(cx,cy,er.width,er.height);
+            }
+          }
+        },55);
+      },180+i*170);
+    });
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС»",
+  "alternateName": "ТЦ DIEX",
+  "url": "https://diex.pro/",
+  "logo": "https://diex.pro/logo%20TC%20DIEX.jpg",
+  "telephone": "+380675617679",
+  "email": "gas@tuev-diex.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Дніпро",
+    "addressCountry": "UA"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Ukraine"
+  },
+  "description": "Орган технічного нагляду. Сертифікація, технічне діагностування та неруйнівний контроль промислового обладнання за ДСТУ та ADR.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Послуги",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Сертифікація балонів та балончиків", "url": "https://diex.pro/balloon.html"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Сертифікація аерозольної продукції", "url": "https://diex.pro/aerosols.html"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Перевірка та сертифікація цистерн", "url": "https://diex.pro/tanks.html"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Технічне діагностування та НК", "url": "https://diex.pro/lab.html"}}
+    ]
+  }
+}
 </script>
 </body>
 </html>
