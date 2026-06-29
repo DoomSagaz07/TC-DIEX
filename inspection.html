@@ -30,9 +30,8 @@ body{
   background:var(--ink);
   color:var(--on-ink);
   font-family:'IBM Plex Sans',-apple-system,sans-serif;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  display:flex;flex-direction:column;
   min-height:100vh;
-  overflow:hidden;
   position:relative;
 }
 
@@ -62,7 +61,7 @@ body::before{
 .back-btn svg{flex-shrink:0}
 
 /* main */
-.wrap{position:relative;z-index:1;text-align:center;padding:0 28px;max-width:640px}
+.wrap{position:relative;z-index:1;text-align:center;padding:var(--hh) 28px 60px;max-width:640px;width:100%;margin:auto;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
 
 /* badge */
 .badge{
@@ -135,12 +134,22 @@ body::before{
 }
 .btn-call:hover{border-color:rgba(255,255,255,.25);color:var(--on-ink);transform:translateY(-2px)}
 
-/* footer note */
-.ftr-note{
-  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
-  font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1px;
-  color:var(--on-ink-faint);white-space:nowrap;
-}
+/* footer */
+.ftr{position:relative;z-index:1;background:var(--paper);border-top:1px solid var(--line);padding:48px 28px 26px;transition:background .35s,border-color .35s}
+.ftr-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:36px;text-align:left}
+.ftr-brand .brand{display:flex;align-items:center;gap:8px}
+.ftr-brand p{color:var(--faint);font-size:13px;line-height:1.75;margin-top:12px;max-width:270px;transition:color .35s}
+.ftr h4{font-family:'IBM Plex Mono';font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-text);margin-bottom:14px;transition:color .35s}
+.ftr ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ftr a{text-decoration:none;color:var(--mut);font-size:13.5px;font-weight:500;transition:color .2s}
+.ftr a:hover{color:var(--blue)}
+.ftr li:not(:has(a)){color:var(--faint);font-size:13.5px;font-family:'IBM Plex Mono';transition:color .35s}
+.ftr-bot{max-width:var(--max);margin:0 auto;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:border-color .35s}
+.ftr-copy{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:var(--faint);transition:color .35s}
+.ftr-std{display:flex;gap:6px}
+.ftr-std span{font-family:'IBM Plex Mono';font-size:10px;font-weight:500;color:var(--faint);padding:3px 8px;border:1px solid var(--line);border-radius:var(--r);transition:border-color .35s,color .35s}
+@media(max-width:760px){.ftr-in{grid-template-columns:1fr 1fr}.ftr-bot{flex-direction:column;align-items:flex-start}}
+@media(max-width:560px){.ftr-in{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -196,7 +205,43 @@ body::before{
   </div>
 </div>
 
-<p class="ftr-note">© 2026 ТЦ DIEX · Орган технічного нагляду</p>
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-brand">
+      <div class="brand" style="display:flex;align-items:center;gap:8px">
+        <a href="http://www.tuev-dieks.com/" target="_blank" rel="noopener" style="display:block">
+          <img src="логотип отн.png" alt="ОТН DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
+        </a>
+        <a href="https://diex.org.ua/" target="_blank" rel="noopener" style="display:block">
+          <img src="logo TC DIEX.jpg" alt="TC DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
+        </a>
+      </div>
+      <p>Лабораторія механічних та руйнівних випробувань матеріалів і зварних з'єднань. Технічне діагностування обладнання.</p>
+    </div>
+    <div>
+      <h4>Послуги</h4>
+      <ul>
+        <li><a href="aerosols.html">Сертифікація аерозолів</a></li>
+        <li><a href="balloon.html">Сертифікація балонів</a></li>
+        <li><a href="tanks.html">Перевірка цистерн</a></li>
+        <li><a href="inspection.html">Тех. діагностування</a></li>
+        <li><a href="lab.html">Лабораторія</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакти</h4>
+      <ul>
+        <li>+38 067-561-76-79</li>
+        <li>gas@tuev-diex.com</li>
+        <li>Україна, м.Дніпро</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ftr-bot">
+    <span class="ftr-copy">© 2026 ТЦ DIEX · Орган технічного нагляду</span>
+    <div class="ftr-std"><span>ДСТУ</span><span>ADR</span><span>ТР 154</span></div>
+  </div>
+</footer>
 
 <script>
 const saved=localStorage.getItem('diex-theme');

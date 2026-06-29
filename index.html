@@ -32,7 +32,6 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 /* ═══════════════ TOKENS ═══════════════ */
-/*открит в тём теме. текст со страничек в хиро.. лаборатор руй подумать над заглушкой*/
 :root{
   /* instrument surfaces — constant across themes */
   --ink:#0b1320;
@@ -444,6 +443,22 @@ body{
   .ftr-bot{flex-direction:column;align-items:flex-start}
   .mcall{display:block}
 }
+/* ─── MOBILE NAV (hamburger) ─── */
+.nav-toggle{display:none}
+.nav-cta{display:none}
+@media(max-width:1024px){
+  .nav-toggle{display:flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;padding:0;border:1px solid var(--line);border-radius:var(--r);background:none;cursor:pointer;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+  .nav-toggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--ink-text);border-radius:2px;transition:transform .3s,opacity .2s}
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .hdr-r .btn-warn{display:none}
+  .nav{display:flex;flex-direction:column;gap:4px;position:absolute;top:var(--hh);left:0;right:0;margin:0;padding:14px 18px 18px;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 18px 44px rgba(0,0,0,.20);transform:translateY(-14px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,transform .25s ease,visibility .25s;max-height:calc(100dvh - var(--hh));overflow-y:auto}
+  .nav.open{transform:none;opacity:1;visibility:visible;pointer-events:auto}
+  .nav a{font-size:16px;padding:13px 14px;border-radius:var(--r);color:var(--ink-text)}
+  .nav a:hover{background:var(--card-2)}
+  .nav .nav-cta{display:block;margin-top:8px;text-align:center;background:var(--orange);color:#fff;font-weight:600;padding:14px 18px}
+}
 @media (max-width:480px){
   .hdr-in{padding:0 14px}
   .brand-sub{display:none}
@@ -476,17 +491,19 @@ body{
         <text style="font-size:233.333px;font-family:Impact,'Arial Narrow',sans-serif;font-stretch:condensed;fill:var(--ink-text);stroke:none" x="375.41321" y="456.60797">IEX</text>
       </svg>
     </a>
-    <nav class="nav">
+    <nav class="nav" id="navMenu">
       <a href="#services">Послуги</a>
       <a href="#about">Про компанію</a>
       <a href="#contacts">Контакти</a>
+      <a href="zayavka.html" class="nav-cta">Подати заявку</a>
     </nav>
     <div class="hdr-r">
       <button class="theme-btn" id="themeBtn" aria-label="Перемкнути тему">
         <span class="ttrack"><span class="tknob"></span></span>
         <span id="themeLbl">DARK</span>
       </button>
-      <a href="#contacts" class="btn-warn">Запит на оцінку</a>
+      <a href="zayavka.html" class="btn-warn">Подати заявку</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -781,7 +798,7 @@ body{
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
         Замовити дзвінок
       </a>
-      <a href="mailto:gas@tuev-diex.com" class="btn-ghost">Написати на пошту</a>
+      <a href="zayavka.html" class="btn-ghost">Заповнити заявку онлайн</a>
     </div>
   </div>
 </section>
@@ -790,10 +807,14 @@ body{
 <footer class="ftr">
   <div class="ftr-in">
     <div class="ftr-brand">
-      <a class="brand" href="#">
-        <img src="логотип отн.png" alt="TC DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
-        <img src="logo TC DIEX.jpg" alt="TC DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
-      </a>
+      <div class="brand" style="display:flex;align-items:center;gap:8px">
+        <a href="http://www.tuev-dieks.com/" target="_blank" rel="noopener" style="display:block">
+          <img src="логотип отн.png" alt="ОТН DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
+        </a>
+        <a href="https://diex.org.ua/" target="_blank" rel="noopener" style="display:block">
+          <img src="logo TC DIEX.jpg" alt="TC DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
+        </a>
+      </div>
       <p>Акредитований орган технічного нагляду та сертифікації промислового обладнання.</p>
     </div>
     <div>
@@ -1086,5 +1107,6 @@ body{
   }
 }
 </script>
+<script>(function(){var t=document.getElementById('navToggle'),n=document.getElementById('navMenu');if(t&&n){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');t.setAttribute('aria-expanded','false');}});}})();</script>
 </body>
 </html>

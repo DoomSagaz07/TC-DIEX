@@ -244,12 +244,6 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
 @keyframes statPulse{0%,100%{text-shadow:none}50%{text-shadow:0 0 30px rgba(241,90,34,.4)}}
 .stat-num.counted{animation:statPulse 1s ease-out}
 @media(max-width:520px){.stats-bar{padding:36px 16px}.stats-bar-in{gap:40px}.stat-item+.stat-item::before{display:none}}
-.ticker{overflow:hidden;background:var(--ink-2);border-top:1px solid var(--line-ink);border-bottom:1px solid var(--line-ink);padding:13px 0;user-select:none}
-.ticker-track{display:flex;width:max-content;animation:tickerScroll 35s linear infinite}
-.ticker-track:hover{animation-play-state:paused}
-.ticker-item{display:flex;align-items:center;gap:0;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--on-ink-mut);padding:0 28px}
-.ticker-item::after{content:"·";margin-left:28px;color:var(--blue-br);font-size:16px}
-@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes heroIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 .hero-eyebrow{animation:heroIn .7s ease .15s both}
 .hero h1{animation:heroIn .85s ease .35s both}
@@ -270,9 +264,6 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
 .step-card:nth-child(3) .step-icon-circle{animation:stepGlow 3s ease-in-out infinite 0.75s}
 .step-card:nth-child(5) .step-icon-circle{animation:stepGlow 3s ease-in-out infinite 1.5s}
 .step-card:nth-child(7) .step-icon-circle{animation:stepGlow 3s ease-in-out infinite 2.25s}
-@keyframes dotShimmer{0%,100%{opacity:1}50%{opacity:.25}}
-.ticker-item::after{animation:dotShimmer 3s ease-in-out infinite}
-.ticker-item:nth-child(odd)::after{animation-delay:1.5s}
 @keyframes lineGrow{from{width:0}to{width:100%}}
 .svc-head{animation:none}
 @media(max-width:1024px){
@@ -301,6 +292,22 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
   .ftr-in{grid-template-columns:1fr}
   .ftr-bot{flex-direction:column;align-items:flex-start}
 }
+/* ─── MOBILE NAV (hamburger) ─── */
+.nav-toggle{display:none}
+.nav-cta{display:none}
+@media(max-width:1024px){
+  .nav-toggle{display:flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;padding:0;border:1px solid var(--line);border-radius:var(--r);background:none;cursor:pointer;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+  .nav-toggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--ink-text);border-radius:2px;transition:transform .3s,opacity .2s}
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .hdr-r .btn-warn{display:none}
+  .nav{display:flex;flex-direction:column;gap:4px;position:absolute;top:var(--hh);left:0;right:0;margin:0;padding:14px 18px 18px;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 18px 44px rgba(0,0,0,.20);transform:translateY(-14px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,transform .25s ease,visibility .25s;max-height:calc(100dvh - var(--hh));overflow-y:auto}
+  .nav.open{transform:none;opacity:1;visibility:visible;pointer-events:auto}
+  .nav a{font-size:16px;padding:13px 14px;border-radius:var(--r);color:var(--ink-text)}
+  .nav a:hover{background:var(--card-2)}
+  .nav .nav-cta{display:block;margin-top:8px;text-align:center;background:var(--orange);color:#fff;font-weight:600;padding:14px 18px}
+}
 </style>
 </head>
 <body>
@@ -314,17 +321,19 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
         <text style="font-size:233.333px;font-family:Impact,'Arial Narrow',sans-serif;font-stretch:condensed;fill:var(--ink-text);stroke:none" x="375.41321" y="456.60797">IEX</text>
       </svg>
     </a>
-    <nav class="nav">
+    <nav class="nav" id="navMenu">
       <a href="index.html">Головна</a>
       <a href="#about">Про послугу</a>
       <a href="#cta">Контакти</a>
+      <a href="zayavka.html" class="nav-cta">Заявка на сертифікацію</a>
     </nav>
     <div class="hdr-r">
       <button class="theme-btn" id="themeBtn" aria-label="Перемкнути тему">
         <span class="ttrack"><span class="tknob"></span></span>
         <span id="themeLbl">DARK</span>
       </button>
-      <a href="TANK1.Doc" download class="btn-warn">Заявка на сертифікацію</a>
+      <a href="zayavka.html" class="btn-warn">Заявка на сертифікацію</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -339,19 +348,13 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
         <h1>Сертифікація <em>балонів та балончиків (картриджів)</em></h1>
         <p class="hero-desc">Повний супровід процедури сертифікації та інспектування  (перевірки) газових балонів та балончиків відповідно до вимог українського та європейського законодавства.</p>
         <div class="hero-act">
-          <a href="TANK1.Doc" download class="btn-blue">Заявка на сертифікацію</a>
+          <a href="zayavka.html" class="btn-blue">Заявка на сертифікацію</a>
         </div>
       </div>
       
     </div>
   </div>
 </section>
-
-<div class="ticker" aria-label="Компанії-партнери">
-  <div class="ticker-track">
-    <span class="ticker-item">INTERTOOL</span><span class="ticker-item">FLAMING DRAGON</span><span class="ticker-item">PINGUIN</span><span class="ticker-item">QEST</span><span class="ticker-item">KOVEA</span><span class="ticker-item">PRIMUS</span><span class="ticker-item">CYCLONE</span><span class="ticker-item">BASECAMP</span><span class="ticker-item">BVS</span><span class="ticker-item">СИЛА</span><span class="ticker-item">PEGAS</span><span class="ticker-item">CAMPER GAZ</span><span class="ticker-item">SIGMA</span><span class="ticker-item">EL GAZ</span><span class="ticker-item">RECOIL</span><span class="ticker-item">BLYSKAVKA</span><span class="ticker-item">X-TREAM</span><span class="ticker-item">SPECIALIST+</span><span class="ticker-item">COMPASS</span><span class="ticker-item">KEMPER</span><span class="ticker-item">NOWAX</span><span class="ticker-item">WISKO</span><span class="ticker-item">INTERTOOL</span><span class="ticker-item">FLAMING DRAGON</span><span class="ticker-item">PINGUIN</span><span class="ticker-item">QEST</span><span class="ticker-item">KOVEA</span><span class="ticker-item">PRIMUS</span><span class="ticker-item">CYCLONE</span><span class="ticker-item">BASECAMP</span><span class="ticker-item">BVS</span><span class="ticker-item">СИЛА</span><span class="ticker-item">PEGAS</span><span class="ticker-item">CAMPER GAZ</span><span class="ticker-item">SIGMA</span><span class="ticker-item">EL GAZ</span><span class="ticker-item">RECOIL</span><span class="ticker-item">BLYSKAVKA</span><span class="ticker-item">X-TREAM</span><span class="ticker-item">SPECIALIST+</span><span class="ticker-item">COMPASS</span><span class="ticker-item">KEMPER</span><span class="ticker-item">NOWAX</span><span class="ticker-item">WISKO</span>
-  </div>
-</div>
 
 <div class="stats-bar">
   <div class="stats-bar-in">
@@ -400,9 +403,9 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
           <h3>Правова основа інспектування</h3>
           <p>Сертифікація та інспектування здійснюється відповідно до вимог Технічного регламенту рухомого обладнання, що працює під тиском, затвердженого Постановою КМУ № 536 від 04.07.2018, а саме:</p>
           <ul>
-            <li>глави 6.2 додатка А до <a href="https://zakon.rada.gov.ua/laws/show/994_217" class="inline-lnk">Європейської Угоди про міжнародне дорожнє перевезення небезпечних вантажів (ДОПНВ)</a>;</li>
-            <li>глави 6.1 додатка до <a href="https://zakon.rada.gov.ua/laws/show/994_169" class="inline-lnk">Європейської угоди про міжнародне перевезення небезпечних вантажів внутрішніми водними шляхами (ВОПНВ)</a>;</li>
-            <li>глави 6.2 <a href="https://zakon.rada.gov.ua/laws/show/994_291" class="inline-lnk">додатка С</a> до <a href="https://zakon.rada.gov.ua/laws/show/994_291" class="inline-lnk">Конвенції про міжнародні залізничні перевезення (КОТІФ)</a>.</li>
+            <li>глави 6.2 додатка А до <a href="https://zakon.rada.gov.ua/laws/show/994_217" target="_blank" rel="noopener" class="inline-lnk">Європейської Угоди про міжнародне дорожнє перевезення небезпечних вантажів (ДОПНВ)</a>;</li>
+            <li>глави 6.1 додатка до <a href="https://zakon.rada.gov.ua/laws/show/994_169" target="_blank" rel="noopener" class="inline-lnk">Європейської угоди про міжнародне перевезення небезпечних вантажів внутрішніми водними шляхами (ВОПНВ)</a>;</li>
+            <li>глави 6.2 <a href="https://zakon.rada.gov.ua/laws/show/994_291" target="_blank" rel="noopener" class="inline-lnk">додатка С</a> до <a href="https://zakon.rada.gov.ua/laws/show/994_291" target="_blank" rel="noopener" class="inline-lnk">Конвенції про міжнародні залізничні перевезення (КОТІФ)</a>.</li>
           </ul>
         </div>
       </div>
@@ -443,7 +446,7 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
       </div>
       <div class="cred-item">
         <span class="cred-badge">Мінекономіки України · 01.10.2025</span>
-        <div class="cred-standard">Свідоцтво та повноваження</div>
+        <div class="cred-standard">Свідоцтво про призначення</div>
         <p class="cred-text">Свідоцтво Мінекономіки від 01.10.2025 р. надає право на проведення робіт з оцінки відповідності (інспектування/перевірки) вимогам Технічного регламенту рухомого обладнання, що працює під тиском, затвердженого Постановою КМУ № 536 від 04.07.2018.</p>
         <a href="Svidotstvo gaz balun.pdf" target="_blank" class="doc-btn" style="margin-top:16px;width:fit-content">Переглянути свідоцтво</a>
       </div>
@@ -576,18 +579,24 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
 <footer class="ftr">
   <div class="ftr-in">
     <div class="ftr-brand">
-      <div style="display:flex;align-items:center;gap:8px">
-        <img src="logo TC DIEX.jpg" alt="TC DIEX" style="height:36px;border-radius:var(--r);background:#fff;padding:3px">
+      <div class="brand" style="display:flex;align-items:center;gap:8px">
+        <a href="http://www.tuev-dieks.com/" target="_blank" rel="noopener" style="display:block">
+          <img src="логотип отн.png" alt="ОТН DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
+        </a>
+        <a href="https://diex.org.ua/" target="_blank" rel="noopener" style="display:block">
+          <img src="logo TC DIEX.jpg" alt="TC DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
+        </a>
       </div>
       <p>Акредитований орган технічного нагляду та сертифікації рухомого обладнання, що працює під тиском.</p>
     </div>
     <div>
       <h4>Послуги</h4>
       <ul>
-        <li><a href="tc.html">Сертифікація аерозолів</a></li>
-        <li><a href="balony.html">Сертифікація балонів</a></li>
-        <li><a href="cysterny.html">Перевірка цистерн</a></li>
+        <li><a href="aerosols.html">Сертифікація аерозолів</a></li>
+        <li><a href="balloon.html">Сертифікація балонів</a></li>
+        <li><a href="tanks.html">Перевірка цистерн</a></li>
         <li><a href="inspection.html">Тех. діагностування</a></li>
+        <li><a href="lab.html">Лабораторія</a></li>
       </ul>
     </div>
     <div>
@@ -634,7 +643,7 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
     </div>
 
     <div class="modal-form">
-      <form id="callForm" action="https://formspree.io/f/xzdqbknr" method="POST">
+      <form id="callForm" onsubmit="return false">
         <div class="form-group">
           <label for="name">Ім'я</label>
           <input type="text" id="name" name="name" required class="form-input" placeholder="Ваше ім'я" autocomplete="given-name">
@@ -717,7 +726,6 @@ ctaCallBtn.addEventListener('click',openModal);
 floatingCallBtn.addEventListener('click',openModal);
 closeModalEl.addEventListener('click',closeModalFunc);
 modal.addEventListener('click',e=>{if(e.target===modal)closeModalFunc();});
-callForm.addEventListener('submit',()=>{setTimeout(closeModalFunc,500);});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('show'))closeModalFunc();});
 
 (function(){
@@ -815,5 +823,7 @@ if(canvas){
   resizeCanvas();initParticles();animate();
 }
 </script>
+<script src="callback.js?v=1"></script>
+<script>(function(){var t=document.getElementById('navToggle'),n=document.getElementById('navMenu');if(t&&n){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');t.setAttribute('aria-expanded','false');}});}})();</script>
 </body>
 </html>
