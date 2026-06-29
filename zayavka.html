@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="logo TC DIEX.jpg" type="image/jpeg">
+<title>Заявка на сертифікацію / перевірку — ТЦ DIEX</title>
+<meta name="description" content="Онлайн-заявка на сертифікацію, перевірку та технічне діагностування обладнання. Орган технічного нагляду ТЦ DIEX.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ═══ TOKENS ═══ */
+:root{
+  --ink:#0b1320;--ink-2:#121d31;--ink-3:#1b2942;
+  --on-ink:#eef2f8;--on-ink-mut:#9aa6bb;--on-ink-faint:#5d6c84;
+  --line-ink:rgba(255,255,255,.10);--line-ink-2:rgba(255,255,255,.06);
+  --blue:#1e57e3;--blue-br:#5b8bff;--orange:#f15a22;--orange-soft:#ff7a4d;--ok:#36c98e;
+  --paper:#eceff4;--card:#ffffff;--card-2:#f6f8fb;
+  --ink-text:#0b1320;--mut:#5a6679;--faint:#8b95a6;--line:#d7dde6;--line-2:#e6eaf0;
+  --r:4px;--r-lg:8px;--hh:66px;--max:1180px;
+} 
+[data-theme="dark"]{
+  --paper:#0a111e;--card:#101a2c;--card-2:#0d1626;
+  --ink-text:#eef2f8;--mut:#9aa6bb;--faint:#5d6c84;--line:#1e2c46;--line-2:#17233a;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink-text);
+  font-family:'IBM Plex Sans',-apple-system,sans-serif;
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  min-height:100vh;display:flex;flex-direction:column;
+  transition:background .35s,color .35s;
+}
+.tag{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase}
+
+/* ═══ HEADER ═══ */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--hh);
+  background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);transition:background .35s,border-color .35s}
+.hdr-in{height:100%;max-width:var(--max);margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:20px}
+.brand-link{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.hdr-r{display:flex;align-items:center;gap:10px;flex-shrink:0;margin-left:auto}
+.theme-btn{display:flex;align-items:center;gap:8px;padding:7px 11px;border-radius:var(--r);
+  border:1px solid var(--line);background:none;cursor:pointer;color:var(--mut);
+  font-family:'IBM Plex Mono';font-size:11px;font-weight:500;letter-spacing:.5px;
+  transition:border-color .2s,color .2s}
+.theme-btn:hover{border-color:var(--faint);color:var(--ink-text)}
+.ttrack{width:28px;height:15px;border-radius:999px;background:var(--line);position:relative;flex-shrink:0;transition:background .35s}
+[data-theme="dark"] .ttrack{background:var(--blue)}
+.tknob{position:absolute;top:2px;left:2px;width:9px;height:9px;border-radius:50%;background:var(--faint);transition:transform .35s,background .35s}
+[data-theme="dark"] .tknob{background:#fff;transform:translateX(13px)}
+.back-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:var(--r);
+  border:1px solid var(--line);color:var(--mut);font-family:'IBM Plex Mono';font-size:11px;font-weight:500;
+  letter-spacing:.5px;text-decoration:none;transition:border-color .2s,color .2s}
+.back-btn:hover{border-color:var(--faint);color:var(--ink-text)}
+
+/* ═══ MAIN ═══ */
+.main{flex:1;padding:calc(var(--hh) + 48px) 28px 64px;max-width:760px;width:100%;margin:0 auto}
+.head-block{margin-bottom:30px}
+.head-block .tag{color:var(--blue-br);display:block;margin-bottom:12px}
+.head-block h1{font-family:'Space Grotesk';font-size:clamp(26px,4vw,38px);font-weight:700;
+  letter-spacing:-1px;line-height:1.12;margin-bottom:12px;color:var(--ink-text)}
+.head-block p{color:var(--mut);font-size:15px;line-height:1.7;max-width:560px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:34px 34px 30px;position:relative;transition:background .35s,border-color .35s}
+.card::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);border-radius:var(--r-lg) 0 0 var(--r-lg)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{margin-bottom:16px}
+.form-group.full{grid-column:1 / -1}
+.form-group label{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--blue-br);margin-bottom:7px;opacity:.85}
+.form-group label .req{color:var(--orange-soft)}
+.form-input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r);
+  background:var(--card-2);color:var(--ink-text);font-size:14px;font-family:inherit;outline:none;
+  transition:border-color .2s,box-shadow .2s,background .35s}
+.form-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.14)}
+.form-input::placeholder{color:var(--mut);opacity:.55}
+select.form-input{cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239aa6bb' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+textarea.form-input{min-height:104px;resize:vertical;font-family:inherit}
+
+/* file drop */
+.file-drop{position:relative;border:1.5px dashed var(--line);border-radius:var(--r);
+  background:var(--card-2);padding:18px 16px;text-align:center;cursor:pointer;
+  transition:border-color .2s,background .2s}
+.file-drop:hover{border-color:var(--blue)}
+.file-drop input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.file-drop-ico{color:var(--blue-br);margin-bottom:6px}
+.file-drop-txt{font-size:13px;color:var(--mut)}
+.file-drop-txt b{color:var(--ink-text);font-weight:600}
+.file-hint{font-size:11px;color:var(--faint);margin-top:5px;font-family:'IBM Plex Mono'}
+.file-list{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.file-item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mut);
+  background:var(--card-2);border:1px solid var(--line);border-radius:var(--r);padding:7px 10px}
+.file-item span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.file-item button{background:none;border:none;color:var(--faint);cursor:pointer;font-size:16px;line-height:1;padding:0 2px}
+.file-item button:hover{color:var(--orange)}
+
+.consent{display:flex;align-items:flex-start;gap:10px;margin:6px 0 20px;font-size:12.5px;color:var(--mut);line-height:1.5}
+.consent input{margin-top:2px;width:16px;height:16px;accent-color:var(--blue);flex-shrink:0;cursor:pointer}
+.consent a{color:var(--blue-br)}
+
+.form-submit{width:100%;padding:15px;background:var(--orange);color:#fff;font-family:'Space Grotesk',sans-serif;
+  font-size:15px;font-weight:700;letter-spacing:-.2px;border:none;border-radius:var(--r);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  transition:background .2s,box-shadow .2s,transform .15s;box-shadow:0 4px 18px rgba(241,90,34,.32)}
+.form-submit:hover{background:#d8481a;box-shadow:0 6px 24px rgba(241,90,34,.42);transform:translateY(-1px)}
+.form-submit:active{transform:translateY(0) scale(.99)}
+.form-submit:disabled{opacity:.65;cursor:not-allowed;transform:none;box-shadow:none}
+
+.form-note{text-align:center;font-size:12px;color:var(--faint);margin-top:14px;font-family:'IBM Plex Mono'}
+
+/* status */
+.status{display:none;margin-top:18px;padding:14px 16px;border-radius:var(--r);font-size:13.5px;line-height:1.5}
+.status.show{display:block}
+.status.ok{background:rgba(54,201,142,.12);border:1px solid rgba(54,201,142,.35);color:#2fae7a}
+.status.err{background:rgba(241,90,34,.1);border:1px solid rgba(241,90,34,.35);color:var(--orange-soft)}
+
+/* success screen */
+.done{display:none;text-align:center;padding:50px 20px}
+.done.show{display:block}
+.done-ico{width:72px;height:72px;border-radius:50%;background:rgba(54,201,142,.14);border:1px solid rgba(54,201,142,.4);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 22px;color:var(--ok)}
+.done h2{font-family:'Space Grotesk';font-size:26px;font-weight:700;letter-spacing:-.5px;margin-bottom:10px}
+.done p{color:var(--mut);max-width:420px;margin:0 auto 26px}
+
+/* ═══ FOOTER ═══ */
+.ftr{background:var(--paper);border-top:1px solid var(--line);padding:44px 28px 24px;transition:background .35s,border-color .35s}
+.ftr-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:32px}
+.ftr-brand .brand{display:flex;align-items:center;gap:8px}
+.ftr-brand p{color:var(--faint);font-size:13px;line-height:1.75;margin-top:12px;max-width:270px;transition:color .35s}
+.ftr h4{font-family:'IBM Plex Mono';font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-text);margin-bottom:14px;transition:color .35s}
+.ftr ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ftr a{text-decoration:none;color:var(--mut);font-size:13.5px;font-weight:500;transition:color .2s}
+.ftr a:hover{color:var(--blue)}
+.ftr li:not(:has(a)){color:var(--faint);font-size:13.5px;font-family:'IBM Plex Mono';transition:color .35s}
+.ftr-bot{max-width:var(--max);margin:0 auto;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:border-color .35s}
+.ftr-copy{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:var(--faint);transition:color .35s}
+.ftr-std{display:flex;gap:6px}
+.ftr-std span{font-family:'IBM Plex Mono';font-size:10px;font-weight:500;color:var(--faint);padding:3px 8px;border:1px solid var(--line);border-radius:var(--r);transition:border-color .35s,color .35s}
+
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:2px}
+
+@media(max-width:680px){
+  .grid2{grid-template-columns:1fr}
+  .card{padding:26px 20px 24px}
+  .main{padding:calc(var(--hh) + 32px) 16px 48px}
+  .ftr-in{grid-template-columns:1fr 1fr}
+  .ftr-bot{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){.ftr-in{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="hdr">
+  <div class="hdr-in">
+    <a href="index.html" class="brand-link" aria-label="На головну">
+      <svg height="40" viewBox="140 260 640 215" xmlns="http://www.w3.org/2000/svg">
+        <path style="fill:var(--ink-text);stroke:none" d="m 234.10188,337.50291 0.72477,-26.57503 h 52.66688 c 0,0 40.10414,8.45569 41.3121,50.00938 1.20795,41.55368 -29.71572,53.63324 -29.71572,53.63324 l -14.74208,3.45241 -36.81403,36.81404 47.06388,-0.42708 c 0,0 73.37182,-16.05809 73.37182,-89.51533 0,-73.45723 -66.11151,-91.56529 -91.5653,-91.56529 -25.45379,0 -78.75299,0 -78.75299,0 v 96.00689 z"/>
+        <path style="fill:#297fff;stroke:none" d="m 197.38001,414.08732 0.24159,41.43289 83.71136,-77.30918 -43.12403,-0.60398 z"/>
+        <text style="font-size:233.333px;font-family:Impact,'Arial Narrow',sans-serif;font-stretch:condensed;fill:var(--ink-text);stroke:none" x="375.41321" y="456.60797">IEX</text>
+      </svg>
+    </a>
+    <div class="hdr-r">
+      <button class="theme-btn" id="themeBtn" aria-label="Перемкнути тему">
+        <span class="ttrack"><span class="tknob"></span></span>
+        <span id="themeLbl">DARK</span>
+      </button>
+      <a href="index.html" class="back-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        На головну
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ MAIN ═══ -->
+<main class="main">
+  <div class="head-block">
+    <span class="tag">Онлайн-заявка</span>
+    <h1>Заявка на сертифікацію / перевірку</h1>
+    <p>Заповніть форму — і ми зв'яжемося з вами протягом робочого дня, щоб уточнити деталі та розрахувати вартість. Поля, позначені <span style="color:var(--orange-soft)">*</span>, обов'язкові.</p>
+  </div>
+
+  <div class="card">
+    <form id="appForm" onsubmit="return false" novalidate>
+      <div class="grid2">
+        <div class="form-group full">
+          <label for="service">Тип послуги <span class="req">*</span></label>
+          <select id="service" name="service" required class="form-input">
+            <option value="" disabled selected>Оберіть послугу…</option>
+            <option>Сертифікація аерозолів</option>
+            <option>Сертифікація балонів</option>
+            <option>Перевірка цистерн</option>
+            <option>Технічне діагностування</option>
+            <option>Лабораторні випробування</option>
+            <option>Інше / консультація</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label for="client">Найменування підприємства / ПІБ <span class="req">*</span></label>
+          <input type="text" id="client" name="client" required class="form-input" placeholder="ТОВ «...» або ФОП Прізвище І.Б." autocomplete="organization">
+        </div>
+
+        <div class="form-group">
+          <label for="edrpou">Код ЄДРПОУ / ІПН</label>
+          <input type="text" id="edrpou" name="edrpou" class="form-input" placeholder="12345678">
+        </div>
+        <div class="form-group">
+          <label for="director">Керівник (посада, ПІБ)</label>
+          <input type="text" id="director" name="director" class="form-input" placeholder="Директор, Прізвище І.Б.">
+        </div>
+
+        <div class="form-group full">
+          <label for="address">Адреса (юридична / фактична)</label>
+          <input type="text" id="address" name="address" class="form-input" placeholder="Індекс, місто, вулиця, буд.">
+        </div>
+
+        <div class="form-group">
+          <label for="contact">Контактна особа <span class="req">*</span></label>
+          <input type="text" id="contact" name="contact" required class="form-input" placeholder="Прізвище І.Б." autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="phone">Телефон <span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" required class="form-input" placeholder="+380…" autocomplete="tel">
+        </div>
+        <div class="form-group full">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" autocomplete="email">
+        </div>
+
+        <div class="form-group full">
+          <label for="product">Об'єкт / продукція (тип, модель, к-сть, опис)</label>
+          <textarea id="product" name="product" class="form-input" placeholder="Найменування продукції, тип, модель, серійний номер, кількість, бажані терміни…"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="manufacturer">Виробник</label>
+          <input type="text" id="manufacturer" name="manufacturer" class="form-input" placeholder="Найменування виробника">
+        </div>
+        <div class="form-group">
+          <label for="manuf_address">Адреса виробника</label>
+          <input type="text" id="manuf_address" name="manuf_address" class="form-input" placeholder="Країна, місто, вулиця">
+        </div>
+
+        <div class="form-group full">
+          <label>Прикріплення файлів</label>
+          <div class="file-drop" id="fileDrop">
+            <div class="file-drop-ico">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <div class="file-drop-txt"><b>Натисніть, щоб обрати</b> або перетягніть файли сюди</div>
+            <div class="file-hint">паспорт обладнання, фото, ТЗ · до 10 МБ кожен</div>
+            <input type="file" id="files" name="files" multiple>
+          </div>
+          <div class="file-list" id="fileList"></div>
+        </div>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" id="consent" required>
+        <span>Я погоджуюся на обробку персональних даних відповідно до <a href="index.html">політики конфіденційності</a>.</span>
+      </label>
+
+      <button type="submit" class="form-submit" id="submitBtn">
+        Надіслати заявку
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <p class="form-note">Заявка надсилається напряму до органу нагляду · відповідь протягом робочого дня</p>
+
+      <div class="status" id="status"></div>
+    </form>
+
+    <div class="done" id="done">
+      <div class="done-ico">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h2>Заявку надіслано!</h2>
+      <p>Дякуємо. Ми отримали вашу заявку та зв'яжемося з вами найближчим часом для уточнення деталей.</p>
+      <a href="index.html" class="back-btn" style="display:inline-flex">На головну</a>
+    </div>
+  </div>
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-brand">
+      <div class="brand" style="display:flex;align-items:center;gap:8px">
+        <a href="http://www.tuev-dieks.com/" target="_blank" rel="noopener" style="display:block">
+          <img src="логотип отн.png" alt="ОТН DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
+        </a>
+        <a href="https://diex.org.ua/" target="_blank" rel="noopener" style="display:block">
+          <img src="logo TC DIEX.jpg" alt="TC DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
+        </a>
+      </div>
+      <p>Акредитований орган технічного нагляду та сертифікації промислового обладнання.</p>
+    </div>
+    <div>
+      <h4>Послуги</h4>
+      <ul>
+        <li><a href="aerosols.html">Сертифікація аерозолів</a></li>
+        <li><a href="balloon.html">Сертифікація балонів</a></li>
+        <li><a href="tanks.html">Перевірка цистерн</a></li>
+        <li><a href="inspection.html">Тех. діагностування</a></li>
+        <li><a href="lab.html">Лабораторія</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакти</h4>
+      <ul>
+        <li>+38 067-561-76-79</li>
+        <li>gas@tuev-diex.com</li>
+        <li>Україна, м.Дніпро</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ftr-bot">
+    <span class="ftr-copy">© 2026 DIEX · Усі права захищені</span>
+    <div class="ftr-std"><span>ДСТУ</span><span>ADR</span><span>ТР 154</span></div>
+  </div>
+</footer>
+
+<script src="zayavka.js?v=20260625e" charset="utf-8"></script>
+</body>
+</html>

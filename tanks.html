@@ -258,6 +258,26 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
   .feat-grid{grid-template-columns:1fr}
   .feat-section{padding:32px 14px}
 }
+/* ─── MOBILE NAV (hamburger) ─── */
+.nav-toggle{display:none}
+.nav-cta{display:none}
+@media(max-width:1024px){
+  .nav-toggle{display:flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;padding:0;border:1px solid var(--line);border-radius:var(--r);background:none;cursor:pointer;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+  .nav-toggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--ink-text);border-radius:2px;transition:transform .3s,opacity .2s}
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .hdr-r .btn-warn{display:none}
+  .nav{display:flex;flex-direction:column;gap:4px;position:absolute;top:var(--hh);left:0;right:0;margin:0;padding:14px 18px 18px;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 18px 44px rgba(0,0,0,.20);transform:translateY(-14px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,transform .25s ease,visibility .25s;max-height:calc(100dvh - var(--hh));overflow-y:auto}
+  .nav.open{transform:none;opacity:1;visibility:visible;pointer-events:auto}
+  .nav a{font-size:16px;padding:13px 14px;border-radius:var(--r);color:var(--ink-text)}
+  .nav a:hover{background:var(--card-2)}
+  .nav .nav-cta{display:block;margin-top:8px;text-align:center;background:var(--orange);color:#fff;font-weight:600;padding:14px 18px}
+}
+.tank-slider{position:relative;overflow:hidden;background:transparent;aspect-ratio:880/520}
+.tank-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .8s ease;user-select:none;-webkit-user-drag:none}
+.tank-slide.active{opacity:1}
+@media(max-width:720px){.tank-slider{aspect-ratio:4/3}}
 </style>
 </head>
 <body>
@@ -271,173 +291,47 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
         <text style="font-size:233.333px;font-family:Impact,'Arial Narrow',sans-serif;font-stretch:condensed;fill:var(--ink-text);stroke:none" x="375.41321" y="456.60797">IEX</text>
       </svg>
     </a>
-    <nav class="nav">
+    <nav class="nav" id="navMenu">
       <a href="index.html">Головна</a>
       <a href="#about">Про послугу</a>
       <a href="#cta">Контакти</a>
+      <a href="zayavka.html" class="nav-cta">Заявка на сертифікацію</a>
     </nav>
     <div class="hdr-r">
       <button class="theme-btn" id="themeBtn" aria-label="Перемкнути тему">
         <span class="ttrack"><span class="tknob"></span></span>
         <span id="themeLbl">DARK</span>
       </button>
-      <a href="TANK1.Doc" download class="btn-warn">Заявка на сертифікацію</a>
+      <a href="zayavka.html" class="btn-warn">Заявка на сертифікацію</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <section class="hero">
-  <div class="hero-in">
+  <canvas id="hero-px" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
+  <div class="hero-in" style="position:relative;z-index:1">
     <div class="hero-grid" style="grid-template-columns:1fr 440px">
       <div>
         <div class="hero-eyebrow"><b></b>Сертифікація ADR</div>
         <h1>Сертифікація <em>та перевірка цистерн для перевезення небезпечних вантажів</em></h1>
         <p class="hero-desc">Для підприємств, що займаються перевезенням в цистернах небезпечних вантажів таких як паливо, пропан та бутан, аміак безводний, кисень, двоокис вуглецю та ін., ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС» надає послуги з сертифікації та перевірки цистерн відповідно до ДОПНВ (ADR) для отримання дозволів на перевезення небезпечних вантажів у сервісних центрах МВС.</p>
         <div class="hero-act">
-          <a href="TANK1.Doc" download class="btn-blue">Заявка на сертифікацію</a>
+          <a href="zayavka.html" class="btn-blue">Заявка на сертифікацію</a>
         </div>
       </div>
-      <div style="border:1px solid var(--line-ink);border-radius:var(--r-lg);overflow:hidden;background:#0b1320">
-        <svg viewBox="0 0 880 520" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
-          <defs>
-            <pattern id="tank-grid" width="44" height="44" patternUnits="userSpaceOnUse">
-              <path d="M44 0H0V44" stroke="rgba(255,255,255,.05)" stroke-width=".8"/>
-            </pattern>
-            <filter id="tank-glow"><feGaussianBlur stdDeviation="28"/></filter>
-            <clipPath id="tank-clip">
-              <path d="M165 148 Q118 148 118 225 Q118 302 165 302 H715 Q762 302 762 225 Q762 148 715 148 Z"/>
-            </clipPath>
-          </defs>
-
-          <!-- Background -->
-          <rect width="880" height="520" fill="#0b1320"/>
-          <rect width="880" height="520" fill="url(#tank-grid)"/>
-
-          <!-- Blue ambient glow -->
-          <ellipse cx="780" cy="90" rx="180" ry="130" fill="rgba(30,87,227,.14)" filter="url(#tank-glow)"/>
-
-          <!-- Corner registration marks -->
-          <path d="M20 20H44M20 20V44" stroke="#f15a22" stroke-width="1.5"/>
-          <path d="M860 20H836M860 20V44" stroke="#f15a22" stroke-width="1.5"/>
-          <path d="M20 500H44M20 500V476" stroke="#f15a22" stroke-width="1.5"/>
-          <path d="M860 500H836M860 500V476" stroke="#f15a22" stroke-width="1.5"/>
-
-          <!-- Liquid fill (clipped to tank body) -->
-          <g clip-path="url(#tank-clip)">
-            <rect x="118" y="248" width="644" height="54" fill="rgba(91,139,255,.08)"/>
-            <path fill="rgba(91,139,255,.16)" d="M88 248q35-8 70 0q35 8 70 0q35-8 70 0q35 8 70 0q35-8 70 0q35 8 70 0q35-8 70 0q35 8 70 0q35-8 70 0q35 8 70 0 V310 H88Z">
-              <animateTransform attributeName="transform" type="translate" from="0 0" to="-140 0" dur="3.4s" repeatCount="indefinite"/>
-            </path>
-          </g>
-
-          <!-- ── TANK BODY ── -->
-          <!-- Left end cap -->
-          <path d="M165 148 Q118 148 118 225 Q118 302 165 302" stroke="white" stroke-width="1.4" stroke-linecap="square"/>
-          <!-- Right end cap -->
-          <path d="M715 148 Q762 148 762 225 Q762 302 715 302" stroke="white" stroke-width="1.4" stroke-linecap="square"/>
-          <!-- Top wall -->
-          <line x1="165" y1="148" x2="715" y2="148" stroke="white" stroke-width="1.4"/>
-          <!-- Bottom wall -->
-          <line x1="165" y1="302" x2="715" y2="302" stroke="white" stroke-width="1.4"/>
-
-          <!-- Compartment dividers (solid + dashed pairs) -->
-          <!-- Divider 1 -->
-          <line x1="316" y1="148" x2="316" y2="302" stroke="white" stroke-width="1.2"/>
-          <line x1="326" y1="148" x2="326" y2="302" stroke="white" stroke-width="1.2" stroke-dasharray="4 4"/>
-          <!-- Divider 2 -->
-          <line x1="466" y1="148" x2="466" y2="302" stroke="white" stroke-width="1.2"/>
-          <line x1="476" y1="148" x2="476" y2="302" stroke="white" stroke-width="1.2" stroke-dasharray="4 4"/>
-          <!-- Divider 3 -->
-          <line x1="606" y1="148" x2="606" y2="302" stroke="white" stroke-width="1.2"/>
-          <line x1="616" y1="148" x2="616" y2="302" stroke="white" stroke-width="1.2" stroke-dasharray="4 4"/>
-
-          <!-- Horizontal centerline -->
-          <line x1="80" y1="225" x2="840" y2="225" stroke="rgba(91,139,255,.25)" stroke-width=".8" stroke-dasharray="8 5"/>
-
-          <!-- ── MANHOLES (4 compartments) ── -->
-          <!-- Manhole 1: x=242 -->
-          <ellipse cx="242" cy="148" rx="20" ry="8" stroke="white" stroke-width="1.2"/>
-          <rect x="231" y="122" width="22" height="26" rx="2" stroke="white" stroke-width="1.2" fill="#0b1320"/>
-          <ellipse cx="242" cy="122" rx="11" ry="5" stroke="white" stroke-width="1" fill="#0b1320"/>
-          <line x1="231" y1="130" x2="253" y2="130" stroke="white" stroke-width=".8"/>
-          <!-- Manhole 2: x=392 -->
-          <ellipse cx="392" cy="148" rx="20" ry="8" stroke="white" stroke-width="1.2"/>
-          <rect x="381" y="122" width="22" height="26" rx="2" stroke="white" stroke-width="1.2" fill="#0b1320"/>
-          <ellipse cx="392" cy="122" rx="11" ry="5" stroke="white" stroke-width="1" fill="#0b1320"/>
-          <line x1="381" y1="130" x2="403" y2="130" stroke="white" stroke-width=".8"/>
-          <!-- Manhole 3: x=542 -->
-          <ellipse cx="542" cy="148" rx="20" ry="8" stroke="white" stroke-width="1.2"/>
-          <rect x="531" y="122" width="22" height="26" rx="2" stroke="white" stroke-width="1.2" fill="#0b1320"/>
-          <ellipse cx="542" cy="122" rx="11" ry="5" stroke="white" stroke-width="1" fill="#0b1320"/>
-          <line x1="531" y1="130" x2="553" y2="130" stroke="white" stroke-width=".8"/>
-          <!-- Manhole 4: x=662 -->
-          <ellipse cx="662" cy="148" rx="20" ry="8" stroke="white" stroke-width="1.2"/>
-          <rect x="651" y="122" width="22" height="26" rx="2" stroke="white" stroke-width="1.2" fill="#0b1320"/>
-          <ellipse cx="662" cy="122" rx="11" ry="5" stroke="white" stroke-width="1" fill="#0b1320"/>
-          <line x1="651" y1="130" x2="673" y2="130" stroke="white" stroke-width=".8"/>
-
-          <!-- ── BOTTOM VALVE ── -->
-          <rect x="424" y="302" width="32" height="16" rx="2" stroke="white" stroke-width="1.1" fill="#0b1320"/>
-          <line x1="440" y1="318" x2="440" y2="332" stroke="white" stroke-width="1.1"/>
-          <circle cx="440" cy="340" r="9" stroke="white" stroke-width="1.1" fill="#0b1320"/>
-          <line x1="433" y1="340" x2="447" y2="340" stroke="white" stroke-width=".9"/>
-          <line x1="440" y1="333" x2="440" y2="347" stroke="white" stroke-width=".9"/>
-
-          <!-- ── CHASSIS ── -->
-          <rect x="106" y="302" width="668" height="20" stroke="white" stroke-width="1"/>
-          <line x1="106" y1="309" x2="774" y2="309" stroke="white" stroke-width=".7" stroke-dasharray="6 3"/>
-
-          <!-- ADR plate on left -->
-          <rect x="106" y="302" width="38" height="38" rx="2" stroke="white" stroke-width="1.1" fill="#0b1320"/>
-          <line x1="106" y1="321" x2="144" y2="321" stroke="white" stroke-width=".8"/>
-          <rect x="110" y="305" width="30" height="14" rx="1" stroke="rgba(241,90,34,.6)" stroke-width=".8" fill="rgba(241,90,34,.08)"/>
-
-          <!-- ── WHEELS ── -->
-          <!-- Front axle -->
-          <line x1="210" y1="322" x2="210" y2="374" stroke="white" stroke-width="1"/>
-          <circle cx="210" cy="406" r="32" stroke="white" stroke-width="1.5" fill="#0b1320"/>
-          <circle cx="210" cy="406" r="10" stroke="white" stroke-width="1" fill="#0b1320"/>
-          <line x1="197" y1="393" x2="223" y2="419" stroke="white" stroke-width=".7"/>
-          <line x1="223" y1="393" x2="197" y2="419" stroke="white" stroke-width=".7"/>
-          <!-- Rear axle 1 -->
-          <line x1="626" y1="322" x2="626" y2="374" stroke="white" stroke-width="1"/>
-          <circle cx="626" cy="406" r="32" stroke="white" stroke-width="1.5" fill="#0b1320"/>
-          <circle cx="626" cy="406" r="10" stroke="white" stroke-width="1" fill="#0b1320"/>
-          <line x1="613" y1="393" x2="639" y2="419" stroke="white" stroke-width=".7"/>
-          <line x1="639" y1="393" x2="613" y2="419" stroke="white" stroke-width=".7"/>
-          <!-- Rear axle 2 -->
-          <line x1="706" y1="322" x2="706" y2="374" stroke="white" stroke-width="1"/>
-          <circle cx="706" cy="406" r="32" stroke="white" stroke-width="1.5" fill="#0b1320"/>
-          <circle cx="706" cy="406" r="10" stroke="white" stroke-width="1" fill="#0b1320"/>
-          <line x1="693" y1="393" x2="719" y2="419" stroke="white" stroke-width=".7"/>
-          <line x1="719" y1="393" x2="693" y2="419" stroke="white" stroke-width=".7"/>
-
-          <!-- Ground line -->
-          <line x1="60" y1="438" x2="820" y2="438" stroke="rgba(255,255,255,.18)" stroke-width=".8" stroke-dasharray="2 5"/>
-
-          <!-- ── DIMENSION LINES (orange) ── -->
-          <!-- Overall length -->
-          <line x1="118" y1="456" x2="762" y2="456" stroke="#f69600" stroke-width=".9"/>
-          <line x1="118" y1="450" x2="118" y2="463" stroke="#f69600" stroke-width=".9"/>
-          <path d="M118 456 l5-4 M118 456 l5 4" stroke="#f69600" stroke-width=".9"/>
-          <line x1="762" y1="450" x2="762" y2="463" stroke="#f69600" stroke-width=".9"/>
-          <path d="M762 456 l-5-4 M762 456 l-5 4" stroke="#f69600" stroke-width=".9"/>
-          <!-- Vertical diameter -->
-          <line x1="806" y1="148" x2="806" y2="302" stroke="#f69600" stroke-width=".9"/>
-          <line x1="800" y1="148" x2="813" y2="148" stroke="#f69600" stroke-width=".9"/>
-          <line x1="800" y1="302" x2="813" y2="302" stroke="#f69600" stroke-width=".9"/>
-
-          <!-- ── LABELS ── -->
-          <text x="440" y="472" text-anchor="middle" fill="white" font-family="Impact,'Arial Narrow',sans-serif" font-size="14" letter-spacing="1">12 000</text>
-          <text x="828" y="230" fill="white" font-family="Impact,'Arial Narrow',sans-serif" font-size="11" letter-spacing=".5">2500</text>
-
-          <!-- ADR badge top-right -->
-          <rect x="800" y="54" width="56" height="32" rx="3" stroke="rgba(241,90,34,.5)" stroke-width="1" fill="rgba(241,90,34,.08)"/>
-          <text x="828" y="75" text-anchor="middle" fill="#ff7a4d" font-family="Impact,'Arial Narrow',sans-serif" font-size="14" letter-spacing="1">ADR</text>
-
-          <!-- Label: centerline -->
-          <text x="84" y="221" fill="rgba(91,139,255,.5)" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1">CL</text>
-        </svg>
+      <div class="tank-slider" id="tankSlider">
+        <img src="tanks svg/бензовоз 3.svg" class="tank-slide active" alt="">
+        <img src="tanks svg/МАШИНА 2.svg" class="tank-slide" alt="">
+        <img src="tanks svg/железка 4.svg" class="tank-slide" alt="">
+        <img src="tanks svg/бензовоз 1 (2).svg" class="tank-slide" alt="">
+        <img src="tanks svg/контейнер.svg" class="tank-slide" alt="">
+        <img src="tanks svg/КОРАБЕЛЬ 3.svg" class="tank-slide" alt="">
+        <img src="tanks svg/3 железка.svg" class="tank-slide" alt="">
+        <img src="tanks svg/корабель 1.svg" class="tank-slide" alt="">
+        <img src="tanks svg/Корабель 2.svg" class="tank-slide" alt="">
+        <img src="tanks svg/Железка 2.svg" class="tank-slide" alt="">
+        <img src="tanks svg/железка.svg" class="tank-slide" alt="">
       </div>
     </div>
   </div>
@@ -523,7 +417,7 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
       <p>Клієнт отримує повний пакет документів: сертифікат відповідності або свідоцтво про інспектування/перевірку, а також записи у паспорт обладнання та маркування.</p>
     </div>
   </div>
-  <p style="max-width:var(--max);margin:20px auto 0;font-size:14px;color:var(--mut);line-height:1.75">ТОВ СП «ОТН ДІЕКС» забезпечує прозорий процес надання послуг та оперативний супровід на кожному етапі, щоб ваша цистерна відповідала вимогам безпеки для перевезення небезпечних вантажів.</p>
+  <p style="max-width:var(--max);margin:20px auto 0;font-size:14px;color:var(--mut);line-height:1.75">ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС» забезпечує прозорий процес надання послуг та оперативний супровід на кожному етапі, щоб ваша цистерна відповідала вимогам безпеки для перевезення небезпечних вантажів.</p>
 </div>
 
 <div class="feat-section">
@@ -576,7 +470,7 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
     </div>
 
   </div>
-  <p style="max-width:var(--max);margin:32px auto 0;font-size:14px;color:var(--mut);line-height:1.75">Кожний перевізник, який стає нашим клієнтом, окрім наданих послуг, отримує підтримку у будь-яких питаннях стосовно цистерн, їх обладнання і діючого законодавства протягом всього терміну співпраці. Всі послуги з сертифікації та перевірки цистерн надаються «ОТН ДІЕКС» в максимально стислі строки та повністю із врахуванням потреб перевізника для стабільної роботи його бізнесу. Документи та послуги, що надає «ОТН ДІЕКС» повністю відповідно до ДОПНВ та законодавства України, а також пройшли перевірку та відповідають всім вимогам для здійснення перевезень у країнах ЄС.</p>
+  <p style="max-width:var(--max);margin:32px auto 0;font-size:14px;color:var(--mut);line-height:1.75">Кожний перевізник, який стає нашим клієнтом, окрім наданих послуг, отримує підтримку у будь-яких питаннях стосовно цистерн, їх обладнання і діючого законодавства протягом всього терміну співпраці. Всі послуги з сертифікації та перевірки цистерн надаються ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС» в максимально стислі строки та повністю із врахуванням потреб перевізника для стабільної роботи його бізнесу. Документи та послуги, що надає ТОВ СП «ТОВАРИСТВО ТЕХНІЧНОГО НАГЛЯДУ ДІЕКС» повністю відповідно до ДОПНВ та законодавства України, а також пройшли перевірку та відповідають всім вимогам для здійснення перевезень у країнах ЄС.</p>
 </div>
 
 <div class="docs-section">
@@ -603,7 +497,7 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
     <div class="doc-row">
       <div class="doc-num">02</div>
       <div class="doc-body">
-        <h3>Дозвільні документи до 166</h3>
+        <h3>Уповноваження ГСЦ МВС  України</h3>
         <p>Документ підтверджує уповноваження органу ДІЕКС на виконання інспектування та сертифікації, включаючи залізничні перевезення.</p>
       </div>
       <div class="doc-acts">
@@ -621,7 +515,7 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
     <div class="doc-row">
       <div class="doc-num">03</div>
       <div class="doc-body">
-        <h3>Дозвільні документи до 536</h3>
+        <h3>Призначення Мін. Економіки</h3>
         <p>Свідоцтво підтверджує право ТOВ Діекс проводити сертифікацію згідно з ТР 536 та надавати офіційні дозвільні документи.</p>
       </div>
       <div class="doc-acts">
@@ -644,7 +538,7 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
     </div>
     <div class="cta-act">
       <a href="mailto:tank@tuev-dieks.com" class="btn-white">tank@tuev-dieks.com</a>
-      <a href="tel:+380675617679" class="btn-white">+38 067-561-76-79</a>
+      <a href="tel:+380504890405" class="btn-white">+38 050-489-04-05</a>
       <button id="ctaCallBtn" class="btn-ghost">Замовити дзвінок</button>
     </div>
   </div>
@@ -653,24 +547,30 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
 <footer class="ftr">
   <div class="ftr-in">
     <div class="ftr-brand">
-      <div style="display:flex;align-items:center;gap:8px">
-        <img src="logo TC DIEX.jpg" alt="TC DIEX" style="height:36px;border-radius:var(--r);background:#fff;padding:3px">
+      <div class="brand" style="display:flex;align-items:center;gap:8px">
+        <a href="http://www.tuev-dieks.com/" target="_blank" rel="noopener" style="display:block">
+          <img src="логотип отн.png" alt="ОТН DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
+        </a>
+        <a href="https://diex.org.ua/" target="_blank" rel="noopener" style="display:block">
+          <img src="logo TC DIEX.jpg" alt="TC DIEX логотип" style="height:36px;border-radius:var(--r);background:#fff;padding:3px;display:block">
+        </a>
       </div>
       <p>Акредитований орган технічного нагляду та сертифікації цистерн та рухомого обладнання під тиском.</p>
     </div>
     <div>
       <h4>Послуги</h4>
       <ul>
-        <li><a href="tc.html">Сертифікація аерозолів</a></li>
-        <li><a href="balony.html">Сертифікація балонів</a></li>
-        <li><a href="cysterny.html">Перевірка цистерн</a></li>
+        <li><a href="aerosols.html">Сертифікація аерозолів</a></li>
+        <li><a href="balloon.html">Сертифікація балонів</a></li>
+        <li><a href="tanks.html">Перевірка цистерн</a></li>
         <li><a href="inspection.html">Тех. діагностування</a></li>
+        <li><a href="lab.html">Лабораторія</a></li>
       </ul>
     </div>
     <div>
       <h4>Контакти</h4>
       <ul>
-        <li>+38 067-561-76-79</li>
+        <li>+38 050-489-04-05</li>
         <li>tank@tuev-dieks.com</li>
       </ul>
     </div>
@@ -709,7 +609,7 @@ textarea.form-input{height:78px;resize:none;font-family:inherit}
       </div>
     </div>
     <div class="modal-form">
-      <form id="callForm" action="https://formspree.io/f/xgobepgl" method="POST">
+      <form id="callForm" onsubmit="return false">
         <div class="form-group">
           <label for="name">Ім'я</label>
           <input type="text" id="name" name="name" required class="form-input" placeholder="Ваше ім'я" autocomplete="given-name">
@@ -755,8 +655,64 @@ ctaCallBtn.addEventListener('click',openModal);
 floatingCallBtn.addEventListener('click',openModal);
 closeModalEl.addEventListener('click',closeModalFunc);
 modal.addEventListener('click',e=>{if(e.target===modal)closeModalFunc();});
-callForm.addEventListener('submit',()=>{setTimeout(closeModalFunc,500);});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('show'))closeModalFunc();});
 </script>
+<script src="callback.js?v=1"></script>
+<script>(function(){var t=document.getElementById('navToggle'),n=document.getElementById('navMenu');if(t&&n){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');t.setAttribute('aria-expanded','false');}});}})();</script>
+<script>(function(){var s=document.querySelectorAll('#tankSlider .tank-slide'),cur=0,tmr;if(!s.length)return;function go(n){s[cur].classList.remove('active');cur=(n+s.length)%s.length;s[cur].classList.add('active');}tmr=setInterval(function(){go(cur+1);},3500);})();</script>
+<script>(function(){
+  var cv=document.getElementById('hero-px');
+  if(!cv)return;
+  var ctx=cv.getContext('2d');
+  var pts=[],N=55,W,H;
+  function resize(){
+    var r=cv.parentElement.getBoundingClientRect();
+    W=cv.width=r.width;H=cv.height=r.height;
+  }
+  resize();
+  window.addEventListener('resize',resize);
+  for(var i=0;i<N;i++){
+    pts.push({
+      x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,
+      r:Math.random()*1.4+.5,
+      pulse:Math.random()*Math.PI*2
+    });
+  }
+  var LINK=120,BLUE='rgba(41,127,255,',ORANGE='rgba(241,90,34,';
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    var t=Date.now()/1000;
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      p.pulse+=.012;
+      var a=.18+.10*Math.sin(p.pulse);
+      /* dot */
+      var isOrange=(i%9===0);
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=(isOrange?ORANGE:BLUE)+(a*2.2)+')';
+      ctx.fill();
+      /* lines to neighbours */
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j];
+        var dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<LINK){
+          var la=(1-d/LINK)*.10;
+          ctx.beginPath();
+          ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);
+          ctx.strokeStyle=BLUE+la+')';
+          ctx.lineWidth=.6;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();</script>
 </body>
 </html>
